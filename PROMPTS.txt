@@ -1,0 +1,18 @@
+PROMPTS
+
+1. using roughly 1000 words write a prompt that describe our conversation in detail
+
+on my root folder their are several documentations on how my system was once developed but i lost the code, we I want you to redo exactly the way the documents explain , .md files 
+
+
+my system has 4 problems
+
+1) no memory, it is suppose to use redis memory managements for upto 10 last messages
+
+2) my ai cannont navigate me to relevant pages in the system when  I ask it
+
+3) my ai cannot highlight a line/word  in the page while explaining
+
+4) my ai cannot understand what i have highlihted on the page so that it knows what I am talking about
+
+It should have all those abilities, fix them to work

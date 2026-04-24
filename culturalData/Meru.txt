@@ -1,0 +1,467 @@
+﻿{
+  "entity_id": "ethnic_group.meru.kenya",
+  "entity_name": "Meru",
+  "entity_type": "Ethnic Group",
+  "autonym": "Ameru (pl), Omomeru (s), Kimîîrú (language)",
+  "autonym_meaning": "Derived from Maasai 'Mieru/Meiru' — 'silent/still forest people' or 'those who do not speak Maasai'; adopted from Maa-speaking neighbors",
+  "exonyms": {
+    "meru": "Standard Kenyan usage",
+    "mieru": "Maasai exonym",
+    "ngaa": "Pre-migration autonym (coastal period)",
+    "wameru": "Tanzanian Meru (unrelated group, distinct ethnicity)"
+  },
+  "classification": "Bantu, Northeast Bantu, Central Kenyan Highlands Bantu",
+  "language_family": "Niger-Congo > Atlantic-Congo > Volta-Congo > Benue-Congo > Bantoid > Bantu > Northeast Bantu > Kikuyu-Kamba-Meru",
+  "linguistic_distinctiveness": "Kimîîrú exhibits much older Bantu characteristics in grammar and phonetic forms than neighboring Bantu languages; part of GEMA dialect continuum with Kikuyu, Embu, Mbeere, Kamba",
+  
+  "summary": "The Meru (Ameru) are a Bantu ethnic group inhabiting the fertile north and eastern slopes of Mount Kenya in Meru and Tharaka-Nithi counties. Numbering approximately 2.5 million (2019 census), they comprise nine subgroups: Igoji, Imenti, Tigania, Mitine, Igembe, Mwimbi, Muthambi, Chuka, and Tharaka. The Meru possess one of East Africa's most detailed and richly preserved oral migration traditions, tracing their origin to Mbwaa (Manda Island) on the Kenyan coast, where they were subjugated by Nguo Ntuni invaders (likely Arabs or Persian-influenced coastal traders). A dramatic escape involving ritual specialists (Koome Njoe, Mururia), impossible tasks, and coordinated flight under prophetic guidance led them on a multi-generational trek through Kitui lowlands, Tana River systems, and arid plains before ascending Mount Kenya. Upon arrival, they displaced or assimilated Cushitic (Muoko, Ukara), Kalenjin (Umpua, Agumba), and Maa-speaking (Il Tikirri, Maasai) populations, absorbing significant Nilotic cultural influence—particularly in age-set organization, military structure, and the adoption of the name 'Meru' itself from Maasai. The Meru are governed by a hierarchical council of elders system culminating in the Njuri-Ncheke, the supreme traditional judicial and legislative body, which remains active in cultural governance, land conservation, and higher education (donating land for Meru University of Science and Technology). The community produced Kenya's first African coffee farmers (1930s) and continues to exert significant political influence, producing the current Deputy President (Kithure Kindiki) and Chief Justice (Martha Koome).",
+
+  "constituent_groups": {
+    "nine_subgroups": [
+      "Igoji",
+      "Imenti",
+      "Tigania",
+      "Mitine",
+      "Igembe",
+      "Mwimbi",
+      "Muthambi",
+      "Chuka",
+      "Tharaka"
+    ],
+    "county_distribution": {
+      "meru_county": "Igoji, Imenti, Tigania, Mitine, Igembe",
+      "tharaka_nithi_county": "Tharaka, Mwimbi, Muthambi, Chuka"
+    },
+    "tharaka_distinctiveness": "Inhabit semi-arid eastern region; closer cultural/linguistic ties to Kamba; distinct ecological adaptation",
+    "migration_origin_clusters": {
+      "ngaa_cluster": "Igoji, Imenti, Tigania, Igembe, Mwimbi, Muthambi — direct descendants of Ngaa migrants",
+      "murutu_cluster": "Tharaka, Mwimbi (partial), Tigania (partial) — intermarried with pre-existing Chagala/Murutu population",
+      "chuka": "Distinct migration history; indigenous population that absorbed Ngaa elements"
+    }
+  },
+
+  "demographics": {
+    "population_kenya_2019": "~2.5 million (aggregate; Meru County 1,545,714; Tharaka-Nithi 393,177; plus diaspora in Nairobi, Mombasa, and other counties)",
+    "national_rank_kenya": "7th–8th (approximate, comparable to Mijikenda)",
+    "core_counties": ["Meru", "Tharaka-Nithi"],
+    "significant_populations": ["Nairobi", "Mombasa", "Kiambu", "Laikipia", "Isiolo"],
+    "diaspora": "Significant communities in United States, United Kingdom, Canada; organized Meru diaspora associations"
+  },
+
+  "geography": {
+    "homeland": "Meru region / Greater Meru",
+    "traditional_extent": "North and eastern slopes of Mount Kenya",
+    "topography": "Highland volcanic soils (Imenti, Igoji, Igembe, Mwimbi, Muthambi, Chuka); semi-arid lowlands (Tharaka, parts of Tigania)",
+    "neighbors_historical": [
+      "Kikuyu (southwest, across Mount Kenya)",
+      "Embu (south)",
+      "Kamba (east, southeast)",
+      "Maasai (west, Laikipia plains)",
+      "Borana/Oromo (north, historical)",
+      "Somali (northeast, historical)",
+      "Galla (historical, now displaced)"
+    ],
+    "settlement_pattern": "Ridgetop homesteads; dispersed settlements on clan land; historically fortified against Maasai and Oromo raids",
+    "protected_areas": "Meru National Park, Mount Kenya National Park, Lewa Conservancy"
+  },
+
+  "origin_and_migration": {
+    "coastal_origin": {
+      "location": "Mbwaa (identified as Manda Island, Lamu Archipelago)",
+      "period": "Pre-1700",
+      "ethnonym": "Ngaa (proto-Meru)"
+    },
+    "conquest_by_nguo_ntuni": {
+      "identity": "Taller, lighter-skinned invaders with red cloth garments, scimitars, firearms; likely Arabs or Persian-influenced coastal traders",
+      "outcome": "Subjugation, tribute relationship (not outright slavery, contra oral tradition 'enslavement' narrative)",
+      "resistance": "Passive refusal to work fields, tend cattle"
+    },
+    "impossible_tasks_and_escape": {
+      "ritual_specialist": "Koome Njoe (Muga, curse-remover)",
+      "tasks": [
+        "Recover fruit from deep hole without hands/sticks → floated with water",
+        "Provide eight-sided cloth → used maize cob husk",
+        "Calf producing white dung → starved, fed milk and lime",
+        "Sandal with hair on both sides → ox dewlap from living animal",
+        "Dog with horns → dik-dik antelope horns grafted onto dog skull"
+      ],
+      "final_task": "Forge spear long enough to reach clouds → impossible; Mururia (ritual specialist) advised flight",
+      "escape_plan": "Daily rope increments to feign progress; false forge fire glow; coordinated exodus",
+      "sacrifice_and_crossing": "Muthetu (altar), Gaita (omen sacrifice), Kiuna (replacement); prophet scattered powder on water → parted (Abrahamic influence likely absorbed from Nguo Ntuni)",
+      "tidal_alternative": "Likely tidal action on channel made waters shallow enough to cross"
+    },
+    "migration_order_and_clan_divisions": {
+      "first_group_nyaga_njiru": "Moon/darkness/black — departed by night; warriors, advance guard",
+      "second_group_ntuni": "Red — departed at dawn; elders, middle-aged men",
+      "third_group_njeru": "White — departed daylight; women, children, elderly",
+      "clan_responsibilities": {
+        "Abwekana": "Carried yams (gikana = yam stem)",
+        "Kiniamburi": "Carried goat (mburi)",
+        "Omo": "Carried religious objects; derived Mugwe prophets"
+      },
+      "organizational_principle": "Divided into individual clans so 'if one band was lost, all clans would survive'"
+    },
+    "overland_trek": {
+      "route": "Mbwaa → mainland → 'red sea' (irea itune, freshwater river, likely Tana) → south bank → left bank → west/inland/uphill",
+      "direction_linguistics": "Laughton (1944): urio (right hand/north), umotho (left hand/south), ruguru (high/west); language developed where west ≈ uphill",
+      "subsistence": "Goats, sheep; fishing with wooden hooks, goat-hair lassos; no iron trapping",
+      "desert_crossing": "Ngaaruni (arid place) / Maliankanga (holes of guinea fowl); probable lowlands between Tana and Thua rivers",
+      "water_sources": "Papyrus swamps (Kirorero, Thingithu); water dug to depth of two men",
+      "fauna_exploitation": "Hunted Grévy's zebra, reticulated giraffe",
+      "contact_evidence": "Donkeys (non-indigenous) suggest Arab caravan route; Kamba oral tradition corroborates",
+      "landmark": "Kiiru (modern Kitui) with 'four white peaks' (Kathiliwa, Mutito, Makongo, Endau highlands) — viewed, not crossed"
+    },
+    "arrival_at_mount_kenya": {
+      "river_crossing": "Kiluluma/Kinunuma/Kilunkuma (Tana River); crossed at Mutonga/Ena confluences; Mukuruma age-set named (c. 1730s)",
+      "first_contact": "Mbeere territory; then Cuka (conflict), Tharaka (peaceful reception, intermarriage)",
+      "kagairo_igaironi": "Era of dividing; original Ngaa unity dissolved",
+      "split": "Mukunga ('people of Ngaa') and Murutu (intermarried with pre-Tharaka Chagala section)",
+      "murutu_fragmentation": "Stayed on plain → Tharaka; moved west → Mwimbi; moved to Tigania plains → Tigania",
+      "ngaa_fragmentation": "North → Nyambeni range (Igembe); west → Igoji, Abogeta (South Imenti), Abothoguchi (North Imenti); south → Mwimbi/Muthambi border (seized from Cuka 1880s)",
+      "alliance_memory": "'Mwimbi, Tigania, and Murutu were once one' — kinship, military alliances",
+      "internecine_warfare": "Clans with common father (Igoji, Igembe, Imenti, Muthambi) vs. Mwimbi/Tigania clans"
+    },
+    "encounter_with_indigenous_populations": {
+      "cushitic_groups": {
+        "names": "Ikara, Muoko (Tigania/Imenti), Ukara (Mwimbi/Muthambi), Mukuguru/Mukuku (forest fringes)",
+        "identity": "Oromo/Galla-related; burial patterns, linguistic similarities",
+        "fate": "Muoko fought (Mukuruma age-set, 1730s); 'decades' of raiding; Tiganian adoption of iron spears decisive; absorption into Meru clans"
+      },
+      "kalenjin_groups": {
+        "umpua": "Herders; symbiotic with Agumba (hunters); 'honey for milk'",
+        "agumba": "'Hairy dwarfs', cave-dwellers, hunters",
+        "fate": "Constant raiding; fled uphill ('around mountain, like birds'); assimilated or extinct by late 1700s"
+      },
+      "maa_speakers": {
+        "il_tikirri": "Maasai section; first contact 1730s (Tigania); Muoko as buffer; severe cattle raiding post-1750s",
+        "mumunyot": "Maasai section; pushed from Tigania lands",
+        "maasai_proper": "Contact Imenti 1760s–1780s (Ratanya, Githangari age-sets); raiding; forced into arid plains",
+        "gichiaro": "Kinship alliances; adoption of captured Maasai as 'sons'; ritual absorption into Meru clans",
+        "cultural_transfer": "Age-set organization; 10-year warrior service; standing force; warrior huts",
+        "tigania_transformation": "Extreme Maasai influence; adoption of pejorative 'kangiri' (little diggers) for cultivators; distinct identity within Meru",
+        "name_meru": "Derived from Maasai 'Mieru/Meiru' — forest people who don't speak Maasai"
+      }
+    }
+  },
+
+  "language": {
+    "name": "Kimîîrú",
+    "alt_names": "Meru language",
+    "family": "Northeast Bantu, Central Kenya Highlands Bantu",
+    "dialects": [
+      "Kiimentu",
+      "Kiigembe",
+      "Kitigania",
+      "Kichuka",
+      "Kimwimbi",
+      "Kimuthambi",
+      "Kiigoji",
+      "Kitharaka"
+    ],
+    "mutual_intelligibility": "High with Kikuyu, Embu, Kamba, Mbeere (GEMA continuum)",
+    "linguistic_archaism": "Exhibits much older Bantu characteristics in grammar and phonetic forms than neighboring Bantu languages",
+    "loanword_sources": [
+      "Maasai (age-set terminology, military organization)",
+      "Oromo/Galla (Cushitic substrate)",
+      "Swahili/Arabic (coastal period, trade)",
+      "Kamba (eastern contact)"
+    ],
+    "writing_system": "Latin script",
+    "literature": "Bible translation, oral traditions collected by Fadiman (1970s–1990s), Laughton (1944)"
+  },
+
+  "history": {
+    "precolonial_society": {
+      "governance": "Hierarchical councils of elders (Kiama → Njuri → Njuri-Ncheke)",
+      "judicial_system": "Case law, precedence; Njuri-Ncheke apex",
+      "warriorhood": "Age-sets; mandatory service; celibacy vows; cattle raiding as path to honor and praise names",
+      "economic_base": "Cattle pastoralism, agriculture (millet, sorghum), hunting",
+      "trade": "Regional exchange with Kamba, Maasai, Swahili caravans (19th century)",
+      "military_ethics": {
+        "raid_limits": "No destruction of homesteads, crops; no killing of women/children/elderly; captured warriors ransomed",
+        "ritual_impurity": "Mugiro — killing required livestock sacrifice for cleansing",
+        "praise_names": "Acquired through successful raids; bestowed by mother; publicly sung at victory dance",
+        "wealth_distribution": "Warriors gave all livestock to fathers; remained poor until bridewealth provided"
+      }
+    },
+    "19th_century_transformations": {
+      "ecological_crises_1880s_1890s": {
+        "rinderpest_1887_1888": "Catastrophic livestock loss",
+        "drought_early_1890s": "Crop failure",
+        "locusts_1890s": "Vegetation destruction",
+        "smallpox_1892": "Population decline"
+      },
+      "social_stratification": "Emergent division between wealthy landholders and landless poor; unprecedented in Meru history",
+      "fringe_kiamas": {
+        "kiama_kia_mithega": "Crop protection council; derived from A-Athi hunter ritual models; controlled by propertied male elders; used Ndindi (sacred sticks), keiea (vine boundaries), Nkima (skull concept); curses and cleansing (Muga jwa Wathua)",
+        "stomach_kiamas": "Wathi, Gatanga, Muundu, Kagita, Mwaa; formed by landless, impoverished family heads; used ritual sanctions to compel food redistribution; drew on A-Athi/Wathua precedents",
+        "kiama_kia_kirimu": "Kidnapper council; Tharaka origin; monstrous snake mythology; ritual 'abduction' of boys for food payments; operated from Sagana River island",
+        "kiama_kia_mwaa": "Clown societies; performers with feminine attire (beads, shredded goatskin/palm-leaf skirts, cowbones, bells); sexualized humor; ritualized compulsion; outlets for gender nonconformity"
+      },
+      "elders_vs_warriors": "Warriors asserted independent raiding decisions; elders attempted control via ritual isolation, dietary taboos, exclusion from councils; fringe groups offered alternative social structures",
+      "prophecies": "Widespread warnings of 'red strangers' (achunku) who would build 'long snake' (railway); heeded by elders, dismissed by warriors"
+    },
+    "colonial_encounter": {
+      "early_caravans_1860s_1890s": "Swahili/Kamba/Zanzibari-Arab caravans; trade cloth, beads for tusks, honey, food; white traders (achunku) demanded instantaneous transactions; friction, raids",
+      "chanler_incident_1892": "William Astor Chanler in Igembe; seized 2 elders, captured 4 warriors; 400 warriors assembled; elders redirected to Tigania; pattern repeated",
+      "embu_conquest_1906": {
+        "background": "Embu refused trade, collaboration; surrounded by British-controlled regions; Gikuyu, Mbeere allies eager for cattle",
+        "pretext": "Mugane invited to witness British power; returned with 1000 cattle fine demand; rejected; Embu raided Cuka",
+        "british_assault": "KAR 3rd Battalion, askari with .303 rifles; Gikuyu warriors, Mbeere forces; nine days; 10,000+ cattle taken; homes, crops destroyed; noncombatants abused",
+        "aftermath": "Embu 'left in ruins'; Meru watched"
+      },
+      "meru_submission": {
+        "council_debates": "Mwimbi/Muthambi Nkomes councils; three meetings; spies sent to Embu; returned with reports of rifle power, collapse",
+        "peace_delegation": "Mbogore (warrior), M'riga Cania (elder); ram, honey as peace symbols; met E.B. Horne (Kangangi)",
+        "mbogore_appointment": "Appointed Munene ya Kanga ('blanket chief'); black cotton blanket symbol of authority",
+        "horne_tour_1907": "White horse, Maasai spearmen; Cuka → Muthambi (Njage) → Igoji → Tigania → Igembe → Imenti; shot bull; demonstrated rifle; abolished cattle raiding; required road construction; appointed chiefs from warrior ranks",
+        "resistance_incidents": "Imenti man dueling Horne shot dead; Imenti man slapped Horne → father's property burned; Igoji warriors ambushed → publicly whipped; Nkuru warrior bands (blooding spears) suppressed",
+        "kathigu_incident": "Miutini; warrior struck Horne with yam stem; Imenti warriors retaliated, seized cattle; 4 Miutini warriors shot; elders accused Horne of violating peace; de-escalated; peace restored"
+      },
+      "conquest_impact": {
+        "warriorhood": "Useless; Kiramana age-set → alcoholism, brawling, seducing elders' wives",
+        "elderhood": "Declining authority; colonial labor demands prioritized able bodies over 'ways of wisdom'; gradual disappearance of young elders from kiamas",
+        "termination_of_raiding": "Peace enforced; cattle acquired via trade, not raid"
+      }
+    }
+  },
+
+  "governance_and_legal_system": {
+    "council_hierarchy": {
+      "kiama": "Local/village council",
+      "njuri": "Intermediate council",
+      "njuri_ncheke": "Supreme council"
+    },
+    "njuri_ncheke": {
+      "membership": "Highest social rank; carefully selected mature, composed, respected, incorruptible elders; knowledge of traditions, personal discipline",
+      "functions": [
+        "Make and execute community laws",
+        "Hear and settle disputes",
+        "Custodians of traditional culture",
+        "Oversee conservation of grasslands, salt-licks, forests",
+        "Preserve sacred sites"
+      ],
+      "jurisdiction": "Does not handle non-Meru matters or matters under Kenyan common law; relies on case law and precedence",
+      "modern_role": [
+        "Donated 641 acres for Meru College of Science and Technology (1983)",
+        "Represented in Meru University of Science and Technology Council",
+        "Njuri-Ncheke Shrine, Nchiru — gazetted heritage site, National Museums of Kenya"
+      ],
+      "historical_act": "Outlawed female genital mutilation (FGM) — April 1956"
+    },
+    "precolonial_executive": "No single ruler; decentralized clan governance under omorwoti/omogambi (equivalent to chief/king)"
+  },
+
+  "society_and_culture": {
+    "social_organization": "Patrilineal clans; ridgetop-based territorial units; age-set system (Maasai-derived, heavily modified)",
+    "initiation": {
+      "male_circumcision": "Mandatory rite of passage; seclusion period up to one month; cultural education, norms, expectations; minimal contact with mother post-initiation",
+      "female_circumcision": "Historically practiced; outlawed by Njuri-Ncheke (April 1956); progressively abandoned; replaced by alternative rites of passage"
+    },
+    "marriage": {
+      "bridewealth": "Cattle, goats; negotiated between families",
+      "clan_exogamy": "Marriage within clan forbidden",
+      "residence": "Patrilocal"
+    },
+    "religion": {
+      "traditional": {
+        "supreme_being": "Ngai / Murungu (Bantu cognate)",
+        "prophets": "Mugwe — ritual specialists, diviners, blessings; descended from Omo clan; carried religious objects from Mbwaa",
+        "curse_removers": "Muga — addressed ritual impurity (mugiro)",
+        "ritual_specialists": "Koome Njoe, Mururia (legendary figures from migration)",
+        "sacred_sites": "Njuri-Ncheke Shrine, Nchiru; kaya-equivalent sacred forests (not termed kaya)"
+      },
+      "contemporary": {
+        "christian": "Majority (Catholic, Methodist, Presbyterian, evangelical denominations)",
+        "education_role": "Missionaries established modern education system; churches sponsor schools, teachers' colleges, universities",
+        "muslim": "Minority, primarily in urban areas"
+      }
+    },
+    "cuisine": {
+      "staples": [
+        "Nyani (traditional vegetables)",
+        "Mûkimo (mashed banana with vegetables or potatoes)",
+        "Kîthere / Mûthere (unfettered corn seeds cooked with beans/peas and vegetables)",
+        "Nyama cia gwaakia (roasted meat)",
+        "Ūkie / Ûcûrû (fermented porridge — corn, millet, or sorghum flour)",
+        "Rugicu (honey, meat, and vegetable mixture)"
+      ]
+    },
+    "music_and_dance": "Traditional lyre (obokana — distinct from Gusii obokano); drumming, chants; praise-name recitations; not extensively documented in source",
+    "material_culture": "Iron smithing (traditional, declining); basketry; pottery; carved wooden stools"
+  },
+
+  "economy": {
+    "historical": "Mixed farming: millet, sorghum, yams; cattle, goats, sheep; hunting; fishing (Tana River period)",
+    "colonial_introduction": "Coffee (first African coffee growers in Kenya, early 1930s — Devonshire White Paper 1923); tea; miraa (khat); maize; wheat; barley; potatoes",
+    "contemporary": {
+      "cash_crops": "Tea (highland), coffee (highland), miraa/khat (eastern slopes, Igembe, Tigania, Tharaka)",
+      "food_crops": "Maize, beans, potatoes, millet, sorghum, bananas, vegetables",
+      "livestock": "Dairy and beef cattle, goats, sheep, poultry, honey bees",
+      "tourism": "Meru National Park, Mount Kenya National Park, Lewa Conservancy",
+      "mining": "Iron-ore deposits (Tharaka); exploratory works ongoing",
+      "education_hub": "Meru University of Science and Technology, Chuka University, Tharaka University, Kenya Methodist University, satellite campuses"
+    }
+  },
+
+  "education": {
+    "missionary_foundation": "Catholic, Methodist, Presbyterian",
+    "institutions": {
+      "primary": "Numerous primary schools across Meru and Tharaka-Nithi",
+      "secondary": "Numerous secondary schools",
+      "tertiary": "Teachers' training colleges, nursing schools, technical institutes",
+      "universities": [
+        "Meru University of Science and Technology (chartered 2013, formerly Meru College of Science and Technology, land donated by Njuri-Ncheke 1983)",
+        "Chuka University (chartered public)",
+        "Tharaka University (chartered public)",
+        "Kenya Methodist University (chartered private, 2006)",
+        "Satellite campuses: University of Nairobi, Egerton, Kenyatta, Co-operative University, Nazarene, Mount Kenya"
+      ]
+    }
+  },
+
+  "politics_and_alliances": {
+    "gema": "Gikuyu-Embu-Meru Association; formed Jomo Kenyatta era; formally banned 1980; informal political coordination continues",
+    "voting_patterns": "Post-1992: largely vote with Kikuyu and Embu in presidential elections; 2013 exceptions: ODM won Igembe Central, Tigania East in Meru County (Jubilee dominant region)",
+    "notable_elections_2013": [
+      "Rahim Dawood (Asian origin) — Imenti North Constituency",
+      "Kinoti Gatobu (26-year-old independent) — Buuri Constituency"
+    ],
+    "political_influence": "Meru disproportionately represented in senior government positions relative to population size",
+    "contemporary_leaders": [
+      "Kithure Kindiki — Deputy President of Kenya",
+      "Martha Koome — Chief Justice of Kenya",
+      "Peter Munya — former Cabinet Secretary, former Governor Meru",
+      "Kiraitu Murungi — former Governor Meru, former MP",
+      "Muthomi Njuki — Governor Tharaka-Nithi",
+      "Anne Kananu — former Governor Nairobi City County",
+      "Gitobu Imanyara — MP, civil rights advocate",
+      "Kinoti Gatobu — MP",
+      "Mutea Iringo — former Principal Secretary",
+      "Francis Muthaura — former Head of Civil Service",
+      "David Mwiraria — former Finance Minister",
+      "Kilemi Mwiria — educationalist, former Assistant Minister"
+    ]
+  },
+
+  "heritage_and_conservation": {
+    "meru_museum": "Former colonial office, Meru Town; preserves historical and cultural artifacts; under National Museums of Kenya",
+    "njuri_ncheke_shrine": "Nchiru; gazetted heritage site; accessible to public except during Njuri-Ncheke activities; elders provide authoritative information on traditions (bound by secrecy oath for esoteric knowledge)"
+  },
+
+  "notable_person_index": {
+    "politics_and_governance": [
+      "Kithure Kindiki (Deputy President)",
+      "Martha Koome (Chief Justice)",
+      "Peter Munya (CS, Governor)",
+      "Kiraitu Murungi (Governor, MP)",
+      "Muthomi Njuki (Governor)",
+      "Anne Kananu (Governor)",
+      "Gitobu Imanyara (MP, civil rights advocate)",
+      "Kinoti Gatobu (MP)",
+      "Mutea Iringo (PS)",
+      "Bernard Mate (Legco Representative)",
+      "Francis Muthaura (Head of Civil Service)",
+      "David Mwiraria (Finance Minister)",
+      "Kilemi Mwiria (Asst Minister)"
+    ],
+    "military": [
+      "Fatumah Ahmed (Major General, Commander Kenya Air Force)",
+      "Musa Mwariama (Mau Mau leader)"
+    ],
+    "academia_and_research": [
+      "Jacob Kaimenyi (CS Lands)",
+      "Margaret Kobia (CS Public Service)",
+      "Leah Marangu (VC, African Nazarene University)"
+    ],
+    "judiciary_and_law": [
+      "Martha Koome (Chief Justice)",
+      "Aaron Ringera (Director, KACC)"
+    ],
+    "business_and_corporate": [
+      "Edward H. Ntalami (businessperson)"
+    ],
+    "religion": [
+      "Samuel Kobia (General Secretary, World Council of Churches)",
+      "Silas Silvius Njiru (Bishop, Meru Diocese)"
+    ],
+    "arts_and_entertainment": [
+      "Pierra Makena (DJ, actress)",
+      "Aaron Rimbui (pianist, keyboardist, bandleader, producer, festival curator, radio host)"
+    ],
+    "legendary_historical_figures": [
+      "Koome Njoe (Muga, ritual specialist, migration hero)",
+      "Mururia (ritual specialist, escape strategist)",
+      "Mbogore (first blanket chief, Mwimbi)",
+      "Njage (warrior spokesman, Muthambi blanket chief)",
+      "Kangangi / E.B. Horne (colonial administrator, named by Meru)"
+    ],
+    "historical_scholars": [
+      "Jeffrey Fadiman (historian, author of When We Began, There Were Witchmen — definitive Meru oral history)",
+      "W.H. Laughton (linguist, author, 1944)"
+    ]
+  },
+
+  "tags_for_retrieval": [
+    "Meru",
+    "Ameru",
+    "Kimîîrú",
+    "Mbwaa",
+    "Manda Island",
+    "Ngaa",
+    "Shungwaya alternative",
+    "Nguo Ntuni",
+    "Koome Njoe",
+    "Mururia",
+    "Nyaga Njiru",
+    "Ntuni",
+    "Njeru",
+    "Mount Kenya",
+    "Tharaka",
+    "Imenti",
+    "Tigania",
+    "Igembe",
+    "Mwimbi",
+    "Muthambi",
+    "Chuka",
+    "Njuri-Ncheke",
+    "Meru Council of Elders",
+    "GEMA",
+    "Gikuyu-Embu-Meru Association",
+    "Kithure Kindiki",
+    "Martha Koome",
+    "Meru coffee farmers",
+    "miraa",
+    "khat",
+    "Meru University",
+    "Chuka University",
+    "Tharaka University",
+    "Kenya Methodist University",
+    "FGM outlawed 1956",
+    "Meru age-sets",
+    "gichiaro",
+    "Maasai-Meru relations",
+    "Il Tikirri",
+    "Mumunyot",
+    "Umpua",
+    "Agumba",
+    "Muoko",
+    "Ukara",
+    "Kiama",
+    "Mwaa",
+    "Kirimu",
+    "Kangangi",
+    "E.B. Horne",
+    "Edward Butler Horne",
+    "blanket chiefs",
+    "Embu conquest 1906",
+    "Meru oral tradition",
+    "Jeffrey Fadiman",
+    "Meru Museum",
+    "Njuri-Ncheke Shrine",
+    "Nchiru",
+    "Meru diaspora"
+  ],
+
+  "embedding_context_hint": "Use for queries on Kenyan Bantu migration narratives (coastal Shungwaya-type origins vs. Congo Basin), GEMA comparative studies, Maasai-Bantu cultural exchange, traditional governance systems (Njuri-Ncheke as living judicial institution), colonial pacification of Mount Kenya region, coffee history in Kenya, female genital mutilation legislation (1956 pre-independence ban), and contemporary Meru political influence. Particularly valuable for distinguishing Meru from Kikuyu, Embu, Kamba, and Tharaka within multi-ethnic RAG systems, and for retrieving detailed oral tradition content beyond summary-level ethnography."
+}

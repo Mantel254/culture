@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.env
+.env.*
+config/.env
+config/db.sqlite3
+.venv/
+# Django
+*.sqlite3
+# Vite / frontend cache
+kenya-s-cultural-mosaic/.vite/
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+# OS
+.DS_Store
+.idea/
+.vscode/

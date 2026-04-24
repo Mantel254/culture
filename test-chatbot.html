@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot Test</title>
+    <style>
+        body { font-family: Arial; margin: 20px; max-width: 800px; }
+        #messages { border: 1px solid #ccc; height: 400px; overflow-y: auto; padding: 10px; margin-bottom: 10px; background: #f9f9f9; }
+        .msg { margin: 5px 0; padding: 8px; border-radius: 4px; }
+        .user { background: #e3f2fd; text-align: right; }
+        .ai { background: #f1f8e9; }
+        #input { width: 100%; padding: 8px; }
+        button { padding: 8px 16px; cursor: pointer; }
+        .debug { font-size: 12px; color: #666; margin-top: 20px; border-top: 1px solid #ddd; padding-top: 10px; }
+        .error { color: red; }
+        .success { color: green; }
+    </style>
+</head>
+<body>
+    <h1>Chatbot Test & Debug Console</h1>
+    
+    <div id="messages"></div>
+    
+    <div>
+        <input id="input" type="text" placeholder="Ask about Kenyan communities..." value="Tell me about Kikuyu culture">
+        <button onclick="sendMessage()">Send</button>
+        <button onclick="clearLogs()">Clear Logs</button>
+    </div>
+    
+    <div class="debug">
+        <h3>Debug Console</h3>
+        <div id="debug"></div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:8000';
+        let conversationId = 'test-' + Date.now();
+        
+        function log(msg, type = 'info') {
+            const debug = document.getElementById('debug');
+            const time = new Date().toLocaleTimeString();
+            const color = type === 'error' ? 'red' : type === 'success' ? 'green' : 'black';
+            const line = document.createElement('div');
+            line.style.color = color;
+            line.textContent = `[${time}] [${type.toUpperCase()}] ${msg}`;
+            debug.appendChild(line);
+            debug.scrollTop = debug.scrollHeight;
+            console.log(`[${type}] ${msg}`);
+        }
+        
+        function clearLogs() {
+            document.getElementById('debug').innerHTML = '';
+            document.getElementById('messages').innerHTML = '';
+        }
+        
+        function addMessage(text, role) {
+            const messages = document.getElementById('messages');
+            const div = document.createElement('div');
+            div.className = `msg ${role}`;
+            div.textContent = text;
+            messages.appendChild(div);
+            messages.scrollTop = messages.scrollHeight;
+        }
+        
+        async function sendMessage() {
+            const input = document.getElementById('input');
+            const message = input.value.trim();
+            
+            if (!message) {
+                log('Empty message', 'error');
+                return;
+            }
+            
+            log(`Sending message: "${message}"`);
+            addMessage(message, 'user');
+            input.value = '';
+            
+            try {
+                log(`Using conversation ID: ${conversationId}`);
+                log(`Backend URL: ${API_BASE}/AI/api/ask/`);
+                
+                log('Making preflight OPTIONS request...', 'info');
+                const optionsResponse = await fetch(`${API_BASE}/AI/api/ask/`, {
+                    method: 'OPTIONS',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                });
+                log(`OPTIONS response: ${optionsResponse.status}`, 'success');
+                
+                log('Sending POST request...', 'info');
+                const response = await fetch(`${API_BASE}/AI/api/ask/`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        message: message,
+                        page: 'test',
+                        conversation_id: conversationId
+                    })
+                });
+                
+                log(`Response status: ${response.status}`, response.ok ? 'success' : 'error');
+                
+                if (!response.ok) {
+                    const text = await response.text();
+                    log(`Error response: ${text}`, 'error');
+                    return;
+                }
+                
+                const data = await response.json();
+                log(`Response received, parsing...`, 'success');
+                log(`Response keys: ${Object.keys(data).join(', ')}`);
+                log(`Response source: ${data.source}`);
+                log(`Response strategy: ${data.strategy}`);
+                
+                // Handle nested JSON response
+                let content = data.content;
+                if (typeof content === 'string' && content.startsWith('{')) {
+                    try {
+                        const parsed = JSON.parse(content);
+                        content = parsed.content || content;
+                    } catch (e) {
+                        // Keep original if not JSON
+                    }
+                }
+                
+                log(`Response content length: ${content.length}`, 'success');
+                addMessage(content, 'ai');
+                
+            } catch (error) {
+                log(`Error: ${error.message}`, 'error');
+                log(error.stack, 'error');
+            }
+        }
+        
+        // Test connection on load
+        window.addEventListener('load', async () => {
+            log('Testing backend connection...', 'info');
+            try {
+                const response = await fetch(`${API_BASE}/AI/api/health/`);
+                const data = await response.json();
+                log(`Health check: ${response.status}`, 'success');
+                log(`Redis status: ${data.redis}`, data.redis === 'connected' ? 'success' : 'error');
+            } catch (error) {
+                log(`Backend unreachable: ${error.message}`, 'error');
+            }
+        });
+        
+        // Allow Enter key to send
+        document.getElementById('input').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendMessage();
+        });
+    </script>
+</body>
+</html>

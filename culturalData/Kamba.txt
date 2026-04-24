@@ -1,0 +1,579 @@
+﻿{
+  "entity_id": "ethnic_group.kamba.kenya",
+  "entity_name": "Kamba",
+  "entity_type": "Ethnic Group",
+  "autonym": "Akamba (pl), Mukamba (s), Wakamba (alternate)",
+  "classification": "Bantu, Northeastern Bantu",
+  "language_family": "Niger-Congo > Atlantic-Congo > Volta-Congo > Benue-Congo > Bantoid > Bantu > Northeast Bantu > Kikuyu-Kamba",
+  "autonym_meaning": "Uncertain; possibly derived from 'kamba' meaning 'to wander' or 'to travel' (referencing their long-distance trading history)",
+  "aliases": ["Akamba", "Wakamba", "Ukambani (land)", "Kamba"],
+  
+  "summary": "The Kamba (Akamba) are a Bantu ethnic group native to the lower eastern counties of Kenya (Ukambani: Machakos, Kitui, Makueni). They are Kenya's fifth-largest ethnicity (4.66M, ~9.8% of national population, 2019 census). Historically renowned as long-distance traders, the Kamba controlled trade routes from the Indian Ocean to Lake Victoria and Lake Turkana, acting as middlemen between the coast and interior. They are closely related linguistically and culturally to the Kikuyu, Embu, Mbeere, and Meru, forming the GEMA (Gikuyu-Embu-Meru-Akamba) cluster. The Kamba are distinguished by their wood carving artistry, their role as the 'premier martial race' of British colonial forces (King's African Rifles), and a unique diaspora population in Paraguay (Kamba Cuá) descended from enslaved soldiers of General Artigas (1820). Traditional religion centers on Mulungu/Ngai with intercessory spirits (Aimu); the Kilumi rain-making dance remains a significant cultural practice. The community produced prominent anti-colonial figures (Syokimau, Muindi Mbingu, Paul Ngei) and contemporary political leaders (Kalonzo Musyoka, Charity Ngilu, Alfred Mutua).",
+
+  "demographics": {
+    "population_kenya_2019": 4663910,
+    "national_rank_kenya": "5th",
+    "national_percentage_kenya": "~9.8%",
+    "county_distribution": {
+      "machakos": 1421932,
+      "kitui": 1136187,
+      "makueni": 987653,
+      "second_largest_in": [
+        "Nairobi",
+        "Mombasa",
+        "Taita–Taveta",
+        "Kiambu",
+        "Muranga",
+        "Kirinyaga",
+        "Kwale",
+        "Kilifi"
+      ],
+      "third_largest_in": [
+        "Embu (Mbeere South region)",
+        "Garissa",
+        "Meru",
+        "Kajiado"
+      ],
+      "taveta_concentration": "Taita–Taveta County, Taveta region"
+    },
+    "international_population": {
+      "uganda": "~8,280",
+      "tanzania": "~110,000",
+      "paraguay": "~10,000 (Kamba Cuá, Kamba Kokue)",
+      "diaspora_notes": "Kamba Cuá in Paraguay are descendants of 250 spearmen (lanceros de Artigas) exiled with General José Gervasio Artigas in 1820; central cultural identity of Afro-Paraguayan community through traditional ballet"
+    }
+  },
+
+  "geography": {
+    "homeland": "Ukambani",
+    "constituent_counties": ["Machakos", "Kitui", "Makueni"],
+    "historical_heartland": "Mbooni Hills (second half of 17th century, first settlement)",
+    "topography": "Lowlands southeast Kenya, from Nairobi to Tsavo, northwards to Embu",
+    "neighbors": [
+      "Maasai (west, separated by Kenya-Uganda railway, Athi-River to Kibwezi)",
+      "Kikuyu (north)",
+      "Embu, Mbeere (north)",
+      "Taita (southeast)",
+      "Coastal Bantu (Kambe, Giriama, Mijikenda) (east)"
+    ],
+    "boundary_conflicts": "Historical cattle-rustling and pasture conflicts with Maasai on Konza plains; led to colonial creation of Cooperative Society, Konza, Potha, Malili Ranches; modern Konza Technopolis sits on these lands"
+  },
+
+  "origin_and_migration": {
+    "bantu_origin": "Congo Basin region, Central Africa",
+    "early_settlement": "Mbooni Hills, Machakos District (c. 1650–1700 CE)",
+    "migration_theories": [
+      "Theory A: Arrived in present lowlands east of Mount Kenya from earlier settlements further north and east",
+      "Theory B: Moved into Kenya from points further south, alongside Kikuyu, Embu, Mbeere, Meru"
+    ],
+    "eastern_migration": "Mid-18th century: Large pastoral groups moved east from Tsavo/Kibwezi to coast due to drought and pasture scarcity; settled Mariakani, Kinango, Kwale, Changamwe, Chaani, Kisauni; origins of urban Kamba presence at coast",
+    "diaspora_origin_paraguay": {
+      "year": 1820,
+      "context": "Exile of General José Gervasio Artigas to Paraguay",
+      "group": "250 spearmen (lanceros de Artigas), men and women, enslaved soldiers",
+      "settlements": "Kamba Cuá, Kamba Kokue",
+      "legacy": "African traditional ballet; central cultural identity of Afro-Paraguayan community"
+    }
+  },
+
+  "language": {
+    "name": "Kikamba",
+    "family": "Bantu, Northeast Bantu, Kikuyu-Kamba",
+    "alphabet": "No letters c, f, j, r, x, q, p",
+    "writing_system": "Latin script",
+    "mutual_intelligibility": "High with Kikuyu, Embu, Meru; forms GEMA dialect continuum",
+    "loan_influences": "Swahili (historical trade with Arab and Swahili coast traders)",
+    "vernacular_media": {
+      "radio": [
+        "Athiani FM",
+        "County FM",
+        "Mang'elete FM",
+        "Mbaitu FM",
+        "Musyi FM",
+        "Syokimau FM",
+        "Thokoa FM",
+        "Mwatu FM",
+        "Wikwatyo FM"
+      ],
+      "television": "Kyeni TV (primary Kikamba broadcasting)",
+      "online": "Mauvoo News (English, covering Ukambani current affairs)"
+    }
+  },
+
+  "history": {
+    "precolonial_economy": {
+      "phases": [
+        "Hunters and gatherers (earliest)",
+        "Long-distance traders (due to expansive territory knowledge, communication skills, good neighborly relations)",
+        "Subsistence farmers and pastoralists (post-migration to new lands)"
+      ],
+      "trade_network": {
+        "scope": "Indian Ocean coast to Lake Victoria, Lake Turkana",
+        "goods_exchanged": [
+          "Sugar cane wine (kaluvu)",
+          "Ivory",
+          "Brass amulets",
+          "Tools and weapons",
+          "Millet",
+          "Cattle",
+          "Medicinal products (miti, herbal remedies)"
+        ],
+        "trading_partners": [
+          "Kikuyu",
+          "Maasai",
+          "Meru",
+          "Embu",
+          "Mijikenda",
+          "Arab and Swahili coast traders"
+        ],
+        "role": "Middlemen between coast and interior; controlled central Kenyan trade corridors",
+        "economic_power": "Wielded economic control across central Kenya (Ki'nyaa, 'Ostrich Country,' derived from Kikamba reference to Mount Kenya's snow cap resembling male ostrich)"
+      },
+      "barter_system": "Prominent; offset food shortages from Ukambani droughts and famines"
+    },
+    "colonial_period": {
+      "arab_takeover": "Late 19th century: Arabs assumed coastal trade; Kamba became guides for caravans (ivory, precious stones, slaves)",
+      "explorer_guides": "Valued for geographical knowledge and neutral standing with interior societies",
+      "martial_race_discourse": {
+        "colonial_designation": "'Premier martial race of Africa', 'fighting race', 'best soldierly material in Africa', 'hardy, virile, courageous, mechanically-minded tribe'",
+        "military_enlistment": "Kamba enlisted in King's African Rifles (KAR) at 3-4x their population percentage",
+        "context": "Press release by East Africa Command, early 1950s, during Mau Mau Emergency"
+      },
+      "resistance_movements": {
+        "nature": "Predominantly non-violent, peaceful protest",
+        "key_figures": [
+          "Syokimau (prophetess, healer)",
+          "Syotune wa Kathukye (led peaceful protest to recover confiscated cattle)",
+          "Muindi Mbingu (protest march to recover land/cattle, Mua Hills, Masaku; arrested)",
+          "Paul Ngei (joined Mau Mau; imprisoned Kapenguria)",
+          "JD Kali (joined Mau Mau; imprisoned Kapenguria)",
+          "Malu of Kilungu"
+        ],
+        "1938_livestock_control_legislation": "Kamba successfully resisted colonial attempt to seize livestock; law repealed",
+        "legacy": "Kamba resistance notable for non-violent civil disobedience"
+      }
+    },
+    "post_independence": {
+      "political_figures": [
+        "Paul Ngei (minister, anti-colonial prisoner)",
+        "Nyiva Mwendwa (first female Cabinet Minister)",
+        "Kalonzo Musyoka (10th Vice President)",
+        "Charity Ngilu (first woman to vie for presidency, 1997; Governor Kitui)",
+        "Alfred Mutua (Governor Machakos, Cabinet Secretary)",
+        "Mutula Kilonzo (first Senator Makueni, Senior Counsel)",
+        "Willy Mutunga (Chief Justice)",
+        "Philomena Mwilu (Deputy Chief Justice)",
+        "Monica Juma (CS Foreign Affairs, Defence, Energy; National Security Advisor)",
+        "Nzamba Kitonga (President, COMESA Court of Justice)"
+      ],
+      "gema_politics": "Kamba are members of GEMA (Gikuyu-Embu-Meru-Akamba) community; political alliances with Kikuyu have varied historically"
+    }
+  },
+
+  "economy_contemporary": {
+    "traditional_occupations": [
+      "Agriculture (maize, millet, sorghum, sweet potatoes, pumpkin, beans, pigeon peas, greens, arrow root, cassava, yam; cooler regions: Kangundo, Kilungu, Mbooni)",
+      "Pastoralism (cattle, goats, sheep)",
+      "Long-distance trade",
+      "Hunting (historical)"
+    ],
+    "crafts": {
+      "wood_carving": "Renowned; displayed in Kenyan craft shops and galleries; iconic Makonde-influenced style but distinct Kamba carving traditions",
+      "basketry": "Fine woven products",
+      "pottery": "Traditional ceramics",
+      "beadwork": "Decorative, used in regalia"
+    },
+    "medicinal_trade": "Miti (herbal remedies); historical figure Maingi Ndonye Mbithi (Kanyi, Kimutwa village) known for treating cancerous boils (Mi'imu) with herb-kaluvu concoction",
+    "contemporary_professions": [
+      "Agriculture",
+      "Trade and commerce",
+      "Formal employment (civil service, law, medicine, academia, engineering, piloting, corporate leadership)",
+      "Politics",
+      "Sports and athletics",
+      "Arts and entertainment"
+    ],
+    "notable_corporate_leaders": [
+      "Patricia Ithau (CEO, WPP-Scangroup)",
+      "Rebecca Mbithi (CEO, Family Bank)",
+      "Wilfred Musau (CEO, National Bank of Kenya)",
+      "Kathryne Maundu (Corporation Secretary, Safaricom)",
+      "Irene Koki Mutungi (First African female Boeing 787 captain, Kenya Airways)"
+    ]
+  },
+
+  "society_and_culture": {
+    "origin_myth": {
+      "narrative": "Mulungu created a man and woman from heaven, placed them on a rock at Nzaui (footprints visible). Mulungu caused rainfall; from anthills emerged a man and woman (initiators of Aimu/spirits clan). Heavenly couple had sons; anthill couple had daughters. Marriage occurred via dowry. Prosperity led to forgetting Mulungu; famine dispersed the family. Some became Kikuyu, others Meru, some remained Akamba.",
+      "significance": "Explains GEMA common origin; ritual footprints at Nzaui"
+    },
+    "family_structure": {
+      "homestead": "Musyi",
+      "clan": "Mbai (extended family/clan)",
+      "head": "Man (Nau, Tata, or Asa)",
+      "womens_role": "Controls own plot of land (given upon marriage); primary food producer; raises children; Mwaitu ('our One') commands adult children's deference",
+      "grandparents": "Susu/Usua (grandmother), Umau/Umaa (grandfather); assist with rope-making, leather tanning, beehive carving, stools, calabash decoration, bows/arrows",
+      "avuncular_relationships": {
+        "maternal_uncle": "Inaimiwa",
+        "maternal_aunt": "Mwendya",
+        "paternal_uncle/aunt": "Mwendw'au",
+        "paternal_cousins (male)": "Mwanaasa / Mwanaa'ia",
+        "paternal_cousins (female)": "Mwiitu wa'asa / Mwiitu wa'ia",
+        "maternal_cousins (male)": "Mwanaa mwendya",
+        "maternal_cousins (female)": "Mwiitu wa mwendya"
+      },
+      "child_rearing": "Children move freely between households; aunts/uncles function as de facto parents"
+    },
+    "clans": [
+      "Anzauni",
+      "Aombe",
+      "Akitondo",
+      "Amwei (Angwina)",
+      "Atwii",
+      "Amumui",
+      "Aethanga",
+      "Atangwa",
+      "Amutei",
+      "Aewani",
+      "Akitutu",
+      "Ambua",
+      "Aiini",
+      "Asii",
+      "Akiimi",
+      "Amũũti",
+      "Amũũnda"
+    ],
+    "naming_system": {
+      "first_four_children": [
+        "First boy: paternal grandfather",
+        "Second boy: maternal grandfather",
+        "First girl: paternal grandmother",
+        "Second girl: maternal grandmother"
+      ],
+      "avoidance_kinship": "Daughter-in-law cannot address parents-in-law by first name; given family name (e.g., 'Syomunyithya/ng'a Mutunga' meaning 'mother of Munyithya/Mutunga') so that calling her son invokes father-in-law respectfully",
+      "circumstantial_names": {
+        "Nduku/Katuku (f), Mutuku/Kituku (m)": "Born at night",
+        "Kiloko (f), Kioko (m)": "Born in the morning",
+        "Mumbua/Syombua/Mbula (f), Wambua/Mbua (m)": "Born during rain",
+        "Wayua (f)": "Born during famine",
+        "Makau (m)": "Born during war",
+        "Kasyoka/Kasyoki (f), Musyoka/Kasyuko/Musyoki (m)": "Reincarnation of deceased family member",
+        "Mutua/Mutui (m), Mutuo/Mwikali (f)": "Long-awaited child or prolonged gestation",
+        "Munyao (m)": "Born during famine",
+        "Mueni/Waeni (f)": "Born during time of visitors",
+        "Maundu (m)": "Born during time of multiple activities/things",
+        "Muthami/Muthama (m)": "Born during migration"
+      },
+      "aspirational_names": [
+        "Mutongoi (leader)",
+        "Musili (judge)",
+        "Muthui (rich one)",
+        "Ngumbau (hero, brave one)",
+        "Kitonga (wealthy one)",
+        "Musumbi (king; rare, no monarchical system; prophecy of man from Kitui, ancestry tracing to west)"
+      ],
+      "aesthetic_names_female": [
+        "Mumbe (beautiful one)",
+        "Mwende (beloved)"
+      ],
+      "animal_names": "Nzoka (snake), Mbiti (hyena), Mbuku (hare), Munyambu (lion), Mbiwa (fox), Ngiti (dog), Ng'ombe (cow), Nguku (chicken) - given to children born after stillbirths to 'wish away bad omen'"
+    },
+    "religion": {
+      "traditional": {
+        "supreme_being": ["Ngai", "Mulungu", "Asa", "Ngai Mumbi (God the Creator)", "Mwatuangi (God the finger-divider)"],
+        "attributes": "Monotheistic, invisible, transcendental, lives in sky (yayayani/ituni), omnipotent, merciful, distant",
+        "intercessors": "Aimu/Maimu (spirits of departed); remembered in family rituals, offerings, libations at individual altars",
+        "rain_making": "Kilumi dance; healing rite to restore environmental balance; spiritual essence distinguishes African-derived dances globally; involves symbolic movement, offering, prayers",
+        "kilumi_context": "Present since beginning of Kamba existence; ritual intervention for drought"
+      },
+      "contemporary": "Overwhelmingly Christian (various denominations, with strong Anglican, Catholic, and African Instituted Church presence); Muslim minority",
+      "notable_theologians": "John Samuel Mbiti (father of modern African Theology)"
+    },
+    "music_and_dance": {
+      "dance_styles": [
+        {
+          "name": "Mwali (pl. Myali)",
+          "purpose": "Criticize anti-social behavior, social commentary"
+        },
+        {
+          "name": "Kilumi",
+          "purpose": "Religious, healing, rain-making ceremonies"
+        },
+        {
+          "name": "Ngoma",
+          "purpose": "Religious dances"
+        },
+        {
+          "name": "Mwilu",
+          "purpose": "Circumcision dance"
+        },
+        {
+          "name": "Mbalya / Ngutha",
+          "purpose": "Young people's entertainment after chores; love songs, satirical numbers by dance leader"
+        },
+        {
+          "name": "Kamandiko",
+          "purpose": "Modern disco, typically post-wedding"
+        }
+      ],
+      "musical_characteristics": {
+        "scale": "Pentatonic",
+        "singing": "Lively, tuneful",
+        "song_subjects": "Marriage, birth, national occasions, satirical of deviant behavior, anti-social activity",
+        "work_songs": "Ngulu Mwelela (digging, labor)",
+        "herder_songs": "Distinct repertoire for herdsmen and boys"
+      },
+      "traditional_instruments": "Not extensively documented in source; rhythm emphasized over melody; drumming prominent",
+      "early_artist": "Mailu Mboo (Mwingi region, earliest documented traditional soloist)",
+      "contemporary_popular_musicians": [
+        "Ken Wamaria (rated top artist in Ukambani, 'richest Kenyan artist' per Kioko, 2012)",
+        "Kativui",
+        "Kitunguu",
+        "Katombi",
+        "Maima",
+        "Vuusya Ungu"
+      ],
+      "benga_connection": "Kamba have contributed to benga genre; Kakai Kilonzo (1954–1987) of Les Kilimambogo Brothers was influential benga musician"
+    },
+    "clothing_and_adornment": {
+      "traditional_men": "Leather short kilts (animal skins/tree bark); copper/brass jewellery (neck-chains, bracelets, anklets); leather sandals (travel/market/visits); barefoot at home/fields",
+      "traditional_women": "Knee-length leather or bark skirts, beadwork embellishment; necklaces (beads from Swahili/Arab traders); shaved heads, beaded headbands (distinctive colors/patterns for kilumi groups)",
+      "contemporary": "Western/European dress; men: trousers, shirts; boys: shorts, short-sleeved shirts, t-shirts; women: dresses, skirts (customary), trousers, jeans, shorts; schoolchildren: shaved heads for uniformity/equality",
+      "footwear": "Leather sandals (traditional); modern footwear"
+    }
+  },
+
+  "martial_and_military_tradition": {
+    "colonial_reputation": "Kamba as 'premier martial race of Africa' - colonial construct embraced by community; overrepresentation in King's African Rifles",
+    "post_independence_military_leaders": [
+      "Joseph Musyimi Lele Ndolo (first African Chief of General Staff, Kenya Defence Forces; first full General)",
+      "Jackson Mulinge (Chief of General Staff)",
+      "Jeremiah Kianga (Chief of General Staff)",
+      "Eliud Mbilu (Commander, Kenya Navy)"
+    ],
+    "security_services": [
+      "Hillary Mutyambai (Deputy Director, National Intelligence Service; Inspector-General of Police)",
+      "John Harun Mwau (first director, Kenya Anti-Corruption Commission)"
+    ],
+    "cultural_note": "Kamba continue to be heavily represented in Kenyan military and police"
+  },
+
+  "diaspora_paraguay": {
+    "community_name": "Kamba Cuá, Kamba Kokue",
+    "origin_year": 1820,
+    "historical_event": "Exile of General José Gervasio Artigas to Paraguay; accompanied by 250 enslaved spearmen (lanceros de Artigas) and women",
+    "settlements": "Kamba Cuá (most famous), Kamba Kokue",
+    "cultural_legacy": "African traditional ballet; described as 'central cultural identity of the Afro-Paraguayan community'",
+    "population_estimate": "~10,000",
+    "identity_preservation": "Retain Kamba identity though language shift to Spanish/Guarani likely; cultural dances remain emblematic"
+  },
+
+  "notable_person_index": {
+    "anticolonial_resistance": [
+      "Syokimau",
+      "Syotune wa Kathukye",
+      "Muindi Mbingu",
+      "Paul Ngei",
+      "JD Kali",
+      "Malu of Kilungu"
+    ],
+    "politics_and_governance": [
+      "Kalonzo Musyoka (10th Vice President)",
+      "Charity Ngilu (first woman presidential candidate, Governor Kitui)",
+      "Alfred Mutua (Governor Machakos, Cabinet Secretary)",
+      "Monica Juma (CS Foreign Affairs, Defence, Energy; National Security Advisor)",
+      "Mutula Kilonzo (Senator, Senior Counsel)",
+      "Nzamba Kitonga (COMESA Court President)",
+      "Nyiva Mwendwa (first female Cabinet Minister)",
+      "Ngala Mwendwa (Lancaster House delegate, Labour Minister)",
+      "Kivutha Kibwana (Governor Makueni, Dean Law)",
+      "Wavinya Ndeti (Governor Machakos)",
+      "Mike Sonko (Governor Nairobi, Senator)",
+      "Philip Kaloki (Chair, Retirement Benefits Authority)",
+      "Julius Malombe (Governor Kitui)",
+      "David Musila (Senator Kitui, Assistant Minister Defense)",
+      "Johnson Muthama (Senator Machakos, UDA Chair)",
+      "Francis Nyenze (Leader of Minority, National Assembly)",
+      "Robert Mbui (Minority Whip, MP Kathiani)",
+      "Richard Makenga (MP Kaiti)",
+      "Gideon Ndambuki (MP Kaiti)",
+      "Rachael Kaki Nyamai (MP Kitui South)",
+      "Peter Mathuki (6th Secretary General, East African Community)",
+      "Veronica Nduva (7th Secretary General, EAC, first female)",
+      "Cleopa Kilonzo Mailu (Permanent Representative UN Geneva, CS Health)",
+      "Peninah Malonza (CS East African Community, CS Tourism)",
+      "Joseph K. Munyao (Minister Livestock and Fisheries)",
+      "Fred Mbiti Gideon Mati (first African Speaker, National Assembly)",
+      "Julius Muia (PS Planning, Ministry of Finance)",
+      "Nzioka Waita (2nd State House Chief of Staff, Head Presidential Delivery Unit)"
+    ],
+    "judiciary_and_law": [
+      "Willy Mutunga (Chief Justice)",
+      "Philomena Mwilu (Deputy Chief Justice)",
+      "Kitili Maluki Mwendwa (first black Chief Justice, independent Kenya)",
+      "Philip Waki (Judge, Court of Appeal; Waki Commission on Post-Election Violence)",
+      "Jackson Kasanga Mulwa (Judge, East African Court of Justice)",
+      "Eric Mutua (Chairman, Law Society of Kenya)",
+      "Nzamba Kitonga (President, COMESA Court of Justice, East Africa Law Society)",
+      "Makau Mutua (Dean, University at Buffalo Law School; Council on Foreign Relations)",
+      "Onesmus Kimweli Mutungi (first Kenyan PhD in Law)",
+      "Musili Wambua (Associate Dean, UoN Law; Chancellor, University of Embu)"
+    ],
+    "academia_and_science": [
+      "Crispus Makau Kiamba (5th VC, University of Nairobi)",
+      "Peter Mbithi (7th VC, University of Nairobi)",
+      "John Samuel Mbiti (father of modern African Theology)",
+      "Jane Catherine Ngila (Acting ED, African Academy of Sciences; L'Oréal-UNESCO For Women in Science 2021)",
+      "Kamoya Kimeu (paleontologist; curator; numerous hominid discoveries)",
+      "Rose Mutiso (activist, materials scientist)",
+      "Charity Wayua (chemist, researcher)",
+      "Nduku Kilonzo (WHO Gender and Rights Advisor; Lancet Commissioner)",
+      "Teresia Mbaika Malokwe (environmentalist, health economist)"
+    ],
+    "arts_entertainment_media": [
+      "Kakai Kilonzo (benga musician, Les Kilimambogo Brothers)",
+      "Ken Wamaria (musician, richest Kenyan artist per Kioko 2012)",
+      "Kativui, Kitunguu, Katombi, Maima, Vuusya Ungu (contemporary musicians)",
+      "Daniel Ndambuki (Churchill, comedian, Churchill Show host)",
+      "Betty Kyallo (media personality)",
+      "Kalekye Mumo (media personality)",
+      "Joey Muthengi (media personality, actress)",
+      "Asha Mwilu (journalist, CNN Multichoice African Journalist of the Year 2016)",
+      "Leonard Mbotela (journalist)",
+      "Kasiva Mutua (percussionist)",
+      "Henrie Mutuku (gospel singer)",
+      "David Mulwa (writer, academic, theatre director, actor)",
+      "Mbithi Masya (film director)",
+      "Peter Nzioki (actor)",
+      "Alex Mativo (fashion designer)",
+      "Theresia Kyalo (jewellery designer, multidisciplinary artist)",
+      "Maria Wavinya (Miss World Kenya 2019)"
+    ],
+    "sports_athletics": [
+      "Patrick Makau Musyoki (former marathon world record holder)",
+      "Cosmas Ndeti (three-time Boston Marathon winner, course record 2:07:15, 1994, stood 12 years)",
+      "Benson Masya (1970–2003, marathon serial winner)",
+      "Joseph Nzau (Boston Marathon 1983 winner, Belgrade Marathon 1990 winner)",
+      "Jimmy Muindi (Rotterdam Marathon 2005 winner)",
+      "Patrick Ivuti (Chicago Marathon 2007 winner, Prague Marathon 2009 winner)",
+      "Alexander Mutiso (London Marathon 2024 winner)",
+      "Cosmas Muteti (Vienna City Marathon 2022 winner)",
+      "Michael Musyoki (10,000m bronze, 1984 Olympics)",
+      "Caleb Ndiku (middle and long-distance runner)",
+      "Joseph Mutua (African Indoor 800m record holder)",
+      "David Mutinda Mutua (800m World Junior Champion 2010)",
+      "Brian Musau (5,000m NCAA Champion 2025)",
+      "Jackson Kivuva (middle-distance runner)",
+      "George Mutinda (400m National Champion)",
+      "Winfred Yavi (2023 World Athletics 3000m SC champion, 2024 Olympic champion; Bahraini, Kamba descent)",
+      "Francis Kimanzi (Harambee Stars head coach)",
+      "Jacob 'Ghost' Mulee (Harambee Stars head coach)",
+      "Nick Mwendwa (President, Football Kenya Federation)",
+      "Andrew Kisilu (footballer, Nairobi City Stars)",
+      "Mulinge Ndeto (footballer, Kenya national team, Ulinzi Stars)",
+      "Lukas Wambua Muteti (founder, MiraRunners)",
+      "Julius Mutinda (field hockey)",
+      "Yvonne Wavinya (volleyball, Kenya Prisons)"
+    ],
+    "business_and_professional": [
+      "Patricia Ithau (CEO, WPP-Scangroup)",
+      "Rebecca Mbithi (CEO, Family Bank)",
+      "Wilfred Musau (CEO, National Bank of Kenya)",
+      "Stella Kilonzo (CEO, Capital Markets Authority)",
+      "Nzomo Mutuku (CEO, Retirement Benefits Authority)",
+      "Kathryne Maundu (Corporation Secretary, Safaricom)",
+      "Carol Musyoka (lawyer, business executive)",
+      "Irene Koki Mutungi (first African female Boeing 787 captain, Kenya Airways)",
+      "John Harun Mwau (businessman, first director KACC)",
+      "Angela Ndambuki (Regional Director, IFPI Sub-Saharan Africa; CEO KNCCI)"
+    ],
+    "religious_leaders": [
+      "John Samuel Mbiti (theologian, philosopher)",
+      "Boniface Lele (Archbishop Emeritus, Mombasa)",
+      "Martin Kivuva Musonde (Archbishop, Mombasa)",
+      "Raphael S. Ndingi Mwana a'Nzeki (Archbishop Emeritus, Nairobi)",
+      "Benjamin Nzimbi (Archbishop Emeritus, Anglican Church of Kenya)",
+      "Urbanus Joseph Kioko (Bishop, Machakos)",
+      "Joseph Mwongela (Bishop, Kitui)",
+      "Prophetess Syokimau (historical prophetess, healer)"
+    ],
+    "historical_figures": [
+      "Chief Kivoi Mwendwa (1780–1852, long-distance trader, directed Ludwig Krapf to Mount Kenya; Voi Town named after him)",
+      "Prophetess Syokimau",
+      "Muindi Mbingu",
+      "Syotune wa Kathukye"
+    ]
+  },
+
+  "tags_for_retrieval": [
+    "Kamba",
+    "Akamba",
+    "Ukambani",
+    "Machakos",
+    "Kitui",
+    "Makueni",
+    "Mbooni",
+    "GEMA",
+    "Kikuyu-Kamba",
+    "Bantu",
+    "Northeastern Bantu",
+    "long-distance trade",
+    "ivory trade",
+    "Kenya coast trade",
+    "Kamba wood carving",
+    "Kamba basketry",
+    "Kilumi",
+    "Mwali",
+    "Myali",
+    "Mwilu",
+    "Ngoma",
+    "Kamba music",
+    "Ken Wamaria",
+    "Kakai Kilonzo",
+    "benga",
+    "Kamba naming system",
+    "Kamba clans",
+    "Kamba family",
+    "Aimu",
+    "Mulungu",
+    "Ngai Mumbi",
+    "Kamba resistance",
+    "Syokimau",
+    "Muindi Mbingu",
+    "Paul Ngei",
+    "King's African Rifles",
+    "Kamba martial race",
+    "colonial Kenya",
+    "Ukambani drought",
+    "Konza plains",
+    "Konza Technopolis",
+    "Kamba Paraguay",
+    "Kamba Cuá",
+    "Afro-Paraguayan",
+    "lanceros de Artigas",
+    "Kamba diaspora",
+    "Kamba military",
+    "Willy Mutunga",
+    "Philomena Mwilu",
+    "Kalonzo Musyoka",
+    "Charity Ngilu",
+    "Alfred Mutua",
+    "Monica Juma",
+    "Patrick Makau",
+    "Cosmas Ndeti",
+    "Winfred Yavi",
+    "Kamba athletes",
+    "John Mbiti",
+    "Kamoya Kimeu",
+    "Jane Catherine Ngila",
+    "Musyi FM",
+    "Kyeni TV",
+    "Mauvoo News",
+    "Kamba language",
+    "Kikamba alphabet",
+    "GEMA unity",
+    "Kamba-Kikuyu relations",
+    "Kamba-Maasai conflicts"
+  ],
+
+  "embedding_context_hint": "Use for queries on Kenyan Bantu ethnography, GEMA comparative studies, precolonial East African trade networks, colonial martial race theory, African diaspora in South America, traditional African medicine and divination, Kenyan legal and judicial history, and East African athletics. Particularly valuable for distinguishing Kamba from neighboring Kikuyu, Maasai, and coastal communities."
+}

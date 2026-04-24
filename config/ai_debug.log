@@ -1,0 +1,391 @@
+DEBUG 2026-04-22 16:18:34,608 memory_manager 45098 133731423614656 Attempting Redis connection to localhost:6379 db=0
+INFO 2026-04-22 16:18:34,780 memory_manager 45098 133731423614656 Redis connection established
+DEBUG 2026-04-22 16:18:44,419 views 45098 133731423614656 Raw request body: {"message": "Tell me about Maasai culture", "page": "communities", "conversation_id": "test-1"}
+INFO 2026-04-22 16:18:44,419 views 45098 133731423614656 Processing query for conversation: test-1
+DEBUG 2026-04-22 16:18:44,420 views 45098 133731423614656 User message (len=28): Tell me about Maasai culture
+DEBUG 2026-04-22 16:18:44,420 views 45098 133731423614656 Request meta: origin=None content_type=application/json user_agent=curl/8.5.0
+DEBUG 2026-04-22 16:18:44,421 views 45098 133731423614656 Detected community: Maasai
+DEBUG 2026-04-22 16:18:44,478 memory_manager 45098 133731423614656 Got community for test-1: kikuyu
+DEBUG 2026-04-22 16:18:44,478 views 45098 133731423614656 Stored community for test-1: kikuyu
+DEBUG 2026-04-22 16:18:44,508 memory_manager 45098 133731423614656 Set community Maasai for test-1
+DEBUG 2026-04-22 16:18:44,547 memory_manager 45098 133731423614656 Retrieved 2 messages for test-1
+DEBUG 2026-04-22 16:18:44,547 views 45098 133731423614656 Conversation history count: 2
+DEBUG 2026-04-22 16:18:44,547 views 45098 133731423614656 Starting retrieval for query (len=28) community=Maasai
+DEBUG 2026-04-22 16:18:44,547 retrieval_strategy 45098 133731423614656 RetrievalStrategy.retrieve_information called with query(len=28) community=Maasai
+DEBUG 2026-04-22 16:18:44,548 vector_db 45098 133731423614656 search_community called: community=Maasai query_len=28 k=5
+DEBUG 2026-04-22 16:18:44,548 vector_db 45098 133731423614656 Checking Chroma DB at /home/mntel/Desktop/projects/culture/config/chroma_store
+WARNING 2026-04-22 16:18:44,548 vector_db 45098 133731423614656 Chroma DB not found at /home/mntel/Desktop/projects/culture/config/chroma_store
+DEBUG 2026-04-22 16:18:44,548 vector_db 45098 133731423614656 No vector store available, returning empty results
+DEBUG 2026-04-22 16:18:44,548 retrieval_strategy 45098 133731423614656 Vector search returned 0 results
+DEBUG 2026-04-22 16:18:44,548 retrieval_strategy 45098 133731423614656 Calculated confidence: 0.0
+INFO 2026-04-22 16:18:44,548 retrieval_strategy 45098 133731423614656 No vector results, using LLM fallback
+DEBUG 2026-04-22 16:18:44,548 views 45098 133731423614656 Retrieval result: source=llm confidence=0.0
+DEBUG 2026-04-22 16:18:44,549 views 45098 133731423614656 Built system prompt (len=927 chars)
+INFO 2026-04-22 16:18:44,549 views 45098 133731423614656 Using LLM fallback to generate response
+DEBUG 2026-04-22 16:18:44,549 ai_client 45098 133731423614656 Calling Groq LLM: system_prompt_len=927 user_message_len=28
+DEBUG 2026-04-22 16:18:48,911 ai_client 45098 133731423614656 Groq LLM raw response type=<class 'langchain_core.messages.ai.AIMessage'>
+DEBUG 2026-04-22 16:18:48,912 ai_client 45098 133731423614656 Groq LLM response (len=1760): {
+    "type": "message",
+    "content": "The Maasai are a semi-nomadic ethnic group native to East Africa, primarily inhabiting southern Kenya and northern Tanzania. Their culture is rich and vibrant, with a strong emphasis on community, respect for elders, and a deep connection to the natural world. Some key aspects of Maasai culture include:
+
+- Traditional dress: The Maasai are known for their distinctive traditional clothing, which includes brightly colored beaded jewelry, intricately patterned blankets, and ornate hairstyles.
+- Cattle herding: The Maasai are skilled cattle herders, and their livestock play a crucial role in their economy and way of life.
+- Respect for elders: In Maasai culture, elders are highly respected for their wisdom, experience, and spiritual knowledge.
+- Community: Maasai communities are typically organized around a system of clans and age sets, which work together to maintain social harmony and resolve conflicts.
+- Spiritual practices: The Maasai have a deep spiritual connection to the natural world and believe in a complex pantheon of gods and spirits.
+
+The Maasai are a resilient and resourceful people, and their culture continues to thrive in the face of modernization and urbanization. However, they also face significant challenges, including land loss, cultural erosion, and economic marginalization.
+
+It's worth noting that the Maasai are a diverse group, and their culture can vary significantly from one region to another. Additionally, there are many different sub-groups within the Maasai community, each with their own unique traditions and customs.
+
+If you have any specific questions or would like more information on a particular aspect of Maasai culture, please let me know!",
+    "source": "llm"
+}
+DEBUG 2026-04-22 16:18:48,912 views 45098 133731423614656 LLM response (len=1760): {
+    "type": "message",
+    "content": "The Maasai are a semi-nomadic ethnic group native to East Africa, primarily inhabiting southern Kenya and northern Tanzania. Their culture is rich and vibrant, with a strong emphasis on community, respect for elders, and a deep connection to the natural world. Some key aspects of Maasai culture include:
+
+- Traditional dress: The Maasai are known for their distinctive traditional clothing, which includes brightly colored beaded jewelry, intricately patterned blankets, and ornate hairstyles.
+- Cattle herding: The Maasai are skilled cattle herders, and their livestock play a crucial role in their economy and way of life.
+- Respect for elders: In Maasai culture, elders are highly respected for their wisdom, experience, and spiritual knowledge.
+- Community: Maasai communities are typically organized around a system of clans and age sets, which work together to maintain social harmony and resolve conflicts.
+- Spiritual practices: The Maasai have a deep spiritual connection to the natural world and believe in a complex pantheon of gods and spirits.
+
+The Maasai are a resilient and resourceful people, and their culture continues to thrive in the face of modernization and urbanization. However, they also face significant challenges, including land loss, cultural erosion, and economic marginalization.
+
+It's worth noting that the Maasai are a diverse group, and their culture can vary significantly from one region to another. Additionally, there are many different sub-groups within the Maasai community, each with their own unique traditions and customs.
+
+If you have any specific questions or would like more information on a particular aspect of Maasai culture, please let me know!",
+    "source": "llm"
+}
+DEBUG 2026-04-22 16:18:48,951 memory_manager 45098 133731423614656 Saved human message to test-1 (len=3)
+DEBUG 2026-04-22 16:18:48,953 memory_manager 45098 133731423614656 Saved ai message to test-1 (len=4)
+DEBUG 2026-04-22 16:18:48,953 views 45098 133731423614656 Saved conversation messages to Redis memory
+INFO 2026-04-22 16:18:48,953 views 45098 133731423614656 Responding to conversation test-1 with source=llm
+DEBUG 2026-04-22 16:21:34,172 views 45663 136151936530112 Raw request body: {"message": "Tell me about Kikuyu", "conversation_id": "debug-1"}
+INFO 2026-04-22 16:21:34,238 views 45663 136151936530112 Processing query for conversation: debug-1
+DEBUG 2026-04-22 16:21:34,238 views 45663 136151936530112 User message (len=20): Tell me about Kikuyu
+DEBUG 2026-04-22 16:21:34,238 views 45663 136151936530112 Request meta: origin=http://localhost:3000 content_type=application/json user_agent=curl/8.5.0
+DEBUG 2026-04-22 16:21:34,238 views 45663 136151936530112 Detected community: Kikuyu
+DEBUG 2026-04-22 16:21:34,239 memory_manager 45663 136151936530112 Attempting Redis connection to localhost:6379 db=0
+INFO 2026-04-22 16:21:34,244 memory_manager 45663 136151936530112 Redis connection established
+DEBUG 2026-04-22 16:21:34,246 memory_manager 45663 136151936530112 Got community for debug-1: None
+DEBUG 2026-04-22 16:21:34,247 views 45663 136151936530112 Stored community for debug-1: 
+DEBUG 2026-04-22 16:21:34,309 memory_manager 45663 136151936530112 Set community Kikuyu for debug-1
+DEBUG 2026-04-22 16:21:34,312 memory_manager 45663 136151936530112 Retrieved 0 messages for debug-1
+DEBUG 2026-04-22 16:21:34,312 views 45663 136151936530112 Conversation history count: 0
+DEBUG 2026-04-22 16:21:34,313 views 45663 136151936530112 Starting retrieval for query (len=20) community=Kikuyu
+DEBUG 2026-04-22 16:21:34,313 retrieval_strategy 45663 136151936530112 RetrievalStrategy.retrieve_information called with query(len=20) community=Kikuyu
+DEBUG 2026-04-22 16:21:34,314 vector_db 45663 136151936530112 search_community called: community=Kikuyu query_len=20 k=5
+DEBUG 2026-04-22 16:21:34,314 vector_db 45663 136151936530112 Checking Chroma DB at /home/mntel/Desktop/projects/culture/config/chroma_store
+WARNING 2026-04-22 16:21:34,314 vector_db 45663 136151936530112 Chroma DB not found at /home/mntel/Desktop/projects/culture/config/chroma_store
+DEBUG 2026-04-22 16:21:34,315 vector_db 45663 136151936530112 No vector store available, returning empty results
+DEBUG 2026-04-22 16:21:34,315 retrieval_strategy 45663 136151936530112 Vector search returned 0 results
+DEBUG 2026-04-22 16:21:34,315 retrieval_strategy 45663 136151936530112 Calculated confidence: 0.0
+INFO 2026-04-22 16:21:34,315 retrieval_strategy 45663 136151936530112 No vector results, using LLM fallback
+DEBUG 2026-04-22 16:21:34,316 views 45663 136151936530112 Retrieval result: source=llm confidence=0.0
+DEBUG 2026-04-22 16:21:34,317 views 45663 136151936530112 Built system prompt (len=526 chars)
+INFO 2026-04-22 16:21:34,318 views 45663 136151936530112 Using LLM fallback to generate response
+DEBUG 2026-04-22 16:21:34,318 ai_client 45663 136151936530112 Calling Groq LLM: system_prompt_len=526 user_message_len=20
+DEBUG 2026-04-22 16:21:35,261 ai_client 45663 136151936530112 Groq LLM raw response type=<class 'langchain_core.messages.ai.AIMessage'>
+DEBUG 2026-04-22 16:21:35,262 ai_client 45663 136151936530112 Groq LLM response (len=892): {
+    "type": "message",
+    "content": "The Kikuyu are an ethnic group native to Kenya, primarily inhabiting the central highlands. They are the largest ethnic group in Kenya, making up around 22% of the population. Traditionally, the Kikuyu were farmers, growing crops such as maize, beans, and potatoes. They are also skilled craftsmen, known for their expertise in woodcarving, pottery, and basket weaving. The Kikuyu have a rich cultural heritage, with a strong emphasis on community and family ties. They are also known for their complex system of governance, which includes a council of elders and a system of age grades. The Kikuyu have a strong spiritual tradition, with a belief in a supreme being known as Ngai, and a complex pantheon of ancestral spirits. They also have a rich tradition of storytelling and music, with a strong emphasis on oral tradition.",
+    "source": "llm"
+}
+DEBUG 2026-04-22 16:21:35,262 views 45663 136151936530112 LLM response (len=827): The Kikuyu are an ethnic group native to Kenya, primarily inhabiting the central highlands. They are the largest ethnic group in Kenya, making up around 22% of the population. Traditionally, the Kikuyu were farmers, growing crops such as maize, beans, and potatoes. They are also skilled craftsmen, known for their expertise in woodcarving, pottery, and basket weaving. The Kikuyu have a rich cultural heritage, with a strong emphasis on community and family ties. They are also known for their complex system of governance, which includes a council of elders and a system of age grades. The Kikuyu have a strong spiritual tradition, with a belief in a supreme being known as Ngai, and a complex pantheon of ancestral spirits. They also have a rich tradition of storytelling and music, with a strong emphasis on oral tradition.
+DEBUG 2026-04-22 16:21:35,264 memory_manager 45663 136151936530112 Saved human message to debug-1 (len=1)
+DEBUG 2026-04-22 16:21:35,266 memory_manager 45663 136151936530112 Saved ai message to debug-1 (len=2)
+DEBUG 2026-04-22 16:21:35,267 views 45663 136151936530112 Saved conversation messages to Redis memory
+INFO 2026-04-22 16:21:35,267 views 45663 136151936530112 Responding to conversation debug-1 with source=llm
+DEBUG 2026-04-22 16:51:51,632 views 47761 137232255022784 [REQUEST RAW] {"message":"hello","page":"/","pageTitle":"Kenya Cultural Heritage - Explore Top 10 Communities","url":"http://localhost:8080/","selectedText":""}
+INFO 2026-04-22 16:51:51,647 views 47761 137232255022784 [REQUEST] conversation_id=anon_1776865911.647499
+DEBUG 2026-04-22 16:51:51,647 views 47761 137232255022784 [USER MESSAGE] hello
+DEBUG 2026-04-22 16:51:51,648 views 47761 137232255022784 [COMMUNITY DETECT] None found
+DEBUG 2026-04-22 16:51:51,648 memory_manager 47761 137232255022784 Attempting Redis connection to localhost:6379 db=0
+INFO 2026-04-22 16:51:51,651 memory_manager 47761 137232255022784 Redis connection established
+DEBUG 2026-04-22 16:51:51,698 memory_manager 47761 137232255022784 Got community for anon_1776865911.647499: None
+DEBUG 2026-04-22 16:51:51,698 views 47761 137232255022784 [COMMUNITY] detected= stored= active=
+DEBUG 2026-04-22 16:51:51,710 memory_manager 47761 137232255022784 Retrieved 0 messages for anon_1776865911.647499
+DEBUG 2026-04-22 16:51:51,710 views 47761 137232255022784 [MEMORY] messages=0
+DEBUG 2026-04-22 16:51:51,710 retrieval_strategy 47761 137232255022784 RetrievalStrategy.retrieve_information called with query(len=5) community=
+DEBUG 2026-04-22 16:51:51,710 vector_db 47761 137232255022784 search_all_communities called: query_len=5 k=5
+DEBUG 2026-04-22 16:51:51,711 vector_db 47761 137232255022784 Checking Chroma DB at /home/mntel/Desktop/projects/culture/config/chroma_store
+WARNING 2026-04-22 16:51:51,711 vector_db 47761 137232255022784 Chroma DB not found at /home/mntel/Desktop/projects/culture/config/chroma_store
+DEBUG 2026-04-22 16:51:51,711 vector_db 47761 137232255022784 No vector store available, returning empty results
+DEBUG 2026-04-22 16:51:51,711 retrieval_strategy 47761 137232255022784 Vector search returned 0 results
+DEBUG 2026-04-22 16:51:51,711 retrieval_strategy 47761 137232255022784 Calculated confidence: 0.0
+INFO 2026-04-22 16:51:51,711 retrieval_strategy 47761 137232255022784 No vector results, using LLM fallback
+DEBUG 2026-04-22 16:51:51,711 views 47761 137232255022784 [RETRIEVAL] {'source': 'llm', 'confidence': 0.0, 'context': '', 'context_blocks': [], 'search_type': 'all_communities'}
+DEBUG 2026-04-22 16:51:51,712 views 47761 137232255022784 [PROMPT BUILT] length=190
+INFO 2026-04-22 16:51:51,712 views 47761 137232255022784 [RESPONSE] Using LLM fallback
+DEBUG 2026-04-22 16:51:51,712 views 47761 137232255022784 [LLM] Calling Groq...
+DEBUG 2026-04-22 16:51:51,712 ai_client 47761 137232255022784 Calling Groq LLM: system_prompt_len=190 user_message_len=5
+DEBUG 2026-04-22 16:51:55,584 ai_client 47761 137232255022784 Groq LLM raw response type=<class 'langchain_core.messages.ai.AIMessage'>
+DEBUG 2026-04-22 16:51:55,584 ai_client 47761 137232255022784 Groq LLM response (len=130): {
+  "type": "message",
+  "content": "Jambo! Welcome to our Kenyan community hub. How can I assist you today?",
+  "source": "llm"
+}
+DEBUG 2026-04-22 16:51:55,585 views 47761 137232255022784 [LLM RAW RESPONSE] {
+  "type": "message",
+  "content": "Jambo! Welcome to our Kenyan community hub. How can I assist you today?",
+  "source": "llm"
+}
+DEBUG 2026-04-22 16:51:55,585 views 47761 137232255022784 [LLM PARSE] Successfully parsed JSON
+DEBUG 2026-04-22 16:51:55,589 memory_manager 47761 137232255022784 Saved human message to anon_1776865911.647499 (len=1)
+DEBUG 2026-04-22 16:51:55,601 memory_manager 47761 137232255022784 Saved ai message to anon_1776865911.647499 (len=2)
+DEBUG 2026-04-22 16:51:55,601 views 47761 137232255022784 [MEMORY SAVED]
+INFO 2026-04-22 16:51:55,601 views 47761 137232255022784 [FINAL RESPONSE] llm
+DEBUG 2026-04-22 16:52:07,697 views 47761 137232255022784 [REQUEST RAW] {"message":" you have tell me something about the cultural heritage of Kenya","page":"/","pageTitle":"Kenya Cultural Heritage - Explore Top 10 Communities","url":"http://localhost:8080/","selectedText":""}
+INFO 2026-04-22 16:52:07,697 views 47761 137232255022784 [REQUEST] conversation_id=anon_1776865927.697352
+DEBUG 2026-04-22 16:52:07,697 views 47761 137232255022784 [USER MESSAGE] you have tell me something about the cultural heritage of Kenya
+DEBUG 2026-04-22 16:52:07,698 views 47761 137232255022784 [COMMUNITY DETECT] None found
+DEBUG 2026-04-22 16:52:07,710 memory_manager 47761 137232255022784 Got community for anon_1776865927.697352: None
+DEBUG 2026-04-22 16:52:07,711 views 47761 137232255022784 [COMMUNITY] detected= stored= active=
+DEBUG 2026-04-22 16:52:07,713 memory_manager 47761 137232255022784 Retrieved 0 messages for anon_1776865927.697352
+DEBUG 2026-04-22 16:52:07,713 views 47761 137232255022784 [MEMORY] messages=0
+DEBUG 2026-04-22 16:52:07,713 retrieval_strategy 47761 137232255022784 RetrievalStrategy.retrieve_information called with query(len=63) community=
+DEBUG 2026-04-22 16:52:07,713 vector_db 47761 137232255022784 search_all_communities called: query_len=63 k=5
+DEBUG 2026-04-22 16:52:07,713 vector_db 47761 137232255022784 Checking Chroma DB at /home/mntel/Desktop/projects/culture/config/chroma_store
+WARNING 2026-04-22 16:52:07,714 vector_db 47761 137232255022784 Chroma DB not found at /home/mntel/Desktop/projects/culture/config/chroma_store
+DEBUG 2026-04-22 16:52:07,714 vector_db 47761 137232255022784 No vector store available, returning empty results
+DEBUG 2026-04-22 16:52:07,714 retrieval_strategy 47761 137232255022784 Vector search returned 0 results
+DEBUG 2026-04-22 16:52:07,714 retrieval_strategy 47761 137232255022784 Calculated confidence: 0.0
+INFO 2026-04-22 16:52:07,715 retrieval_strategy 47761 137232255022784 No vector results, using LLM fallback
+DEBUG 2026-04-22 16:52:07,716 views 47761 137232255022784 [RETRIEVAL] {'source': 'llm', 'confidence': 0.0, 'context': '', 'context_blocks': [], 'search_type': 'all_communities'}
+DEBUG 2026-04-22 16:52:07,716 views 47761 137232255022784 [PROMPT BUILT] length=190
+INFO 2026-04-22 16:52:07,716 views 47761 137232255022784 [RESPONSE] Using LLM fallback
+DEBUG 2026-04-22 16:52:07,716 views 47761 137232255022784 [LLM] Calling Groq...
+DEBUG 2026-04-22 16:52:07,716 ai_client 47761 137232255022784 Calling Groq LLM: system_prompt_len=190 user_message_len=63
+DEBUG 2026-04-22 16:52:08,393 ai_client 47761 137232255022784 Groq LLM raw response type=<class 'langchain_core.messages.ai.AIMessage'>
+DEBUG 2026-04-22 16:52:08,394 ai_client 47761 137232255022784 Groq LLM response (len=516): {
+  "type": "message",
+  "content": "Kenya is home to a rich and diverse cultural heritage, with over 40 ethnic groups. The Maasai people are one of the most well-known groups, known for their distinctive traditional clothing and jewelry. The Maasai are semi-nomadic pastoralists who have lived in the southern and eastern parts of Kenya for centuries. They are known for their expertise in cattle herding and their strong cultural traditions, including their famous jumping dance, the 'adumu'.",
+  "source": "llm"
+}
+DEBUG 2026-04-22 16:52:08,394 views 47761 137232255022784 [LLM RAW RESPONSE] {
+  "type": "message",
+  "content": "Kenya is home to a rich and diverse cultural heritage, with over 40 ethnic groups. The Maasai people are one of the most well-known groups, known for their distinctive traditional clothing and jewelry. The Maasai are semi-nomadic pastoralists who have lived in the southern and eastern parts of Kenya for centuries. They are known for their expertise in cattle herding and their strong cultural traditions, including their famous jumping dance, the 'adumu'.",
+  "
+DEBUG 2026-04-22 16:52:08,394 views 47761 137232255022784 [LLM PARSE] Successfully parsed JSON
+DEBUG 2026-04-22 16:52:08,396 memory_manager 47761 137232255022784 Saved human message to anon_1776865927.697352 (len=1)
+DEBUG 2026-04-22 16:52:08,413 memory_manager 47761 137232255022784 Saved ai message to anon_1776865927.697352 (len=2)
+DEBUG 2026-04-22 16:52:08,413 views 47761 137232255022784 [MEMORY SAVED]
+INFO 2026-04-22 16:52:08,414 views 47761 137232255022784 [FINAL RESPONSE] llm
+DEBUG 2026-04-22 16:52:22,587 views 47761 137232255022784 [REQUEST RAW] {"message":" cool tell me something about the kikuyu community","page":"/","pageTitle":"Kenya Cultural Heritage - Explore Top 10 Communities","url":"http://localhost:8080/","selectedText":""}
+INFO 2026-04-22 16:52:22,587 views 47761 137232255022784 [REQUEST] conversation_id=anon_1776865942.587853
+DEBUG 2026-04-22 16:52:22,588 views 47761 137232255022784 [USER MESSAGE] cool tell me something about the kikuyu community
+DEBUG 2026-04-22 16:52:22,588 views 47761 137232255022784 [COMMUNITY DETECT] Found: Kikuyu
+DEBUG 2026-04-22 16:52:22,589 memory_manager 47761 137232255022784 Got community for anon_1776865942.587853: None
+DEBUG 2026-04-22 16:52:22,590 views 47761 137232255022784 [COMMUNITY] detected=Kikuyu stored= active=Kikuyu
+DEBUG 2026-04-22 16:52:22,592 memory_manager 47761 137232255022784 Set community Kikuyu for anon_1776865942.587853
+DEBUG 2026-04-22 16:52:22,618 memory_manager 47761 137232255022784 Retrieved 0 messages for anon_1776865942.587853
+DEBUG 2026-04-22 16:52:22,619 views 47761 137232255022784 [MEMORY] messages=0
+DEBUG 2026-04-22 16:52:22,619 retrieval_strategy 47761 137232255022784 RetrievalStrategy.retrieve_information called with query(len=49) community=Kikuyu
+DEBUG 2026-04-22 16:52:22,619 vector_db 47761 137232255022784 search_community called: community=Kikuyu query_len=49 k=5
+DEBUG 2026-04-22 16:52:22,619 vector_db 47761 137232255022784 Checking Chroma DB at /home/mntel/Desktop/projects/culture/config/chroma_store
+WARNING 2026-04-22 16:52:22,620 vector_db 47761 137232255022784 Chroma DB not found at /home/mntel/Desktop/projects/culture/config/chroma_store
+DEBUG 2026-04-22 16:52:22,620 vector_db 47761 137232255022784 No vector store available, returning empty results
+DEBUG 2026-04-22 16:52:22,621 retrieval_strategy 47761 137232255022784 Vector search returned 0 results
+DEBUG 2026-04-22 16:52:22,621 retrieval_strategy 47761 137232255022784 Calculated confidence: 0.0
+INFO 2026-04-22 16:52:22,622 retrieval_strategy 47761 137232255022784 No vector results, using LLM fallback
+DEBUG 2026-04-22 16:52:22,622 views 47761 137232255022784 [RETRIEVAL] {'source': 'llm', 'confidence': 0.0, 'context': '', 'context_blocks': [], 'search_type': 'community_specific'}
+DEBUG 2026-04-22 16:52:22,622 views 47761 137232255022784 [PROMPT BUILT] length=208
+INFO 2026-04-22 16:52:22,623 views 47761 137232255022784 [RESPONSE] Using LLM fallback
+DEBUG 2026-04-22 16:52:22,624 views 47761 137232255022784 [LLM] Calling Groq...
+DEBUG 2026-04-22 16:52:22,625 ai_client 47761 137232255022784 Calling Groq LLM: system_prompt_len=208 user_message_len=49
+DEBUG 2026-04-22 16:52:23,395 ai_client 47761 137232255022784 Groq LLM raw response type=<class 'langchain_core.messages.ai.AIMessage'>
+DEBUG 2026-04-22 16:52:23,396 ai_client 47761 137232255022784 Groq LLM response (len=615): {
+  "type": "message",
+  "content": "The Kikuyu community is one of the largest ethnic groups in Kenya, making up around 22% of the population. They are primarily found in the central highlands of Kenya, particularly in the Kiambu, Muranga, Nyeri, Nyandarua, and Kirinyaga counties. The Kikuyu people have a rich cultural heritage, with a strong emphasis on agriculture, trade, and social organization. They are known for their expertise in coffee and tea farming, and their traditional practices such as the 'nyumba kumi' system, where communities are organized into groups of ten households.",
+  "source": "llm"
+}
+DEBUG 2026-04-22 16:52:23,396 views 47761 137232255022784 [LLM RAW RESPONSE] {
+  "type": "message",
+  "content": "The Kikuyu community is one of the largest ethnic groups in Kenya, making up around 22% of the population. They are primarily found in the central highlands of Kenya, particularly in the Kiambu, Muranga, Nyeri, Nyandarua, and Kirinyaga counties. The Kikuyu people have a rich cultural heritage, with a strong emphasis on agriculture, trade, and social organization. They are known for their expertise in coffee and tea farming, and their traditional practices suc
+DEBUG 2026-04-22 16:52:23,396 views 47761 137232255022784 [LLM PARSE] Successfully parsed JSON
+DEBUG 2026-04-22 16:52:23,398 memory_manager 47761 137232255022784 Saved human message to anon_1776865942.587853 (len=1)
+DEBUG 2026-04-22 16:52:23,398 memory_manager 47761 137232255022784 Saved ai message to anon_1776865942.587853 (len=2)
+DEBUG 2026-04-22 16:52:23,399 views 47761 137232255022784 [MEMORY SAVED]
+INFO 2026-04-22 16:52:23,399 views 47761 137232255022784 [FINAL RESPONSE] llm
+DEBUG 2026-04-22 16:52:41,114 views 47761 137232255022784 [REQUEST RAW] {"message":" hello","page":"/","pageTitle":"Kenya Cultural Heritage - Explore Top 10 Communities","url":"http://localhost:8080/","selectedText":""}
+INFO 2026-04-22 16:52:41,115 views 47761 137232255022784 [REQUEST] conversation_id=anon_1776865961.115195
+DEBUG 2026-04-22 16:52:41,115 views 47761 137232255022784 [USER MESSAGE] hello
+DEBUG 2026-04-22 16:52:41,115 views 47761 137232255022784 [COMMUNITY DETECT] None found
+DEBUG 2026-04-22 16:52:41,116 memory_manager 47761 137232255022784 Got community for anon_1776865961.115195: None
+DEBUG 2026-04-22 16:52:41,116 views 47761 137232255022784 [COMMUNITY] detected= stored= active=
+DEBUG 2026-04-22 16:52:41,118 memory_manager 47761 137232255022784 Retrieved 0 messages for anon_1776865961.115195
+DEBUG 2026-04-22 16:52:41,118 views 47761 137232255022784 [MEMORY] messages=0
+DEBUG 2026-04-22 16:52:41,118 retrieval_strategy 47761 137232255022784 RetrievalStrategy.retrieve_information called with query(len=5) community=
+DEBUG 2026-04-22 16:52:41,118 vector_db 47761 137232255022784 search_all_communities called: query_len=5 k=5
+DEBUG 2026-04-22 16:52:41,118 vector_db 47761 137232255022784 Checking Chroma DB at /home/mntel/Desktop/projects/culture/config/chroma_store
+WARNING 2026-04-22 16:52:41,119 vector_db 47761 137232255022784 Chroma DB not found at /home/mntel/Desktop/projects/culture/config/chroma_store
+DEBUG 2026-04-22 16:52:41,119 vector_db 47761 137232255022784 No vector store available, returning empty results
+DEBUG 2026-04-22 16:52:41,119 retrieval_strategy 47761 137232255022784 Vector search returned 0 results
+DEBUG 2026-04-22 16:52:41,119 retrieval_strategy 47761 137232255022784 Calculated confidence: 0.0
+INFO 2026-04-22 16:52:41,119 retrieval_strategy 47761 137232255022784 No vector results, using LLM fallback
+DEBUG 2026-04-22 16:52:41,119 views 47761 137232255022784 [RETRIEVAL] {'source': 'llm', 'confidence': 0.0, 'context': '', 'context_blocks': [], 'search_type': 'all_communities'}
+DEBUG 2026-04-22 16:52:41,120 views 47761 137232255022784 [PROMPT BUILT] length=190
+INFO 2026-04-22 16:52:41,120 views 47761 137232255022784 [RESPONSE] Using LLM fallback
+DEBUG 2026-04-22 16:52:41,120 views 47761 137232255022784 [LLM] Calling Groq...
+DEBUG 2026-04-22 16:52:41,120 ai_client 47761 137232255022784 Calling Groq LLM: system_prompt_len=190 user_message_len=5
+DEBUG 2026-04-22 16:52:41,677 ai_client 47761 137232255022784 Groq LLM raw response type=<class 'langchain_core.messages.ai.AIMessage'>
+DEBUG 2026-04-22 16:52:41,678 ai_client 47761 137232255022784 Groq LLM response (len=130): {
+  "type": "message",
+  "content": "Jambo! Welcome to our Kenyan community hub. How can I assist you today?",
+  "source": "llm"
+}
+DEBUG 2026-04-22 16:52:41,678 views 47761 137232255022784 [LLM RAW RESPONSE] {
+  "type": "message",
+  "content": "Jambo! Welcome to our Kenyan community hub. How can I assist you today?",
+  "source": "llm"
+}
+DEBUG 2026-04-22 16:52:41,678 views 47761 137232255022784 [LLM PARSE] Successfully parsed JSON
+DEBUG 2026-04-22 16:52:41,680 memory_manager 47761 137232255022784 Saved human message to anon_1776865961.115195 (len=1)
+DEBUG 2026-04-22 16:52:41,681 memory_manager 47761 137232255022784 Saved ai message to anon_1776865961.115195 (len=2)
+DEBUG 2026-04-22 16:52:41,681 views 47761 137232255022784 [MEMORY SAVED]
+INFO 2026-04-22 16:52:41,681 views 47761 137232255022784 [FINAL RESPONSE] llm
+DEBUG 2026-04-22 16:52:47,365 views 47761 137232255022784 [REQUEST RAW] {"message":" what are some of their practices","page":"/","pageTitle":"Kenya Cultural Heritage - Explore Top 10 Communities","url":"http://localhost:8080/","selectedText":""}
+INFO 2026-04-22 16:52:47,365 views 47761 137232255022784 [REQUEST] conversation_id=anon_1776865967.365439
+DEBUG 2026-04-22 16:52:47,366 views 47761 137232255022784 [USER MESSAGE] what are some of their practices
+DEBUG 2026-04-22 16:52:47,367 views 47761 137232255022784 [COMMUNITY DETECT] None found
+DEBUG 2026-04-22 16:52:47,368 memory_manager 47761 137232255022784 Got community for anon_1776865967.365439: None
+DEBUG 2026-04-22 16:52:47,368 views 47761 137232255022784 [COMMUNITY] detected= stored= active=
+DEBUG 2026-04-22 16:52:47,369 memory_manager 47761 137232255022784 Retrieved 0 messages for anon_1776865967.365439
+DEBUG 2026-04-22 16:52:47,369 views 47761 137232255022784 [MEMORY] messages=0
+DEBUG 2026-04-22 16:52:47,370 retrieval_strategy 47761 137232255022784 RetrievalStrategy.retrieve_information called with query(len=32) community=
+DEBUG 2026-04-22 16:52:47,370 vector_db 47761 137232255022784 search_all_communities called: query_len=32 k=5
+DEBUG 2026-04-22 16:52:47,370 vector_db 47761 137232255022784 Checking Chroma DB at /home/mntel/Desktop/projects/culture/config/chroma_store
+WARNING 2026-04-22 16:52:47,371 vector_db 47761 137232255022784 Chroma DB not found at /home/mntel/Desktop/projects/culture/config/chroma_store
+DEBUG 2026-04-22 16:52:47,371 vector_db 47761 137232255022784 No vector store available, returning empty results
+DEBUG 2026-04-22 16:52:47,371 retrieval_strategy 47761 137232255022784 Vector search returned 0 results
+DEBUG 2026-04-22 16:52:47,371 retrieval_strategy 47761 137232255022784 Calculated confidence: 0.0
+INFO 2026-04-22 16:52:47,372 retrieval_strategy 47761 137232255022784 No vector results, using LLM fallback
+DEBUG 2026-04-22 16:52:47,373 views 47761 137232255022784 [RETRIEVAL] {'source': 'llm', 'confidence': 0.0, 'context': '', 'context_blocks': [], 'search_type': 'all_communities'}
+DEBUG 2026-04-22 16:52:47,374 views 47761 137232255022784 [PROMPT BUILT] length=190
+INFO 2026-04-22 16:52:47,375 views 47761 137232255022784 [RESPONSE] Using LLM fallback
+DEBUG 2026-04-22 16:52:47,378 views 47761 137232255022784 [LLM] Calling Groq...
+DEBUG 2026-04-22 16:52:47,379 ai_client 47761 137232255022784 Calling Groq LLM: system_prompt_len=190 user_message_len=32
+DEBUG 2026-04-22 16:52:48,324 ai_client 47761 137232255022784 Groq LLM raw response type=<class 'langchain_core.messages.ai.AIMessage'>
+DEBUG 2026-04-22 16:52:48,324 ai_client 47761 137232255022784 Groq LLM response (len=782): {
+  "type": "message",
+  "content": "In Kenyan communities, some of the practices include:\n\n- The Maasai people's Jumping of the Bull ceremony, a rite of passage for young men.\n- The Kikuyu people's Gikaanda ceremony, a coming-of-age ritual for young women.\n- The Luo people's Nyasaye ceremony, a thanksgiving ritual for the harvest.\n- The Maasai people's Emuratta ceremony, a ritual for the initiation of young girls.\n- The Kamba people's Ilika ceremony, a ritual for the initiation of young men.\n- The Meru people's Ithaga ceremony, a ritual for the initiation of young men.\n- The Pokot people's Eunoto ceremony, a rite of passage for young men.\n\nThese are just a few examples of the diverse and rich cultural practices found in Kenyan communities.",
+  "source": "llm"
+}
+DEBUG 2026-04-22 16:52:48,324 views 47761 137232255022784 [LLM RAW RESPONSE] {
+  "type": "message",
+  "content": "In Kenyan communities, some of the practices include:\n\n- The Maasai people's Jumping of the Bull ceremony, a rite of passage for young men.\n- The Kikuyu people's Gikaanda ceremony, a coming-of-age ritual for young women.\n- The Luo people's Nyasaye ceremony, a thanksgiving ritual for the harvest.\n- The Maasai people's Emuratta ceremony, a ritual for the initiation of young girls.\n- The Kamba people's Ilika ceremony, a ritual for the initiation of young m
+DEBUG 2026-04-22 16:52:48,325 views 47761 137232255022784 [LLM PARSE] Successfully parsed JSON
+DEBUG 2026-04-22 16:52:48,326 memory_manager 47761 137232255022784 Saved human message to anon_1776865967.365439 (len=1)
+DEBUG 2026-04-22 16:52:48,354 memory_manager 47761 137232255022784 Saved ai message to anon_1776865967.365439 (len=2)
+DEBUG 2026-04-22 16:52:48,354 views 47761 137232255022784 [MEMORY SAVED]
+INFO 2026-04-22 16:52:48,354 views 47761 137232255022784 [FINAL RESPONSE] llm
+DEBUG 2026-04-22 16:54:06,914 views 47761 137232255022784 [REQUEST RAW] {"message":" well tell me some of the practices in the Kaba community","page":"/","pageTitle":"Kenya Cultural Heritage - Explore Top 10 Communities","url":"http://localhost:8080/","selectedText":""}
+INFO 2026-04-22 16:54:06,915 views 47761 137232255022784 [REQUEST] conversation_id=anon_1776866046.91515
+DEBUG 2026-04-22 16:54:06,915 views 47761 137232255022784 [USER MESSAGE] well tell me some of the practices in the Kaba community
+DEBUG 2026-04-22 16:54:06,916 views 47761 137232255022784 [COMMUNITY DETECT] None found
+DEBUG 2026-04-22 16:54:06,916 memory_manager 47761 137232255022784 Got community for anon_1776866046.91515: None
+DEBUG 2026-04-22 16:54:06,917 views 47761 137232255022784 [COMMUNITY] detected= stored= active=
+DEBUG 2026-04-22 16:54:06,918 memory_manager 47761 137232255022784 Retrieved 0 messages for anon_1776866046.91515
+DEBUG 2026-04-22 16:54:06,918 views 47761 137232255022784 [MEMORY] messages=0
+DEBUG 2026-04-22 16:54:06,919 retrieval_strategy 47761 137232255022784 RetrievalStrategy.retrieve_information called with query(len=56) community=
+DEBUG 2026-04-22 16:54:06,919 vector_db 47761 137232255022784 search_all_communities called: query_len=56 k=5
+DEBUG 2026-04-22 16:54:06,919 vector_db 47761 137232255022784 Checking Chroma DB at /home/mntel/Desktop/projects/culture/config/chroma_store
+WARNING 2026-04-22 16:54:06,919 vector_db 47761 137232255022784 Chroma DB not found at /home/mntel/Desktop/projects/culture/config/chroma_store
+DEBUG 2026-04-22 16:54:06,919 vector_db 47761 137232255022784 No vector store available, returning empty results
+DEBUG 2026-04-22 16:54:06,920 retrieval_strategy 47761 137232255022784 Vector search returned 0 results
+DEBUG 2026-04-22 16:54:06,920 retrieval_strategy 47761 137232255022784 Calculated confidence: 0.0
+INFO 2026-04-22 16:54:06,920 retrieval_strategy 47761 137232255022784 No vector results, using LLM fallback
+DEBUG 2026-04-22 16:54:06,920 views 47761 137232255022784 [RETRIEVAL] {'source': 'llm', 'confidence': 0.0, 'context': '', 'context_blocks': [], 'search_type': 'all_communities'}
+DEBUG 2026-04-22 16:54:06,920 views 47761 137232255022784 [PROMPT BUILT] length=190
+INFO 2026-04-22 16:54:06,921 views 47761 137232255022784 [RESPONSE] Using LLM fallback
+DEBUG 2026-04-22 16:54:06,921 views 47761 137232255022784 [LLM] Calling Groq...
+DEBUG 2026-04-22 16:54:06,921 ai_client 47761 137232255022784 Calling Groq LLM: system_prompt_len=190 user_message_len=56
+DEBUG 2026-04-22 16:54:07,923 ai_client 47761 137232255022784 Groq LLM raw response type=<class 'langchain_core.messages.ai.AIMessage'>
+DEBUG 2026-04-22 16:54:07,924 ai_client 47761 137232255022784 Groq LLM response (len=1222): {
+  "type": "message",
+  "content": "The Kamba community, also known as the Akamba, is an ethnic group from Eastern Kenya. Some of their practices include:\n\n1. Traditional Clothing: The Kamba people are known for their colorful traditional clothing, which includes the 'kitenge' cloth, a vibrant print fabric used to make various garments.\n\n2. Initiation Rites: The Kamba people have a complex initiation system, where boys and girls undergo different rites of passage as they transition from childhood to adulthood.\n\n3. Traditional Music and Dance: The Kamba people have a rich musical heritage, with traditional instruments like the 'ngoma' drum and the 'nyatiti' lyre. Their dances, such as the 'kambo' dance, are an integral part of their cultural expression.\n\n4. Agriculture: The Kamba people are skilled farmers, growing crops like maize, beans, and cassava. They also keep livestock, including cattle, goats, and sheep.\n\n5. Traditional Medicine: The Kamba people have a rich tradition of herbal medicine, with many remedies passed down through generations.\n\n6. Clan System: The Kamba people have a strong clan system, with each clan having its own distinct identity and traditions.",
+  "source": "llm"
+}
+DEBUG 2026-04-22 16:54:07,924 views 47761 137232255022784 [LLM RAW RESPONSE] {
+  "type": "message",
+  "content": "The Kamba community, also known as the Akamba, is an ethnic group from Eastern Kenya. Some of their practices include:\n\n1. Traditional Clothing: The Kamba people are known for their colorful traditional clothing, which includes the 'kitenge' cloth, a vibrant print fabric used to make various garments.\n\n2. Initiation Rites: The Kamba people have a complex initiation system, where boys and girls undergo different rites of passage as they transition from chi
+DEBUG 2026-04-22 16:54:07,924 views 47761 137232255022784 [LLM PARSE] Successfully parsed JSON
+DEBUG 2026-04-22 16:54:07,925 memory_manager 47761 137232255022784 Saved human message to anon_1776866046.91515 (len=1)
+DEBUG 2026-04-22 16:54:07,955 memory_manager 47761 137232255022784 Saved ai message to anon_1776866046.91515 (len=2)
+DEBUG 2026-04-22 16:54:07,955 views 47761 137232255022784 [MEMORY SAVED]
+INFO 2026-04-22 16:54:07,955 views 47761 137232255022784 [FINAL RESPONSE] llm
+DEBUG 2026-04-22 16:57:55,250 views 47761 137232255022784 [REQUEST RAW] {"message":"hello can you please navigate me to the kamba community page","page":"/","pageTitle":"Kenya Cultural Heritage - Explore Top 10 Communities","url":"http://localhost:8080/","selectedText":""}
+INFO 2026-04-22 16:57:55,250 views 47761 137232255022784 [REQUEST] conversation_id=anon_1776866275.250827
+DEBUG 2026-04-22 16:57:55,251 views 47761 137232255022784 [USER MESSAGE] hello can you please navigate me to the kamba community page
+DEBUG 2026-04-22 16:57:55,251 views 47761 137232255022784 [COMMUNITY DETECT] Found: Kamba
+DEBUG 2026-04-22 16:57:55,252 memory_manager 47761 137232255022784 Got community for anon_1776866275.250827: None
+DEBUG 2026-04-22 16:57:55,252 views 47761 137232255022784 [COMMUNITY] detected=Kamba stored= active=Kamba
+DEBUG 2026-04-22 16:57:55,253 memory_manager 47761 137232255022784 Set community Kamba for anon_1776866275.250827
+DEBUG 2026-04-22 16:57:55,253 memory_manager 47761 137232255022784 Retrieved 0 messages for anon_1776866275.250827
+DEBUG 2026-04-22 16:57:55,253 views 47761 137232255022784 [MEMORY] messages=0
+DEBUG 2026-04-22 16:57:55,254 retrieval_strategy 47761 137232255022784 RetrievalStrategy.retrieve_information called with query(len=60) community=Kamba
+DEBUG 2026-04-22 16:57:55,254 vector_db 47761 137232255022784 search_community called: community=Kamba query_len=60 k=5
+DEBUG 2026-04-22 16:57:55,254 vector_db 47761 137232255022784 Checking Chroma DB at /home/mntel/Desktop/projects/culture/config/chroma_store
+WARNING 2026-04-22 16:57:55,254 vector_db 47761 137232255022784 Chroma DB not found at /home/mntel/Desktop/projects/culture/config/chroma_store
+DEBUG 2026-04-22 16:57:55,254 vector_db 47761 137232255022784 No vector store available, returning empty results
+DEBUG 2026-04-22 16:57:55,254 retrieval_strategy 47761 137232255022784 Vector search returned 0 results
+DEBUG 2026-04-22 16:57:55,254 retrieval_strategy 47761 137232255022784 Calculated confidence: 0.0
+INFO 2026-04-22 16:57:55,254 retrieval_strategy 47761 137232255022784 No vector results, using LLM fallback
+DEBUG 2026-04-22 16:57:55,255 views 47761 137232255022784 [RETRIEVAL] {'source': 'llm', 'confidence': 0.0, 'context': '', 'context_blocks': [], 'search_type': 'community_specific'}
+DEBUG 2026-04-22 16:57:55,255 views 47761 137232255022784 [PROMPT BUILT] length=207
+INFO 2026-04-22 16:57:55,255 views 47761 137232255022784 [RESPONSE] Using LLM fallback
+DEBUG 2026-04-22 16:57:55,255 views 47761 137232255022784 [LLM] Calling Groq...
+DEBUG 2026-04-22 16:57:55,255 ai_client 47761 137232255022784 Calling Groq LLM: system_prompt_len=207 user_message_len=60
+DEBUG 2026-04-22 16:57:59,012 ai_client 47761 137232255022784 Groq LLM raw response type=<class 'langchain_core.messages.ai.AIMessage'>
+DEBUG 2026-04-22 16:57:59,012 ai_client 47761 137232255022784 Groq LLM response (len=249): {
+  "type": "message",
+  "content": "Welcome to the Kamba community page! The Kamba people are an ethnic group from Kenya, primarily inhabiting the Eastern region. They are known for their rich cultural heritage and traditions.",
+  "source": "llm"
+}
+DEBUG 2026-04-22 16:57:59,012 views 47761 137232255022784 [LLM RAW RESPONSE] {
+  "type": "message",
+  "content": "Welcome to the Kamba community page! The Kamba people are an ethnic group from Kenya, primarily inhabiting the Eastern region. They are known for their rich cultural heritage and traditions.",
+  "source": "llm"
+}
+DEBUG 2026-04-22 16:57:59,012 views 47761 137232255022784 [LLM PARSE] Successfully parsed JSON
+DEBUG 2026-04-22 16:57:59,014 memory_manager 47761 137232255022784 Saved human message to anon_1776866275.250827 (len=1)
+DEBUG 2026-04-22 16:57:59,040 memory_manager 47761 137232255022784 Saved ai message to anon_1776866275.250827 (len=2)
+DEBUG 2026-04-22 16:57:59,040 views 47761 137232255022784 [MEMORY SAVED]
+INFO 2026-04-22 16:57:59,040 views 47761 137232255022784 [FINAL RESPONSE] llm
+DEBUG 2026-04-22 16:58:23,574 views 47761 137232255022784 [REQUEST RAW] {"message":"explain to me their practices","page":"/","pageTitle":"Kenya Cultural Heritage - Explore Top 10 Communities","url":"http://localhost:8080/","selectedText":""}
+INFO 2026-04-22 16:58:23,574 views 47761 137232255022784 [REQUEST] conversation_id=anon_1776866303.574712
+DEBUG 2026-04-22 16:58:23,574 views 47761 137232255022784 [USER MESSAGE] explain to me their practices
+DEBUG 2026-04-22 16:58:23,575 views 47761 137232255022784 [COMMUNITY DETECT] None found
+DEBUG 2026-04-22 16:58:23,577 memory_manager 47761 137232255022784 Got community for anon_1776866303.574712: None
+DEBUG 2026-04-22 16:58:23,578 views 47761 137232255022784 [COMMUNITY] detected= stored= active=
+DEBUG 2026-04-22 16:58:23,579 memory_manager 47761 137232255022784 Retrieved 0 messages for anon_1776866303.574712
+DEBUG 2026-04-22 16:58:23,580 views 47761 137232255022784 [MEMORY] messages=0
+DEBUG 2026-04-22 16:58:23,580 retrieval_strategy 47761 137232255022784 RetrievalStrategy.retrieve_information called with query(len=29) community=
+DEBUG 2026-04-22 16:58:23,580 vector_db 47761 137232255022784 search_all_communities called: query_len=29 k=5
+DEBUG 2026-04-22 16:58:23,580 vector_db 47761 137232255022784 Checking Chroma DB at /home/mntel/Desktop/projects/culture/config/chroma_store
+WARNING 2026-04-22 16:58:23,581 vector_db 47761 137232255022784 Chroma DB not found at /home/mntel/Desktop/projects/culture/config/chroma_store
+DEBUG 2026-04-22 16:58:23,581 vector_db 47761 137232255022784 No vector store available, returning empty results
+DEBUG 2026-04-22 16:58:23,581 retrieval_strategy 47761 137232255022784 Vector search returned 0 results
+DEBUG 2026-04-22 16:58:23,581 retrieval_strategy 47761 137232255022784 Calculated confidence: 0.0
+INFO 2026-04-22 16:58:23,581 retrieval_strategy 47761 137232255022784 No vector results, using LLM fallback
+DEBUG 2026-04-22 16:58:23,582 views 47761 137232255022784 [RETRIEVAL] {'source': 'llm', 'confidence': 0.0, 'context': '', 'context_blocks': [], 'search_type': 'all_communities'}
+DEBUG 2026-04-22 16:58:23,582 views 47761 137232255022784 [PROMPT BUILT] length=190
+INFO 2026-04-22 16:58:23,582 views 47761 137232255022784 [RESPONSE] Using LLM fallback
+DEBUG 2026-04-22 16:58:23,582 views 47761 137232255022784 [LLM] Calling Groq...
+DEBUG 2026-04-22 16:58:23,582 ai_client 47761 137232255022784 Calling Groq LLM: system_prompt_len=190 user_message_len=29
+DEBUG 2026-04-22 16:58:24,630 ai_client 47761 137232255022784 Groq LLM raw response type=<class 'langchain_core.messages.ai.AIMessage'>
+DEBUG 2026-04-22 16:58:24,630 ai_client 47761 137232255022784 Groq LLM response (len=1688): {
+  "type": "message",
+  "content": "Kenyan communities have diverse practices shaped by their ethnic and cultural backgrounds. Here are some key practices across various communities:\n\n1. **Maasai Community**: The Maasai people are semi-nomadic and practice pastoralism. They are known for their expertise in herding cattle, goats, and sheep. They also have a rich cultural heritage, with a strong emphasis on community and respect for elders.\n\n2. **Luhya Community**: The Luhya people are a Bantu-speaking community that practices subsistence farming. They are known for their expertise in growing crops such as maize, beans, and cassava. They also have a strong tradition of storytelling and music.\n\n3. **Kikuyu Community**: The Kikuyu people are a Bantu-speaking community that practices subsistence farming. They are known for their expertise in growing crops such as coffee, tea, and pyrethrum. They also have a strong tradition of community organization and leadership.\n\n4. **Swahili Community**: The Swahili people are a Bantu-speaking community that practices trade and commerce. They are known for their expertise in fishing and seafood processing. They also have a strong tradition of Islamic culture and architecture.\n\n5. **Samburu Community**: The Samburu people are a semi-nomadic community that practices pastoralism. They are known for their expertise in herding cattle and goats. They also have a rich cultural heritage, with a strong emphasis on community and respect for elders.\n\nThese are just a few examples of the diverse practices found across Kenyan communities. Each community has its unique traditions, customs, and ways of life.",
+  "source": "llm"
+}
+DEBUG 2026-04-22 16:58:24,631 views 47761 137232255022784 [LLM RAW RESPONSE] {
+  "type": "message",
+  "content": "Kenyan communities have diverse practices shaped by their ethnic and cultural backgrounds. Here are some key practices across various communities:\n\n1. **Maasai Community**: The Maasai people are semi-nomadic and practice pastoralism. They are known for their expertise in herding cattle, goats, and sheep. They also have a rich cultural heritage, with a strong emphasis on community and respect for elders.\n\n2. **Luhya Community**: The Luhya people are a Bant
+DEBUG 2026-04-22 16:58:24,631 views 47761 137232255022784 [LLM PARSE] Successfully parsed JSON
+DEBUG 2026-04-22 16:58:24,632 memory_manager 47761 137232255022784 Saved human message to anon_1776866303.574712 (len=1)
+DEBUG 2026-04-22 16:58:24,641 memory_manager 47761 137232255022784 Saved ai message to anon_1776866303.574712 (len=2)
+DEBUG 2026-04-22 16:58:24,642 views 47761 137232255022784 [MEMORY SAVED]
+INFO 2026-04-22 16:58:24,642 views 47761 137232255022784 [FINAL RESPONSE] llm
