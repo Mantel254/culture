@@ -389,3 +389,447 @@ DEBUG 2026-04-22 16:58:24,632 memory_manager 47761 137232255022784 Saved human m
 DEBUG 2026-04-22 16:58:24,641 memory_manager 47761 137232255022784 Saved ai message to anon_1776866303.574712 (len=2)
 DEBUG 2026-04-22 16:58:24,642 views 47761 137232255022784 [MEMORY SAVED]
 INFO 2026-04-22 16:58:24,642 views 47761 137232255022784 [FINAL RESPONSE] llm
+DEBUG 2026-04-25 18:23:22,359 views 7603 127266286728896 [REQUEST RAW] {"message":"hello","page":"/","pageTitle":"Kenya Cultural Heritage - Explore Top 10 Communities","url":"http://localhost:8080/","selectedText":null,"conversation_id":"1776706813973_z8u83ee"}
+INFO 2026-04-25 18:23:22,437 views 7603 127266286728896 [REQUEST] conversation_id=1776706813973_z8u83ee
+DEBUG 2026-04-25 18:23:22,437 views 7603 127266286728896 [USER MESSAGE] hello
+DEBUG 2026-04-25 18:23:22,438 views 7603 127266286728896 [CONTEXT] page=/ title=Kenya Cultural Heritage - Explore Top 10 Communities selected_text_len=0
+DEBUG 2026-04-25 18:23:22,438 views 7603 127266286728896 [COMMUNITY DETECT] None found
+DEBUG 2026-04-25 18:23:22,438 memory_manager 7603 127266286728896 Attempting Redis connection to localhost:6379 db=0
+INFO 2026-04-25 18:23:22,441 memory_manager 7603 127266286728896 Redis connection established
+DEBUG 2026-04-25 18:23:22,441 memory_manager 7603 127266286728896 Got community for 1776706813973_z8u83ee: luhya
+DEBUG 2026-04-25 18:23:22,441 views 7603 127266286728896 [COMMUNITY] detected= stored=luhya active=luhya
+DEBUG 2026-04-25 18:23:22,442 memory_manager 7603 127266286728896 Retrieved 10 messages for 1776706813973_z8u83ee
+DEBUG 2026-04-25 18:23:22,442 views 7603 127266286728896 [MEMORY] messages=10
+DEBUG 2026-04-25 18:23:22,442 retrieval_strategy 7603 127266286728896 RetrievalStrategy.retrieve_information called with query(len=5) community=luhya
+DEBUG 2026-04-25 18:23:22,442 vector_db 7603 127266286728896 search_community called: community=luhya query_len=5 k=5
+DEBUG 2026-04-25 18:23:22,442 vector_db 7603 127266286728896 Checking Chroma DB at /home/mntel/Desktop/projects/culture/config/chroma_store
+WARNING 2026-04-25 18:23:22,442 vector_db 7603 127266286728896 Chroma DB not found at /home/mntel/Desktop/projects/culture/config/chroma_store
+DEBUG 2026-04-25 18:23:22,443 vector_db 7603 127266286728896 No vector store available, returning empty results
+DEBUG 2026-04-25 18:23:22,443 retrieval_strategy 7603 127266286728896 Vector search returned 0 results
+DEBUG 2026-04-25 18:23:22,443 retrieval_strategy 7603 127266286728896 Calculated confidence: 0.0
+INFO 2026-04-25 18:23:22,443 retrieval_strategy 7603 127266286728896 No vector results, using LLM fallback
+DEBUG 2026-04-25 18:23:22,443 views 7603 127266286728896 [RETRIEVAL] {'source': 'llm', 'confidence': 0.0, 'context': '', 'context_blocks': [], 'search_type': 'community_specific'}
+DEBUG 2026-04-25 18:23:22,443 views 7603 127266286728896 [PROMPT BUILT] length=6192
+INFO 2026-04-25 18:23:22,443 views 7603 127266286728896 [RESPONSE] Using LLM fallback
+DEBUG 2026-04-25 18:23:22,443 views 7603 127266286728896 [LLM] Calling Groq...
+DEBUG 2026-04-25 18:23:22,443 ai_client 7603 127266286728896 Calling Groq LLM: system_prompt_len=6192 user_message_len=5
+DEBUG 2026-04-25 18:23:26,798 ai_client 7603 127266286728896 Groq LLM raw response type=<class 'langchain_core.messages.ai.AIMessage'>
+DEBUG 2026-04-25 18:23:26,799 ai_client 7603 127266286728896 Groq LLM response (len=677): {
+  "type": "message",
+  "content": "Jambo! Welcome to our Kenyan communities website. Since you didn't specify a particular community, I'll provide a brief overview of the different communities we have on our website. We have the Kalenjin community, known for their athletic prowess and rich cultural heritage. We also have the Maasai community, famous for their distinctive traditional clothing and jewelry. Additionally, we have the Luo community, known for their strong musical traditions and vibrant cultural festivals. If you'd like to learn more about any of these communities, feel free to ask, and I'll be happy to guide you to the relevant page.",
+  "source": "llm"
+}
+DEBUG 2026-04-25 18:23:26,799 views 7603 127266286728896 [LLM RAW RESPONSE] {
+  "type": "message",
+  "content": "Jambo! Welcome to our Kenyan communities website. Since you didn't specify a particular community, I'll provide a brief overview of the different communities we have on our website. We have the Kalenjin community, known for their athletic prowess and rich cultural heritage. We also have the Maasai community, famous for their distinctive traditional clothing and jewelry. Additionally, we have the Luo community, known for their strong musical traditions and vib
+DEBUG 2026-04-25 18:23:26,808 views 7603 127266286728896 [LLM PARSE] Successfully parsed JSON
+DEBUG 2026-04-25 18:23:26,810 memory_manager 7603 127266286728896 Saved human message to 1776706813973_z8u83ee (len=10)
+DEBUG 2026-04-25 18:23:26,812 memory_manager 7603 127266286728896 Saved ai message to 1776706813973_z8u83ee (len=10)
+DEBUG 2026-04-25 18:23:26,818 views 7603 127266286728896 [MEMORY SAVED]
+INFO 2026-04-25 18:23:26,818 views 7603 127266286728896 [FINAL RESPONSE] llm
+DEBUG 2026-04-25 18:23:45,236 views 7603 127266286728896 [REQUEST RAW] {"message":" yes yes tell me something about the cultures in Kenya","page":"/","pageTitle":"Kenya Cultural Heritage - Explore Top 10 Communities","url":"http://localhost:8080/","selectedText":null,"conversation_id":"1776706813973_z8u83ee"}
+INFO 2026-04-25 18:23:45,236 views 7603 127266286728896 [REQUEST] conversation_id=1776706813973_z8u83ee
+DEBUG 2026-04-25 18:23:45,236 views 7603 127266286728896 [USER MESSAGE] yes yes tell me something about the cultures in Kenya
+DEBUG 2026-04-25 18:23:45,236 views 7603 127266286728896 [CONTEXT] page=/ title=Kenya Cultural Heritage - Explore Top 10 Communities selected_text_len=0
+DEBUG 2026-04-25 18:23:45,236 views 7603 127266286728896 [COMMUNITY DETECT] None found
+DEBUG 2026-04-25 18:23:45,237 memory_manager 7603 127266286728896 Got community for 1776706813973_z8u83ee: luhya
+DEBUG 2026-04-25 18:23:45,237 views 7603 127266286728896 [COMMUNITY] detected= stored=luhya active=luhya
+DEBUG 2026-04-25 18:23:45,238 memory_manager 7603 127266286728896 Retrieved 10 messages for 1776706813973_z8u83ee
+DEBUG 2026-04-25 18:23:45,238 views 7603 127266286728896 [MEMORY] messages=10
+DEBUG 2026-04-25 18:23:45,238 retrieval_strategy 7603 127266286728896 RetrievalStrategy.retrieve_information called with query(len=53) community=luhya
+DEBUG 2026-04-25 18:23:45,238 vector_db 7603 127266286728896 search_community called: community=luhya query_len=53 k=5
+DEBUG 2026-04-25 18:23:45,238 vector_db 7603 127266286728896 Checking Chroma DB at /home/mntel/Desktop/projects/culture/config/chroma_store
+WARNING 2026-04-25 18:23:45,238 vector_db 7603 127266286728896 Chroma DB not found at /home/mntel/Desktop/projects/culture/config/chroma_store
+DEBUG 2026-04-25 18:23:45,239 vector_db 7603 127266286728896 No vector store available, returning empty results
+DEBUG 2026-04-25 18:23:45,239 retrieval_strategy 7603 127266286728896 Vector search returned 0 results
+DEBUG 2026-04-25 18:23:45,239 retrieval_strategy 7603 127266286728896 Calculated confidence: 0.0
+INFO 2026-04-25 18:23:45,239 retrieval_strategy 7603 127266286728896 No vector results, using LLM fallback
+DEBUG 2026-04-25 18:23:45,239 views 7603 127266286728896 [RETRIEVAL] {'source': 'llm', 'confidence': 0.0, 'context': '', 'context_blocks': [], 'search_type': 'community_specific'}
+DEBUG 2026-04-25 18:23:45,239 views 7603 127266286728896 [PROMPT BUILT] length=5588
+INFO 2026-04-25 18:23:45,239 views 7603 127266286728896 [RESPONSE] Using LLM fallback
+DEBUG 2026-04-25 18:23:45,239 views 7603 127266286728896 [LLM] Calling Groq...
+DEBUG 2026-04-25 18:23:45,239 ai_client 7603 127266286728896 Calling Groq LLM: system_prompt_len=5588 user_message_len=53
+DEBUG 2026-04-25 18:23:46,176 ai_client 7603 127266286728896 Groq LLM raw response type=<class 'langchain_core.messages.ai.AIMessage'>
+DEBUG 2026-04-25 18:23:46,176 ai_client 7603 127266286728896 Groq LLM response (len=713): {
+  "type": "message",
+  "content": "Kenya is a culturally diverse country with over 40 ethnic groups, each with their unique traditions, customs, and languages. The country's cultural heritage is a rich tapestry of African, Arabic, and European influences. The Maasai people, for example, are known for their distinctive traditional clothing and jewelry, while the Luo community is famous for their strong musical traditions and vibrant cultural festivals. The Kalenjin community, on the other hand, is known for their athletic prowess and rich cultural heritage. If you'd like to learn more about a specific community, feel free to ask, and I'll be happy to guide you to the relevant page.",
+  "source": "llm"
+}
+DEBUG 2026-04-25 18:23:46,176 views 7603 127266286728896 [LLM RAW RESPONSE] {
+  "type": "message",
+  "content": "Kenya is a culturally diverse country with over 40 ethnic groups, each with their unique traditions, customs, and languages. The country's cultural heritage is a rich tapestry of African, Arabic, and European influences. The Maasai people, for example, are known for their distinctive traditional clothing and jewelry, while the Luo community is famous for their strong musical traditions and vibrant cultural festivals. The Kalenjin community, on the other hand,
+DEBUG 2026-04-25 18:23:46,177 views 7603 127266286728896 [LLM PARSE] Successfully parsed JSON
+DEBUG 2026-04-25 18:23:46,179 memory_manager 7603 127266286728896 Saved human message to 1776706813973_z8u83ee (len=10)
+DEBUG 2026-04-25 18:23:46,180 memory_manager 7603 127266286728896 Saved ai message to 1776706813973_z8u83ee (len=10)
+DEBUG 2026-04-25 18:23:46,180 views 7603 127266286728896 [MEMORY SAVED]
+INFO 2026-04-25 18:23:46,180 views 7603 127266286728896 [FINAL RESPONSE] llm
+DEBUG 2026-04-25 18:23:55,785 views 7603 127266286728896 [REQUEST RAW] {"message":" diverse traditions and customs and languages","page":"/","pageTitle":"Kenya Cultural Heritage - Explore Top 10 Communities","url":"http://localhost:8080/","selectedText":null,"conversation_id":"1776706813973_z8u83ee"}
+INFO 2026-04-25 18:23:55,786 views 7603 127266286728896 [REQUEST] conversation_id=1776706813973_z8u83ee
+DEBUG 2026-04-25 18:23:55,787 views 7603 127266286728896 [USER MESSAGE] diverse traditions and customs and languages
+DEBUG 2026-04-25 18:23:55,788 views 7603 127266286728896 [CONTEXT] page=/ title=Kenya Cultural Heritage - Explore Top 10 Communities selected_text_len=0
+DEBUG 2026-04-25 18:23:55,791 views 7603 127266286728896 [COMMUNITY DETECT] None found
+DEBUG 2026-04-25 18:23:55,792 memory_manager 7603 127266286728896 Got community for 1776706813973_z8u83ee: luhya
+DEBUG 2026-04-25 18:23:55,792 views 7603 127266286728896 [COMMUNITY] detected= stored=luhya active=luhya
+DEBUG 2026-04-25 18:23:55,793 memory_manager 7603 127266286728896 Retrieved 10 messages for 1776706813973_z8u83ee
+DEBUG 2026-04-25 18:23:55,794 views 7603 127266286728896 [MEMORY] messages=10
+DEBUG 2026-04-25 18:23:55,795 retrieval_strategy 7603 127266286728896 RetrievalStrategy.retrieve_information called with query(len=44) community=luhya
+DEBUG 2026-04-25 18:23:55,796 vector_db 7603 127266286728896 search_community called: community=luhya query_len=44 k=5
+DEBUG 2026-04-25 18:23:55,798 vector_db 7603 127266286728896 Checking Chroma DB at /home/mntel/Desktop/projects/culture/config/chroma_store
+WARNING 2026-04-25 18:23:55,800 vector_db 7603 127266286728896 Chroma DB not found at /home/mntel/Desktop/projects/culture/config/chroma_store
+DEBUG 2026-04-25 18:23:55,805 vector_db 7603 127266286728896 No vector store available, returning empty results
+DEBUG 2026-04-25 18:23:55,805 retrieval_strategy 7603 127266286728896 Vector search returned 0 results
+DEBUG 2026-04-25 18:23:55,805 retrieval_strategy 7603 127266286728896 Calculated confidence: 0.0
+INFO 2026-04-25 18:23:55,805 retrieval_strategy 7603 127266286728896 No vector results, using LLM fallback
+DEBUG 2026-04-25 18:23:55,805 views 7603 127266286728896 [RETRIEVAL] {'source': 'llm', 'confidence': 0.0, 'context': '', 'context_blocks': [], 'search_type': 'community_specific'}
+DEBUG 2026-04-25 18:23:55,806 views 7603 127266286728896 [PROMPT BUILT] length=5396
+INFO 2026-04-25 18:23:55,806 views 7603 127266286728896 [RESPONSE] Using LLM fallback
+DEBUG 2026-04-25 18:23:55,806 views 7603 127266286728896 [LLM] Calling Groq...
+DEBUG 2026-04-25 18:23:55,807 ai_client 7603 127266286728896 Calling Groq LLM: system_prompt_len=5396 user_message_len=44
+DEBUG 2026-04-25 18:23:56,667 ai_client 7603 127266286728896 Groq LLM raw response type=<class 'langchain_core.messages.ai.AIMessage'>
+DEBUG 2026-04-25 18:23:56,667 ai_client 7603 127266286728896 Groq LLM response (len=634): {
+  "type": "message",
+  "content": "Kenya's cultural diversity is indeed one of its greatest strengths. With over 40 ethnic groups, each community has its unique traditions, customs, and languages. For example, the Maasai people have a rich tradition of beadwork and jewelry-making, while the Luo community is known for their vibrant musical traditions and cultural festivals. The Kalenjin community, on the other hand, has a strong emphasis on athletics and a rich cultural heritage. If you'd like to learn more about a specific community, feel free to ask, and I'll be happy to guide you to the relevant page.",
+  "source": "llm"
+}
+DEBUG 2026-04-25 18:23:56,668 views 7603 127266286728896 [LLM RAW RESPONSE] {
+  "type": "message",
+  "content": "Kenya's cultural diversity is indeed one of its greatest strengths. With over 40 ethnic groups, each community has its unique traditions, customs, and languages. For example, the Maasai people have a rich tradition of beadwork and jewelry-making, while the Luo community is known for their vibrant musical traditions and cultural festivals. The Kalenjin community, on the other hand, has a strong emphasis on athletics and a rich cultural heritage. If you'd like 
+DEBUG 2026-04-25 18:23:56,668 views 7603 127266286728896 [LLM PARSE] Successfully parsed JSON
+DEBUG 2026-04-25 18:23:56,668 memory_manager 7603 127266286728896 Saved human message to 1776706813973_z8u83ee (len=10)
+DEBUG 2026-04-25 18:23:56,669 memory_manager 7603 127266286728896 Saved ai message to 1776706813973_z8u83ee (len=10)
+DEBUG 2026-04-25 18:23:56,669 views 7603 127266286728896 [MEMORY SAVED]
+INFO 2026-04-25 18:23:56,669 views 7603 127266286728896 [FINAL RESPONSE] llm
+DEBUG 2026-04-25 18:24:06,501 views 7603 127266286728896 [REQUEST RAW] {"message":"diver","page":"/","pageTitle":"Kenya Cultural Heritage - Explore Top 10 Communities","url":"http://localhost:8080/","selectedText":null,"conversation_id":"1776706813973_z8u83ee"}
+INFO 2026-04-25 18:24:06,502 views 7603 127266286728896 [REQUEST] conversation_id=1776706813973_z8u83ee
+DEBUG 2026-04-25 18:24:06,502 views 7603 127266286728896 [USER MESSAGE] diver
+DEBUG 2026-04-25 18:24:06,502 views 7603 127266286728896 [CONTEXT] page=/ title=Kenya Cultural Heritage - Explore Top 10 Communities selected_text_len=0
+DEBUG 2026-04-25 18:24:06,502 views 7603 127266286728896 [COMMUNITY DETECT] None found
+DEBUG 2026-04-25 18:24:06,503 memory_manager 7603 127266286728896 Got community for 1776706813973_z8u83ee: luhya
+DEBUG 2026-04-25 18:24:06,503 views 7603 127266286728896 [COMMUNITY] detected= stored=luhya active=luhya
+DEBUG 2026-04-25 18:24:06,503 memory_manager 7603 127266286728896 Retrieved 10 messages for 1776706813973_z8u83ee
+DEBUG 2026-04-25 18:24:06,504 views 7603 127266286728896 [MEMORY] messages=10
+DEBUG 2026-04-25 18:24:06,504 retrieval_strategy 7603 127266286728896 RetrievalStrategy.retrieve_information called with query(len=5) community=luhya
+DEBUG 2026-04-25 18:24:06,504 vector_db 7603 127266286728896 search_community called: community=luhya query_len=5 k=5
+DEBUG 2026-04-25 18:24:06,504 vector_db 7603 127266286728896 Checking Chroma DB at /home/mntel/Desktop/projects/culture/config/chroma_store
+WARNING 2026-04-25 18:24:06,504 vector_db 7603 127266286728896 Chroma DB not found at /home/mntel/Desktop/projects/culture/config/chroma_store
+DEBUG 2026-04-25 18:24:06,504 vector_db 7603 127266286728896 No vector store available, returning empty results
+DEBUG 2026-04-25 18:24:06,504 retrieval_strategy 7603 127266286728896 Vector search returned 0 results
+DEBUG 2026-04-25 18:24:06,505 retrieval_strategy 7603 127266286728896 Calculated confidence: 0.0
+INFO 2026-04-25 18:24:06,505 retrieval_strategy 7603 127266286728896 No vector results, using LLM fallback
+DEBUG 2026-04-25 18:24:06,505 views 7603 127266286728896 [RETRIEVAL] {'source': 'llm', 'confidence': 0.0, 'context': '', 'context_blocks': [], 'search_type': 'community_specific'}
+DEBUG 2026-04-25 18:24:06,505 views 7603 127266286728896 [PROMPT BUILT] length=5412
+INFO 2026-04-25 18:24:06,505 views 7603 127266286728896 [RESPONSE] Using LLM fallback
+DEBUG 2026-04-25 18:24:06,505 views 7603 127266286728896 [LLM] Calling Groq...
+DEBUG 2026-04-25 18:24:06,505 ai_client 7603 127266286728896 Calling Groq LLM: system_prompt_len=5412 user_message_len=5
+DEBUG 2026-04-25 18:24:07,339 ai_client 7603 127266286728896 Groq LLM raw response type=<class 'langchain_core.messages.ai.AIMessage'>
+DEBUG 2026-04-25 18:24:07,339 ai_client 7603 127266286728896 Groq LLM response (len=750): {
+  "type": "message",
+  "content": "Kenya's cultural diversity is indeed one of its greatest strengths. With over 40 ethnic groups, each community has its unique traditions, customs, and languages. The country's cultural heritage is a rich tapestry of African, Arabic, and European influences. The Maasai people, for example, are known for their distinctive traditional clothing and jewelry, while the Luo community is famous for their strong musical traditions and vibrant cultural festivals. The Kalenjin community, on the other hand, is known for their athletic prowess and rich cultural heritage. If you'd like to learn more about a specific community, feel free to ask, and I'll be happy to guide you to the relevant page.",
+  "source": "llm"
+}
+DEBUG 2026-04-25 18:24:07,341 views 7603 127266286728896 [LLM RAW RESPONSE] {
+  "type": "message",
+  "content": "Kenya's cultural diversity is indeed one of its greatest strengths. With over 40 ethnic groups, each community has its unique traditions, customs, and languages. The country's cultural heritage is a rich tapestry of African, Arabic, and European influences. The Maasai people, for example, are known for their distinctive traditional clothing and jewelry, while the Luo community is famous for their strong musical traditions and vibrant cultural festivals. The K
+DEBUG 2026-04-25 18:24:07,341 views 7603 127266286728896 [LLM PARSE] Successfully parsed JSON
+DEBUG 2026-04-25 18:24:07,342 memory_manager 7603 127266286728896 Saved human message to 1776706813973_z8u83ee (len=10)
+DEBUG 2026-04-25 18:24:07,345 memory_manager 7603 127266286728896 Saved ai message to 1776706813973_z8u83ee (len=10)
+DEBUG 2026-04-25 18:24:07,348 views 7603 127266286728896 [MEMORY SAVED]
+INFO 2026-04-25 18:24:07,348 views 7603 127266286728896 [FINAL RESPONSE] llm
+DEBUG 2026-04-25 18:24:07,932 views 7603 127266286728896 [REQUEST RAW] {"message":"sity in one of it","page":"/","pageTitle":"Kenya Cultural Heritage - Explore Top 10 Communities","url":"http://localhost:8080/","selectedText":null,"conversation_id":"1776706813973_z8u83ee"}
+INFO 2026-04-25 18:24:07,932 views 7603 127266286728896 [REQUEST] conversation_id=1776706813973_z8u83ee
+DEBUG 2026-04-25 18:24:07,932 views 7603 127266286728896 [USER MESSAGE] sity in one of it
+DEBUG 2026-04-25 18:24:07,932 views 7603 127266286728896 [CONTEXT] page=/ title=Kenya Cultural Heritage - Explore Top 10 Communities selected_text_len=0
+DEBUG 2026-04-25 18:24:07,932 views 7603 127266286728896 [COMMUNITY DETECT] None found
+DEBUG 2026-04-25 18:24:07,933 memory_manager 7603 127266286728896 Got community for 1776706813973_z8u83ee: luhya
+DEBUG 2026-04-25 18:24:07,933 views 7603 127266286728896 [COMMUNITY] detected= stored=luhya active=luhya
+DEBUG 2026-04-25 18:24:07,934 memory_manager 7603 127266286728896 Retrieved 10 messages for 1776706813973_z8u83ee
+DEBUG 2026-04-25 18:24:07,934 views 7603 127266286728896 [MEMORY] messages=10
+DEBUG 2026-04-25 18:24:07,935 retrieval_strategy 7603 127266286728896 RetrievalStrategy.retrieve_information called with query(len=17) community=luhya
+DEBUG 2026-04-25 18:24:07,935 vector_db 7603 127266286728896 search_community called: community=luhya query_len=17 k=5
+DEBUG 2026-04-25 18:24:07,935 vector_db 7603 127266286728896 Checking Chroma DB at /home/mntel/Desktop/projects/culture/config/chroma_store
+WARNING 2026-04-25 18:24:07,936 vector_db 7603 127266286728896 Chroma DB not found at /home/mntel/Desktop/projects/culture/config/chroma_store
+DEBUG 2026-04-25 18:24:07,936 vector_db 7603 127266286728896 No vector store available, returning empty results
+DEBUG 2026-04-25 18:24:07,936 retrieval_strategy 7603 127266286728896 Vector search returned 0 results
+DEBUG 2026-04-25 18:24:07,936 retrieval_strategy 7603 127266286728896 Calculated confidence: 0.0
+INFO 2026-04-25 18:24:07,936 retrieval_strategy 7603 127266286728896 No vector results, using LLM fallback
+DEBUG 2026-04-25 18:24:07,936 views 7603 127266286728896 [RETRIEVAL] {'source': 'llm', 'confidence': 0.0, 'context': '', 'context_blocks': [], 'search_type': 'community_specific'}
+DEBUG 2026-04-25 18:24:07,936 views 7603 127266286728896 [PROMPT BUILT] length=5243
+INFO 2026-04-25 18:24:07,937 views 7603 127266286728896 [RESPONSE] Using LLM fallback
+DEBUG 2026-04-25 18:24:07,937 views 7603 127266286728896 [LLM] Calling Groq...
+DEBUG 2026-04-25 18:24:07,937 ai_client 7603 127266286728896 Calling Groq LLM: system_prompt_len=5243 user_message_len=17
+DEBUG 2026-04-25 18:24:08,456 ai_client 7603 127266286728896 Groq LLM raw response type=<class 'langchain_core.messages.ai.AIMessage'>
+DEBUG 2026-04-25 18:24:08,457 ai_client 7603 127266286728896 Groq LLM response (len=711): {
+  "type": "message",
+  "content": "Kenya is a culturally diverse country with over 40 ethnic groups, each with its unique traditions, customs, and languages. The country's cultural heritage is a rich tapestry of African, Arabic, and European influences. The Maasai people, for example, are known for their distinctive traditional clothing and jewelry, while the Luo community is famous for their strong musical traditions and vibrant cultural festivals. The Kalenjin community, on the other hand, is known for their athletic prowess and rich cultural heritage. If you'd like to learn more about a specific community, feel free to ask, and I'll be happy to guide you to the relevant page.",
+  "source": "llm"
+}
+DEBUG 2026-04-25 18:24:08,457 views 7603 127266286728896 [LLM RAW RESPONSE] {
+  "type": "message",
+  "content": "Kenya is a culturally diverse country with over 40 ethnic groups, each with its unique traditions, customs, and languages. The country's cultural heritage is a rich tapestry of African, Arabic, and European influences. The Maasai people, for example, are known for their distinctive traditional clothing and jewelry, while the Luo community is famous for their strong musical traditions and vibrant cultural festivals. The Kalenjin community, on the other hand, i
+DEBUG 2026-04-25 18:24:08,457 views 7603 127266286728896 [LLM PARSE] Successfully parsed JSON
+DEBUG 2026-04-25 18:24:08,458 memory_manager 7603 127266286728896 Saved human message to 1776706813973_z8u83ee (len=10)
+DEBUG 2026-04-25 18:24:08,458 memory_manager 7603 127266286728896 Saved ai message to 1776706813973_z8u83ee (len=10)
+DEBUG 2026-04-25 18:24:08,459 views 7603 127266286728896 [MEMORY SAVED]
+INFO 2026-04-25 18:24:08,459 views 7603 127266286728896 [FINAL RESPONSE] llm
+DEBUG 2026-04-25 18:24:12,288 views 7603 127266286728896 [REQUEST RAW] {"message":"s river example","page":"/","pageTitle":"Kenya Cultural Heritage - Explore Top 10 Communities","url":"http://localhost:8080/","selectedText":null,"conversation_id":"1776706813973_z8u83ee"}
+INFO 2026-04-25 18:24:12,288 views 7603 127266286728896 [REQUEST] conversation_id=1776706813973_z8u83ee
+DEBUG 2026-04-25 18:24:12,288 views 7603 127266286728896 [USER MESSAGE] s river example
+DEBUG 2026-04-25 18:24:12,289 views 7603 127266286728896 [CONTEXT] page=/ title=Kenya Cultural Heritage - Explore Top 10 Communities selected_text_len=0
+DEBUG 2026-04-25 18:24:12,289 views 7603 127266286728896 [COMMUNITY DETECT] None found
+DEBUG 2026-04-25 18:24:12,289 memory_manager 7603 127266286728896 Got community for 1776706813973_z8u83ee: luhya
+DEBUG 2026-04-25 18:24:12,289 views 7603 127266286728896 [COMMUNITY] detected= stored=luhya active=luhya
+DEBUG 2026-04-25 18:24:12,290 memory_manager 7603 127266286728896 Retrieved 10 messages for 1776706813973_z8u83ee
+DEBUG 2026-04-25 18:24:12,290 views 7603 127266286728896 [MEMORY] messages=10
+DEBUG 2026-04-25 18:24:12,290 retrieval_strategy 7603 127266286728896 RetrievalStrategy.retrieve_information called with query(len=15) community=luhya
+DEBUG 2026-04-25 18:24:12,291 vector_db 7603 127266286728896 search_community called: community=luhya query_len=15 k=5
+DEBUG 2026-04-25 18:24:12,291 vector_db 7603 127266286728896 Checking Chroma DB at /home/mntel/Desktop/projects/culture/config/chroma_store
+WARNING 2026-04-25 18:24:12,291 vector_db 7603 127266286728896 Chroma DB not found at /home/mntel/Desktop/projects/culture/config/chroma_store
+DEBUG 2026-04-25 18:24:12,291 vector_db 7603 127266286728896 No vector store available, returning empty results
+DEBUG 2026-04-25 18:24:12,291 retrieval_strategy 7603 127266286728896 Vector search returned 0 results
+DEBUG 2026-04-25 18:24:12,291 retrieval_strategy 7603 127266286728896 Calculated confidence: 0.0
+INFO 2026-04-25 18:24:12,291 retrieval_strategy 7603 127266286728896 No vector results, using LLM fallback
+DEBUG 2026-04-25 18:24:12,291 views 7603 127266286728896 [RETRIEVAL] {'source': 'llm', 'confidence': 0.0, 'context': '', 'context_blocks': [], 'search_type': 'community_specific'}
+DEBUG 2026-04-25 18:24:12,291 views 7603 127266286728896 [PROMPT BUILT] length=5116
+INFO 2026-04-25 18:24:12,291 views 7603 127266286728896 [RESPONSE] Using LLM fallback
+DEBUG 2026-04-25 18:24:12,291 views 7603 127266286728896 [LLM] Calling Groq...
+DEBUG 2026-04-25 18:24:12,291 ai_client 7603 127266286728896 Calling Groq LLM: system_prompt_len=5116 user_message_len=15
+DEBUG 2026-04-25 18:24:12,883 ai_client 7603 127266286728896 Groq LLM raw response type=<class 'langchain_core.messages.ai.AIMessage'>
+DEBUG 2026-04-25 18:24:12,883 ai_client 7603 127266286728896 Groq LLM response (len=634): {
+  "type": "message",
+  "content": "One notable example of a river in Kenya is the Tana River, which is the longest river in the country and flows through the Tana River Delta. The Tana River is an important source of water and supports a diverse range of wildlife, including crocodiles, hippos, and over 300 species of birds. The river also plays a significant role in the economy of the region, supporting agriculture and fishing industries. In addition, the Tana River is home to several indigenous communities, including the Orma and the Galla, who have a rich cultural heritage and traditional way of life.",
+  "source": "llm"
+}
+DEBUG 2026-04-25 18:24:12,884 views 7603 127266286728896 [LLM RAW RESPONSE] {
+  "type": "message",
+  "content": "One notable example of a river in Kenya is the Tana River, which is the longest river in the country and flows through the Tana River Delta. The Tana River is an important source of water and supports a diverse range of wildlife, including crocodiles, hippos, and over 300 species of birds. The river also plays a significant role in the economy of the region, supporting agriculture and fishing industries. In addition, the Tana River is home to several indigeno
+DEBUG 2026-04-25 18:24:12,884 views 7603 127266286728896 [LLM PARSE] Successfully parsed JSON
+DEBUG 2026-04-25 18:24:12,885 memory_manager 7603 127266286728896 Saved human message to 1776706813973_z8u83ee (len=10)
+DEBUG 2026-04-25 18:24:12,887 memory_manager 7603 127266286728896 Saved ai message to 1776706813973_z8u83ee (len=10)
+DEBUG 2026-04-25 18:24:12,887 views 7603 127266286728896 [MEMORY SAVED]
+INFO 2026-04-25 18:24:12,887 views 7603 127266286728896 [FINAL RESPONSE] llm
+DEBUG 2026-04-25 18:24:23,812 views 7603 127266286728896 [REQUEST RAW] {"message":" are known versity","page":"/","pageTitle":"Kenya Cultural Heritage - Explore Top 10 Communities","url":"http://localhost:8080/","selectedText":null,"conversation_id":"1776706813973_z8u83ee"}
+INFO 2026-04-25 18:24:23,812 views 7603 127266286728896 [REQUEST] conversation_id=1776706813973_z8u83ee
+DEBUG 2026-04-25 18:24:23,812 views 7603 127266286728896 [USER MESSAGE] are known versity
+DEBUG 2026-04-25 18:24:23,812 views 7603 127266286728896 [CONTEXT] page=/ title=Kenya Cultural Heritage - Explore Top 10 Communities selected_text_len=0
+DEBUG 2026-04-25 18:24:23,813 views 7603 127266286728896 [COMMUNITY DETECT] None found
+DEBUG 2026-04-25 18:24:23,813 memory_manager 7603 127266286728896 Got community for 1776706813973_z8u83ee: luhya
+DEBUG 2026-04-25 18:24:23,814 views 7603 127266286728896 [COMMUNITY] detected= stored=luhya active=luhya
+DEBUG 2026-04-25 18:24:23,814 memory_manager 7603 127266286728896 Retrieved 10 messages for 1776706813973_z8u83ee
+DEBUG 2026-04-25 18:24:23,815 views 7603 127266286728896 [MEMORY] messages=10
+DEBUG 2026-04-25 18:24:23,815 retrieval_strategy 7603 127266286728896 RetrievalStrategy.retrieve_information called with query(len=17) community=luhya
+DEBUG 2026-04-25 18:24:23,815 vector_db 7603 127266286728896 search_community called: community=luhya query_len=17 k=5
+DEBUG 2026-04-25 18:24:23,815 vector_db 7603 127266286728896 Checking Chroma DB at /home/mntel/Desktop/projects/culture/config/chroma_store
+WARNING 2026-04-25 18:24:23,815 vector_db 7603 127266286728896 Chroma DB not found at /home/mntel/Desktop/projects/culture/config/chroma_store
+DEBUG 2026-04-25 18:24:23,816 vector_db 7603 127266286728896 No vector store available, returning empty results
+DEBUG 2026-04-25 18:24:23,816 retrieval_strategy 7603 127266286728896 Vector search returned 0 results
+DEBUG 2026-04-25 18:24:23,816 retrieval_strategy 7603 127266286728896 Calculated confidence: 0.0
+INFO 2026-04-25 18:24:23,816 retrieval_strategy 7603 127266286728896 No vector results, using LLM fallback
+DEBUG 2026-04-25 18:24:23,816 views 7603 127266286728896 [RETRIEVAL] {'source': 'llm', 'confidence': 0.0, 'context': '', 'context_blocks': [], 'search_type': 'community_specific'}
+DEBUG 2026-04-25 18:24:23,817 views 7603 127266286728896 [PROMPT BUILT] length=5083
+INFO 2026-04-25 18:24:23,817 views 7603 127266286728896 [RESPONSE] Using LLM fallback
+DEBUG 2026-04-25 18:24:23,817 views 7603 127266286728896 [LLM] Calling Groq...
+DEBUG 2026-04-25 18:24:23,817 ai_client 7603 127266286728896 Calling Groq LLM: system_prompt_len=5083 user_message_len=17
+DEBUG 2026-04-25 18:24:24,582 ai_client 7603 127266286728896 Groq LLM raw response type=<class 'langchain_core.messages.ai.AIMessage'>
+DEBUG 2026-04-25 18:24:24,583 ai_client 7603 127266286728896 Groq LLM response (len=584): {
+  "type": "message",
+  "content": "Kenya is a culturally diverse country with over 40 ethnic groups, each with its unique traditions, customs, and languages. The country's cultural heritage is a rich tapestry of African, Arabic, and European influences. The Maasai people, for example, are known for their distinctive traditional clothing and jewelry, while the Luo community is famous for their strong musical traditions and vibrant cultural festivals. The Kalenjin community, on the other hand, is known for their athletic prowess and rich cultural heritage.",
+  "source": "llm"
+}
+DEBUG 2026-04-25 18:24:24,583 views 7603 127266286728896 [LLM RAW RESPONSE] {
+  "type": "message",
+  "content": "Kenya is a culturally diverse country with over 40 ethnic groups, each with its unique traditions, customs, and languages. The country's cultural heritage is a rich tapestry of African, Arabic, and European influences. The Maasai people, for example, are known for their distinctive traditional clothing and jewelry, while the Luo community is famous for their strong musical traditions and vibrant cultural festivals. The Kalenjin community, on the other hand, i
+DEBUG 2026-04-25 18:24:24,583 views 7603 127266286728896 [LLM PARSE] Successfully parsed JSON
+DEBUG 2026-04-25 18:24:24,584 memory_manager 7603 127266286728896 Saved human message to 1776706813973_z8u83ee (len=10)
+DEBUG 2026-04-25 18:24:24,585 memory_manager 7603 127266286728896 Saved ai message to 1776706813973_z8u83ee (len=10)
+DEBUG 2026-04-25 18:24:24,585 views 7603 127266286728896 [MEMORY SAVED]
+INFO 2026-04-25 18:24:24,585 views 7603 127266286728896 [FINAL RESPONSE] llm
+DEBUG 2026-04-25 18:24:50,696 views 7603 127266286728896 [REQUEST RAW] {"message":" and notable example of a river in Kenya is the Tanner river which is the longest river in the country and flows through the panor Riverdale","page":"/","pageTitle":"Kenya Cultural Heritage - Explore Top 10 Communities","url":"http://localhost:8080/","selectedText":null,"conversation_id":"1776706813973_z8u83ee"}
+INFO 2026-04-25 18:24:50,696 views 7603 127266286728896 [REQUEST] conversation_id=1776706813973_z8u83ee
+DEBUG 2026-04-25 18:24:50,697 views 7603 127266286728896 [USER MESSAGE] and notable example of a river in Kenya is the Tanner river which is the longest river in the country and flows through the panor Riverdale
+DEBUG 2026-04-25 18:24:50,697 views 7603 127266286728896 [CONTEXT] page=/ title=Kenya Cultural Heritage - Explore Top 10 Communities selected_text_len=0
+DEBUG 2026-04-25 18:24:50,697 views 7603 127266286728896 [COMMUNITY DETECT] None found
+DEBUG 2026-04-25 18:24:50,698 memory_manager 7603 127266286728896 Got community for 1776706813973_z8u83ee: luhya
+DEBUG 2026-04-25 18:24:50,698 views 7603 127266286728896 [COMMUNITY] detected= stored=luhya active=luhya
+DEBUG 2026-04-25 18:24:50,717 memory_manager 7603 127266286728896 Retrieved 10 messages for 1776706813973_z8u83ee
+DEBUG 2026-04-25 18:24:50,717 views 7603 127266286728896 [MEMORY] messages=10
+DEBUG 2026-04-25 18:24:50,718 retrieval_strategy 7603 127266286728896 RetrievalStrategy.retrieve_information called with query(len=139) community=luhya
+DEBUG 2026-04-25 18:24:50,718 vector_db 7603 127266286728896 search_community called: community=luhya query_len=139 k=5
+DEBUG 2026-04-25 18:24:50,718 vector_db 7603 127266286728896 Checking Chroma DB at /home/mntel/Desktop/projects/culture/config/chroma_store
+WARNING 2026-04-25 18:24:50,718 vector_db 7603 127266286728896 Chroma DB not found at /home/mntel/Desktop/projects/culture/config/chroma_store
+DEBUG 2026-04-25 18:24:50,718 vector_db 7603 127266286728896 No vector store available, returning empty results
+DEBUG 2026-04-25 18:24:50,719 retrieval_strategy 7603 127266286728896 Vector search returned 0 results
+DEBUG 2026-04-25 18:24:50,719 retrieval_strategy 7603 127266286728896 Calculated confidence: 0.0
+INFO 2026-04-25 18:24:50,719 retrieval_strategy 7603 127266286728896 No vector results, using LLM fallback
+DEBUG 2026-04-25 18:24:50,719 views 7603 127266286728896 [RETRIEVAL] {'source': 'llm', 'confidence': 0.0, 'context': '', 'context_blocks': [], 'search_type': 'community_specific'}
+DEBUG 2026-04-25 18:24:50,720 views 7603 127266286728896 [PROMPT BUILT] length=4918
+INFO 2026-04-25 18:24:50,720 views 7603 127266286728896 [RESPONSE] Using LLM fallback
+DEBUG 2026-04-25 18:24:50,720 views 7603 127266286728896 [LLM] Calling Groq...
+DEBUG 2026-04-25 18:24:50,720 ai_client 7603 127266286728896 Calling Groq LLM: system_prompt_len=4918 user_message_len=139
+DEBUG 2026-04-25 18:24:51,583 ai_client 7603 127266286728896 Groq LLM raw response type=<class 'langchain_core.messages.ai.AIMessage'>
+DEBUG 2026-04-25 18:24:51,584 ai_client 7603 127266286728896 Groq LLM response (len=467): {
+  "type": "message",
+  "content": "I think there might be some confusion. There is no 'Tanner river' in Kenya, and the 'panor Riverdale' doesn't seem to be a real place. The longest river in Kenya is actually the Tana River, which flows through the Tana River Delta. It's an important source of water and supports a diverse range of wildlife. If you'd like to learn more about the Tana River or other notable rivers in Kenya, feel free to ask!",
+  "source": "llm"
+}
+DEBUG 2026-04-25 18:24:51,584 views 7603 127266286728896 [LLM RAW RESPONSE] {
+  "type": "message",
+  "content": "I think there might be some confusion. There is no 'Tanner river' in Kenya, and the 'panor Riverdale' doesn't seem to be a real place. The longest river in Kenya is actually the Tana River, which flows through the Tana River Delta. It's an important source of water and supports a diverse range of wildlife. If you'd like to learn more about the Tana River or other notable rivers in Kenya, feel free to ask!",
+  "source": "llm"
+}
+DEBUG 2026-04-25 18:24:51,584 views 7603 127266286728896 [LLM PARSE] Successfully parsed JSON
+DEBUG 2026-04-25 18:24:51,585 memory_manager 7603 127266286728896 Saved human message to 1776706813973_z8u83ee (len=10)
+DEBUG 2026-04-25 18:24:51,586 memory_manager 7603 127266286728896 Saved ai message to 1776706813973_z8u83ee (len=10)
+DEBUG 2026-04-25 18:24:51,589 views 7603 127266286728896 [MEMORY SAVED]
+INFO 2026-04-25 18:24:51,589 views 7603 127266286728896 [FINAL RESPONSE] llm
+DEBUG 2026-04-25 18:25:01,755 views 7603 127266286728896 [REQUEST RAW] {"message":" and using both really diverse country","page":"/","pageTitle":"Kenya Cultural Heritage - Explore Top 10 Communities","url":"http://localhost:8080/","selectedText":null,"conversation_id":"1776706813973_z8u83ee"}
+INFO 2026-04-25 18:25:01,755 views 7603 127266286728896 [REQUEST] conversation_id=1776706813973_z8u83ee
+DEBUG 2026-04-25 18:25:01,755 views 7603 127266286728896 [USER MESSAGE] and using both really diverse country
+DEBUG 2026-04-25 18:25:01,755 views 7603 127266286728896 [CONTEXT] page=/ title=Kenya Cultural Heritage - Explore Top 10 Communities selected_text_len=0
+DEBUG 2026-04-25 18:25:01,755 views 7603 127266286728896 [COMMUNITY DETECT] None found
+DEBUG 2026-04-25 18:25:01,756 memory_manager 7603 127266286728896 Got community for 1776706813973_z8u83ee: luhya
+DEBUG 2026-04-25 18:25:01,756 views 7603 127266286728896 [COMMUNITY] detected= stored=luhya active=luhya
+DEBUG 2026-04-25 18:25:01,757 memory_manager 7603 127266286728896 Retrieved 10 messages for 1776706813973_z8u83ee
+DEBUG 2026-04-25 18:25:01,757 views 7603 127266286728896 [MEMORY] messages=10
+DEBUG 2026-04-25 18:25:01,757 retrieval_strategy 7603 127266286728896 RetrievalStrategy.retrieve_information called with query(len=37) community=luhya
+DEBUG 2026-04-25 18:25:01,757 vector_db 7603 127266286728896 search_community called: community=luhya query_len=37 k=5
+DEBUG 2026-04-25 18:25:01,758 vector_db 7603 127266286728896 Checking Chroma DB at /home/mntel/Desktop/projects/culture/config/chroma_store
+WARNING 2026-04-25 18:25:01,758 vector_db 7603 127266286728896 Chroma DB not found at /home/mntel/Desktop/projects/culture/config/chroma_store
+DEBUG 2026-04-25 18:25:01,758 vector_db 7603 127266286728896 No vector store available, returning empty results
+DEBUG 2026-04-25 18:25:01,758 retrieval_strategy 7603 127266286728896 Vector search returned 0 results
+DEBUG 2026-04-25 18:25:01,758 retrieval_strategy 7603 127266286728896 Calculated confidence: 0.0
+INFO 2026-04-25 18:25:01,758 retrieval_strategy 7603 127266286728896 No vector results, using LLM fallback
+DEBUG 2026-04-25 18:25:01,758 views 7603 127266286728896 [RETRIEVAL] {'source': 'llm', 'confidence': 0.0, 'context': '', 'context_blocks': [], 'search_type': 'community_specific'}
+DEBUG 2026-04-25 18:25:01,758 views 7603 127266286728896 [PROMPT BUILT] length=4846
+INFO 2026-04-25 18:25:01,758 views 7603 127266286728896 [RESPONSE] Using LLM fallback
+DEBUG 2026-04-25 18:25:01,758 views 7603 127266286728896 [LLM] Calling Groq...
+DEBUG 2026-04-25 18:25:01,759 ai_client 7603 127266286728896 Calling Groq LLM: system_prompt_len=4846 user_message_len=37
+DEBUG 2026-04-25 18:25:02,726 ai_client 7603 127266286728896 Groq LLM raw response type=<class 'langchain_core.messages.ai.AIMessage'>
+DEBUG 2026-04-25 18:25:02,726 ai_client 7603 127266286728896 Groq LLM response (len=830): {
+  "type": "message",
+  "content": "Kenya is indeed a culturally diverse country with over 40 ethnic groups, each with its unique traditions, customs, and languages. The country's cultural heritage is a rich tapestry of African, Arabic, and European influences. This diversity is one of Kenya's greatest strengths, and it's what makes the country so fascinating to explore. From the Maasai people's distinctive traditional clothing and jewelry to the Luo community's strong musical traditions and vibrant cultural festivals, each community has its own unique story to tell. The Kalenjin community, on the other hand, is known for their athletic prowess and rich cultural heritage. If you'd like to learn more about a specific community, feel free to ask, and I'll be happy to guide you to the relevant page.",
+  "source": "llm"
+}
+DEBUG 2026-04-25 18:25:02,727 views 7603 127266286728896 [LLM RAW RESPONSE] {
+  "type": "message",
+  "content": "Kenya is indeed a culturally diverse country with over 40 ethnic groups, each with its unique traditions, customs, and languages. The country's cultural heritage is a rich tapestry of African, Arabic, and European influences. This diversity is one of Kenya's greatest strengths, and it's what makes the country so fascinating to explore. From the Maasai people's distinctive traditional clothing and jewelry to the Luo community's strong musical traditions and vi
+DEBUG 2026-04-25 18:25:02,727 views 7603 127266286728896 [LLM PARSE] Successfully parsed JSON
+DEBUG 2026-04-25 18:25:02,728 memory_manager 7603 127266286728896 Saved human message to 1776706813973_z8u83ee (len=10)
+DEBUG 2026-04-25 18:25:02,729 memory_manager 7603 127266286728896 Saved ai message to 1776706813973_z8u83ee (len=10)
+DEBUG 2026-04-25 18:25:02,730 views 7603 127266286728896 [MEMORY SAVED]
+INFO 2026-04-25 18:25:02,730 views 7603 127266286728896 [FINAL RESPONSE] llm
+DEBUG 2026-04-25 18:25:02,772 views 7603 127266286728896 [REQUEST RAW] {"message":" 40","page":"/","pageTitle":"Kenya Cultural Heritage - Explore Top 10 Communities","url":"http://localhost:8080/","selectedText":null,"conversation_id":"1776706813973_z8u83ee"}
+INFO 2026-04-25 18:25:02,772 views 7603 127266286728896 [REQUEST] conversation_id=1776706813973_z8u83ee
+DEBUG 2026-04-25 18:25:02,773 views 7603 127266286728896 [USER MESSAGE] 40
+DEBUG 2026-04-25 18:25:02,773 views 7603 127266286728896 [CONTEXT] page=/ title=Kenya Cultural Heritage - Explore Top 10 Communities selected_text_len=0
+DEBUG 2026-04-25 18:25:02,773 views 7603 127266286728896 [COMMUNITY DETECT] None found
+DEBUG 2026-04-25 18:25:02,773 memory_manager 7603 127266286728896 Got community for 1776706813973_z8u83ee: luhya
+DEBUG 2026-04-25 18:25:02,774 views 7603 127266286728896 [COMMUNITY] detected= stored=luhya active=luhya
+DEBUG 2026-04-25 18:25:02,774 memory_manager 7603 127266286728896 Retrieved 10 messages for 1776706813973_z8u83ee
+DEBUG 2026-04-25 18:25:02,774 views 7603 127266286728896 [MEMORY] messages=10
+DEBUG 2026-04-25 18:25:02,775 retrieval_strategy 7603 127266286728896 RetrievalStrategy.retrieve_information called with query(len=2) community=luhya
+DEBUG 2026-04-25 18:25:02,775 vector_db 7603 127266286728896 search_community called: community=luhya query_len=2 k=5
+DEBUG 2026-04-25 18:25:02,775 vector_db 7603 127266286728896 Checking Chroma DB at /home/mntel/Desktop/projects/culture/config/chroma_store
+WARNING 2026-04-25 18:25:02,775 vector_db 7603 127266286728896 Chroma DB not found at /home/mntel/Desktop/projects/culture/config/chroma_store
+DEBUG 2026-04-25 18:25:02,775 vector_db 7603 127266286728896 No vector store available, returning empty results
+DEBUG 2026-04-25 18:25:02,775 retrieval_strategy 7603 127266286728896 Vector search returned 0 results
+DEBUG 2026-04-25 18:25:02,775 retrieval_strategy 7603 127266286728896 Calculated confidence: 0.0
+INFO 2026-04-25 18:25:02,775 retrieval_strategy 7603 127266286728896 No vector results, using LLM fallback
+DEBUG 2026-04-25 18:25:02,775 views 7603 127266286728896 [RETRIEVAL] {'source': 'llm', 'confidence': 0.0, 'context': '', 'context_blocks': [], 'search_type': 'community_specific'}
+DEBUG 2026-04-25 18:25:02,775 views 7603 127266286728896 [PROMPT BUILT] length=4958
+INFO 2026-04-25 18:25:02,775 views 7603 127266286728896 [RESPONSE] Using LLM fallback
+DEBUG 2026-04-25 18:25:02,775 views 7603 127266286728896 [LLM] Calling Groq...
+DEBUG 2026-04-25 18:25:02,776 ai_client 7603 127266286728896 Calling Groq LLM: system_prompt_len=4958 user_message_len=2
+DEBUG 2026-04-25 18:25:03,186 ai_client 7603 127266286728896 Groq LLM raw response type=<class 'langchain_core.messages.ai.AIMessage'>
+DEBUG 2026-04-25 18:25:03,186 ai_client 7603 127266286728896 Groq LLM response (len=277): {
+  "type": "message",
+  "content": "Kenya is a culturally diverse country with over 40 ethnic groups, each with its unique traditions, customs, and languages. The country's cultural heritage is a rich tapestry of African, Arabic, and European influences.",
+  "source": "llm"
+}
+DEBUG 2026-04-25 18:25:03,186 views 7603 127266286728896 [LLM RAW RESPONSE] {
+  "type": "message",
+  "content": "Kenya is a culturally diverse country with over 40 ethnic groups, each with its unique traditions, customs, and languages. The country's cultural heritage is a rich tapestry of African, Arabic, and European influences.",
+  "source": "llm"
+}
+DEBUG 2026-04-25 18:25:03,187 views 7603 127266286728896 [LLM PARSE] Successfully parsed JSON
+DEBUG 2026-04-25 18:25:03,187 memory_manager 7603 127266286728896 Saved human message to 1776706813973_z8u83ee (len=10)
+DEBUG 2026-04-25 18:25:03,188 memory_manager 7603 127266286728896 Saved ai message to 1776706813973_z8u83ee (len=10)
+DEBUG 2026-04-25 18:25:03,188 views 7603 127266286728896 [MEMORY SAVED]
+INFO 2026-04-25 18:25:03,188 views 7603 127266286728896 [FINAL RESPONSE] llm
+DEBUG 2026-04-25 18:28:42,809 views 7603 127266286728896 [REQUEST RAW] {"message":"welcome to me","page":"/","pageTitle":"Kenya Cultural Heritage - Explore Top 10 Communities","url":"http://localhost:8080/","selectedText":null,"conversation_id":"1776706813973_z8u83ee"}
+INFO 2026-04-25 18:28:42,810 views 7603 127266286728896 [REQUEST] conversation_id=1776706813973_z8u83ee
+DEBUG 2026-04-25 18:28:42,810 views 7603 127266286728896 [USER MESSAGE] welcome to me
+DEBUG 2026-04-25 18:28:42,810 views 7603 127266286728896 [CONTEXT] page=/ title=Kenya Cultural Heritage - Explore Top 10 Communities selected_text_len=0
+DEBUG 2026-04-25 18:28:42,810 views 7603 127266286728896 [COMMUNITY DETECT] None found
+DEBUG 2026-04-25 18:28:42,811 memory_manager 7603 127266286728896 Got community for 1776706813973_z8u83ee: luhya
+DEBUG 2026-04-25 18:28:42,811 views 7603 127266286728896 [COMMUNITY] detected= stored=luhya active=luhya
+DEBUG 2026-04-25 18:28:42,811 memory_manager 7603 127266286728896 Retrieved 10 messages for 1776706813973_z8u83ee
+DEBUG 2026-04-25 18:28:42,812 views 7603 127266286728896 [MEMORY] messages=10
+DEBUG 2026-04-25 18:28:42,812 retrieval_strategy 7603 127266286728896 RetrievalStrategy.retrieve_information called with query(len=13) community=luhya
+DEBUG 2026-04-25 18:28:42,812 vector_db 7603 127266286728896 search_community called: community=luhya query_len=13 k=5
+DEBUG 2026-04-25 18:28:42,812 vector_db 7603 127266286728896 Checking Chroma DB at /home/mntel/Desktop/projects/culture/config/chroma_store
+WARNING 2026-04-25 18:28:42,812 vector_db 7603 127266286728896 Chroma DB not found at /home/mntel/Desktop/projects/culture/config/chroma_store
+DEBUG 2026-04-25 18:28:42,812 vector_db 7603 127266286728896 No vector store available, returning empty results
+DEBUG 2026-04-25 18:28:42,812 retrieval_strategy 7603 127266286728896 Vector search returned 0 results
+DEBUG 2026-04-25 18:28:42,812 retrieval_strategy 7603 127266286728896 Calculated confidence: 0.0
+INFO 2026-04-25 18:28:42,812 retrieval_strategy 7603 127266286728896 No vector results, using LLM fallback
+DEBUG 2026-04-25 18:28:42,812 views 7603 127266286728896 [RETRIEVAL] {'source': 'llm', 'confidence': 0.0, 'context': '', 'context_blocks': [], 'search_type': 'community_specific'}
+DEBUG 2026-04-25 18:28:42,813 views 7603 127266286728896 [PROMPT BUILT] length=4509
+INFO 2026-04-25 18:28:42,813 views 7603 127266286728896 [RESPONSE] Using LLM fallback
+DEBUG 2026-04-25 18:28:42,813 views 7603 127266286728896 [LLM] Calling Groq...
+DEBUG 2026-04-25 18:28:42,813 ai_client 7603 127266286728896 Calling Groq LLM: system_prompt_len=4509 user_message_len=13
+DEBUG 2026-04-25 18:28:46,595 ai_client 7603 127266286728896 Groq LLM raw response type=<class 'langchain_core.messages.ai.AIMessage'>
+DEBUG 2026-04-25 18:28:46,595 ai_client 7603 127266286728896 Groq LLM response (len=249): {
+  "type": "message",
+  "content": "Jambo! Welcome to our Kenya Cultural Heritage page. I'm here to help you explore the rich cultural diversity of Kenya's communities. Which community would you like to learn more about today?",
+  "source": "llm"
+}
+DEBUG 2026-04-25 18:28:46,595 views 7603 127266286728896 [LLM RAW RESPONSE] {
+  "type": "message",
+  "content": "Jambo! Welcome to our Kenya Cultural Heritage page. I'm here to help you explore the rich cultural diversity of Kenya's communities. Which community would you like to learn more about today?",
+  "source": "llm"
+}
+DEBUG 2026-04-25 18:28:46,596 views 7603 127266286728896 [LLM PARSE] Successfully parsed JSON
+DEBUG 2026-04-25 18:28:46,596 memory_manager 7603 127266286728896 Saved human message to 1776706813973_z8u83ee (len=10)
+DEBUG 2026-04-25 18:28:46,597 memory_manager 7603 127266286728896 Saved ai message to 1776706813973_z8u83ee (len=10)
+DEBUG 2026-04-25 18:28:46,597 views 7603 127266286728896 [MEMORY SAVED]
+INFO 2026-04-25 18:28:46,597 views 7603 127266286728896 [FINAL RESPONSE] llm
+DEBUG 2026-04-25 19:38:21,840 views 11292 125092252088000 [REQUEST RAW] {"message":"hello","page":"/","pageTitle":"Kenya Cultural Heritage - Explore Top 10 Communities","url":"http://localhost:8080/","selectedText":null,"conversation_id":"1776706813973_z8u83ee"}
+INFO 2026-04-25 19:38:21,892 views 11292 125092252088000 [REQUEST] conversation_id=1776706813973_z8u83ee
+DEBUG 2026-04-25 19:38:21,892 views 11292 125092252088000 [USER MESSAGE] hello
+DEBUG 2026-04-25 19:38:21,892 views 11292 125092252088000 [CONTEXT] page=/ title=Kenya Cultural Heritage - Explore Top 10 Communities selected_text_len=0
+DEBUG 2026-04-25 19:38:21,892 views 11292 125092252088000 [COMMUNITY DETECT] None found
+DEBUG 2026-04-25 19:38:21,892 memory_manager 11292 125092252088000 Attempting Redis connection to localhost:6379 db=0
+INFO 2026-04-25 19:38:21,896 memory_manager 11292 125092252088000 Redis connection established
+DEBUG 2026-04-25 19:38:21,935 memory_manager 11292 125092252088000 Got community for 1776706813973_z8u83ee: luhya
+DEBUG 2026-04-25 19:38:21,936 views 11292 125092252088000 [COMMUNITY] detected= stored=luhya active=luhya
+DEBUG 2026-04-25 19:38:21,937 memory_manager 11292 125092252088000 Retrieved 10 messages for 1776706813973_z8u83ee
+DEBUG 2026-04-25 19:38:21,938 views 11292 125092252088000 [MEMORY] messages=10
+DEBUG 2026-04-25 19:38:21,938 retrieval_strategy 11292 125092252088000 RetrievalStrategy.retrieve_information called with query(len=5) community=luhya
+DEBUG 2026-04-25 19:38:21,938 vector_db 11292 125092252088000 search_community called: community=luhya query_len=5 k=5
+DEBUG 2026-04-25 19:38:21,939 vector_db 11292 125092252088000 Checking Chroma DB at /home/mntel/Desktop/projects/culture/config/chroma_store
+WARNING 2026-04-25 19:38:21,939 vector_db 11292 125092252088000 Chroma DB not found at /home/mntel/Desktop/projects/culture/config/chroma_store
+DEBUG 2026-04-25 19:38:21,939 vector_db 11292 125092252088000 No vector store available, returning empty results
+DEBUG 2026-04-25 19:38:21,939 retrieval_strategy 11292 125092252088000 Vector search returned 0 results
+DEBUG 2026-04-25 19:38:21,940 retrieval_strategy 11292 125092252088000 Calculated confidence: 0.0
+INFO 2026-04-25 19:38:21,940 retrieval_strategy 11292 125092252088000 No vector results, using LLM fallback
+DEBUG 2026-04-25 19:38:21,940 views 11292 125092252088000 [RETRIEVAL] {'source': 'llm', 'confidence': 0.0, 'context': '', 'context_blocks': [], 'search_type': 'community_specific'}
+DEBUG 2026-04-25 19:38:21,941 views 11292 125092252088000 [PROMPT BUILT] length=4122
+INFO 2026-04-25 19:38:21,941 views 11292 125092252088000 [RESPONSE] Using LLM fallback
+DEBUG 2026-04-25 19:38:21,941 views 11292 125092252088000 [LLM] Calling Groq...
+DEBUG 2026-04-25 19:38:21,942 ai_client 11292 125092252088000 Calling Groq LLM: system_prompt_len=4122 user_message_len=5
+DEBUG 2026-04-25 19:38:25,945 ai_client 11292 125092252088000 Groq LLM raw response type=<class 'langchain_core.messages.ai.AIMessage'>
+DEBUG 2026-04-25 19:38:25,946 ai_client 11292 125092252088000 Groq LLM response (len=249): {
+  "type": "message",
+  "content": "Jambo! Welcome to our Kenya Cultural Heritage page. I'm here to help you explore the rich cultural diversity of Kenya's communities. Which community would you like to learn more about today?",
+  "source": "llm"
+}
+DEBUG 2026-04-25 19:38:25,946 views 11292 125092252088000 [LLM RAW RESPONSE] {
+  "type": "message",
+  "content": "Jambo! Welcome to our Kenya Cultural Heritage page. I'm here to help you explore the rich cultural diversity of Kenya's communities. Which community would you like to learn more about today?",
+  "source": "llm"
+}
+DEBUG 2026-04-25 19:38:25,946 views 11292 125092252088000 [LLM PARSE] Successfully parsed JSON
+DEBUG 2026-04-25 19:38:25,947 memory_manager 11292 125092252088000 Saved human message to 1776706813973_z8u83ee (len=10)
+DEBUG 2026-04-25 19:38:25,949 memory_manager 11292 125092252088000 Saved ai message to 1776706813973_z8u83ee (len=10)
+DEBUG 2026-04-25 19:38:25,949 views 11292 125092252088000 [MEMORY SAVED]
+INFO 2026-04-25 19:38:25,949 views 11292 125092252088000 [FINAL RESPONSE] llm
