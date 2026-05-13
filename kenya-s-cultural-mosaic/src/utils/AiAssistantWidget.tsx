@@ -10,7 +10,10 @@ import {
   Volume2, 
   Square, 
   Bot,
-  Loader2
+  Loader2,
+  X,
+  Send,
+  MessageCircle
 } from "lucide-react";
 
 
@@ -211,6 +214,10 @@ const AiAssistant = () => {
   const [showStatusIndicator, setShowStatusIndicator] = useState(true);
   const [isAssistantActive, setIsAssistantActive] = useState(true);
   const [selectedText, setSelectedText] = useState<string | null>(null);
+  const [chatMode, setChatMode] = useState<'voice' | 'text'>('voice');
+  const [showTextChat, setShowTextChat] = useState(false);
+  const [textInput, setTextInput] = useState('');
+  const [isTextSending, setIsTextSending] = useState(false);
   
   const recognitionRef = useRef<any>(null);
   const speechSynthesisRef = useRef<SpeechSynthesisUtterance | null>(null);
@@ -415,6 +422,17 @@ const AiAssistant = () => {
     };
   }, [isAssistantActive, selectedText]);
 
+  // Handle chat mode switching
+  useEffect(() => {
+    if (chatMode === 'text') {
+      // Stop voice recognition when switching to text mode
+      voiceActivationRef.current?.stop();
+    } else if (chatMode === 'voice' && isAssistantActive) {
+      // Restart voice recognition when switching to voice mode
+      voiceActivationRef.current?.start();
+    }
+  }, [chatMode, isAssistantActive]);
+
   const cleanupSpeech = () => {
     if (recognitionRef.current) {
       recognitionRef.current.stop();
@@ -510,44 +528,201 @@ const AiAssistant = () => {
     setConversationStatus('listening');
   };
 
+  const handleTextSubmit = async () => {
+    if (!textInput.trim()) return;
+    
+    const userMessage = textInput.trim();
+    setTextInput('');
+    setIsTextSending(true);
+    setConversationStatus('processing');
+    
+    try {
+      addMessage(userMessage, 'user');
+      
+      const lockedPageContext = pageContextRef.current;
+      const lockedSelection = selectedText;
+      
+      const response = await askAI({
+        message: userMessage,
+        page: lockedPageContext.path,
+        pageTitle: lockedPageContext.title,
+        url: lockedPageContext.fullUrl,
+        selectedText: lockedSelection,
+        conversation_id: conversationIdRef.current
+      });
+      
+      console.log("AI Response (Text):", response);
+      
+      if (response.type === "message") {
+        const content = response.content || "";
+        addMessage(content, "ai");
+      } else if (response.type === "action" && response.action === "navigate") {
+        const url = response.url || "/communities";
+        const content = response.content || "";
+        if (content) addMessage(content, "ai");
+        setTimeout(() => {
+          actions.navigate(url);
+        }, 1000);
+      } else if (response.type === "action" && response.action === "highlight") {
+        const content = response.content || "";
+        if (content) addMessage(content, "ai");
+        setTimeout(() => {
+          actions.highlight(response.selector || "");
+        }, 500);
+      }
+      
+      setConversationStatus('idle');
+      setSelectedText(null);
+    } catch (error) {
+      console.error("Error processing text message:", error);
+      addMessage("Sorry, I encountered an error. Please try again.", "ai");
+      setConversationStatus('idle');
+    } finally {
+      setIsTextSending(false);
+    }
+  };
+
   const formatTime = (date: Date) => {
     return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   };
 
   return (
     <>
+      {/* Text Chat Modal */}
+      {chatMode === 'text' && showTextChat && (
+        <div className="fixed bottom-6 right-6 z-50 w-96 h-96 max-h-[80vh] flex flex-col bg-white rounded-lg shadow-2xl overflow-hidden">
+          {/* Header */}
+          <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 flex justify-between items-center">
+            <div className="flex items-center space-x-2">
+              <MessageCircle className="w-5 h-5" />
+              <h3 className="font-semibold">Chat with AI</h3>
+            </div>
+            <button
+              onClick={() => setShowTextChat(false)}
+              className="hover:bg-white/20 p-1 rounded"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+
+          {/* Messages Area */}
+          <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-gray-50">
+            {messages.length === 0 ? (
+              <div className="flex items-center justify-center h-full">
+                <p className="text-gray-500 text-sm text-center">Start a conversation!</p>
+              </div>
+            ) : (
+              <>
+                {messages.map((message) => (
+                  <div key={message.id} className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
+                    <div className={`max-w-xs lg:max-w-md px-4 py-2 rounded-lg ${
+                      message.sender === 'user'
+                        ? 'bg-blue-500 text-white rounded-br-none'
+                        : 'bg-gray-300 text-gray-900 rounded-bl-none'
+                    }`}>
+                      <p className="text-sm">{message.text}</p>
+                      <p className={`text-xs mt-1 ${message.sender === 'user' ? 'text-blue-100' : 'text-gray-600'}`}>
+                        {formatTime(message.timestamp)}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </>
+            )}
+          </div>
+
+          {/* Input Area */}
+          <div className="border-t bg-white p-3 flex gap-2">
+            <input
+              type="text"
+              value={textInput}
+              onChange={(e) => setTextInput(e.target.value)}
+              onKeyPress={(e) => {
+                if (e.key === 'Enter' && !isTextSending) {
+                  handleTextSubmit();
+                }
+              }}
+              placeholder="Type your question..."
+              disabled={isTextSending}
+              className="flex-1 border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-100"
+            />
+            <button
+              onClick={handleTextSubmit}
+              disabled={!textInput.trim() || isTextSending}
+              className="bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition"
+            >
+              {isTextSending ? <Loader2 className="w-5 h-5 animate-spin" /> : <Send className="w-5 h-5" />}
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Status Indicator - Always visible when assistant is available */}
       {showStatusIndicator ? (
         <div className="fixed bottom-6 right-6 z-50">
-          <div className="relative">
-            {/* Status Indicator */}
-            <div className="absolute -top-1 -right-1 z-10">
-              <div className={`w-4 h-4 rounded-full animate-pulse ${
-                conversationStatus === 'listening' ? 'bg-green-500' :
-                conversationStatus === 'speaking' ? 'bg-blue-500' :
-                conversationStatus === 'processing' ? 'bg-yellow-500' :
-                'bg-gray-500'
-              }`} />
-            </div>
-            
-            {/* Control Button */}
-            <button
-              onClick={stopConversation}
-              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-3 rounded-full shadow-2xl cursor-pointer hover:scale-110 transition-all hover:shadow-2xl hover:shadow-blue-500/30"
-              title={conversationStatus === 'speaking' ? 'AI Speaking' : 
-                     conversationStatus === 'listening' ? 'Listening...' : 
-                     conversationStatus === 'processing' ? 'Processing...' : 'AI Assistant Active'}
-            >
-              {conversationStatus === 'processing' ? (
-                <Loader2 className="w-5 h-5 animate-spin" />
-              ) : conversationStatus === 'speaking' ? (
-                <Volume2 className="w-5 h-5" />
-              ) : conversationStatus === 'listening' ? (
+          <div className="flex flex-col gap-3">
+            {/* Mode Toggle */}
+            <div className="flex gap-2 bg-white rounded-full shadow-lg p-1">
+              <button
+                onClick={() => {
+                  setChatMode('voice');
+                  setShowTextChat(false);
+                }}
+                className={`p-2 rounded-full transition-all ${
+                  chatMode === 'voice'
+                    ? 'bg-blue-600 text-white shadow-lg'
+                    : 'text-gray-600 hover:bg-gray-100'
+                }`}
+                title="Voice Mode"
+              >
                 <Mic className="w-5 h-5" />
-              ) : (
-                <Bot className="w-5 h-5" />
-              )}
-            </button>
+              </button>
+              <button
+                onClick={() => {
+                  setChatMode('text');
+                  setShowTextChat(true);
+                }}
+                className={`p-2 rounded-full transition-all ${
+                  chatMode === 'text'
+                    ? 'bg-blue-600 text-white shadow-lg'
+                    : 'text-gray-600 hover:bg-gray-100'
+                }`}
+                title="Text Mode"
+              >
+                <MessageCircle className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Control Button */}
+            <div className="relative">
+              {/* Status Indicator */}
+              <div className="absolute -top-1 -right-1 z-10">
+                <div className={`w-4 h-4 rounded-full animate-pulse ${
+                  conversationStatus === 'listening' ? 'bg-green-500' :
+                  conversationStatus === 'speaking' ? 'bg-blue-500' :
+                  conversationStatus === 'processing' ? 'bg-yellow-500' :
+                  'bg-gray-500'
+                }`} />
+              </div>
+              
+              <button
+                onClick={stopConversation}
+                className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-3 rounded-full shadow-2xl cursor-pointer hover:scale-110 transition-all hover:shadow-2xl hover:shadow-blue-500/30"
+                title={conversationStatus === 'speaking' ? 'AI Speaking' : 
+                       conversationStatus === 'listening' ? 'Listening...' : 
+                       conversationStatus === 'processing' ? 'Processing...' : 'AI Assistant Active'}
+              >
+                {conversationStatus === 'processing' ? (
+                  <Loader2 className="w-5 h-5 animate-spin" />
+                ) : conversationStatus === 'speaking' ? (
+                  <Volume2 className="w-5 h-5" />
+                ) : conversationStatus === 'listening' ? (
+                  <Mic className="w-5 h-5" />
+                ) : (
+                  <Bot className="w-5 h-5" />
+                )}
+              </button>
+            </div>
           </div>
         </div>
       ) : (

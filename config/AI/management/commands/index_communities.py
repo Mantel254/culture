@@ -55,53 +55,75 @@ class Command(BaseCommand):
         documents = []
         metadatas = []
         
-        # Look for JSON files in culturalData directory
-        json_files = list(CULTURAL_DATA_DIR.glob('*.json'))
+        # Look for txt or json files in culturalData directory
+        data_files = list(CULTURAL_DATA_DIR.glob('*.txt')) + list(CULTURAL_DATA_DIR.glob('*.json'))
         
-        if not json_files:
-            self.stdout.write(self.style.WARNING(f'No JSON files found in {CULTURAL_DATA_DIR}'))
+        if not data_files:
+            self.stdout.write(self.style.WARNING(f'No data files found in {CULTURAL_DATA_DIR}'))
             return
         
-        for json_file in json_files:
-            self.stdout.write(f'Processing {json_file.name}...')
+        for data_file in data_files:
+            self.stdout.write(f'Processing {data_file.name}...')
             
-            with open(json_file, 'r', encoding='utf-8') as f:
-                data = json.load(f)
+            # Extract community name from filename
+            community = data_file.stem.lower()
+            # Handle cases like KikuyuA -> kikuyu, remove trailing letters
+            community = community.rstrip('abcdefghijklmnopqrstuvwxyz0123456789_-') or community
             
-            community = data.get('name', json_file.stem).lower()
-            
-            # Index each section
-            sections = ['origin', 'beliefs', 'practices', 'subtribes', 'language', 'region']
-            
-            for section in sections:
-                content = data.get(section, '')
-                if content:
-                    if isinstance(content, list):
-                        content = ' '.join(content)
-                    
-                    documents.append(content)
+            if data_file.suffix == '.json':
+                with open(data_file, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                
+                community = data.get('name', data_file.stem).lower()
+                
+                # Index each section
+                sections = ['origin', 'beliefs', 'practices', 'subtribes', 'language', 'region']
+                
+                for section in sections:
+                    content = data.get(section, '')
+                    if content:
+                        if isinstance(content, list):
+                            content = ' '.join(content)
+                        
+                        documents.append(content)
+                        metadatas.append({
+                            'community': community,
+                            'section': section,
+                            'source': data_file.name
+                        })
+                
+                # Also index full description if available
+                if data.get('description'):
+                    documents.append(data['description'])
                     metadatas.append({
                         'community': community,
-                        'section': section,
-                        'source': json_file.name
+                        'section': 'description',
+                        'source': data_file.name
                     })
             
-            # Also index full description if available
-            if data.get('description'):
-                documents.append(data['description'])
-                metadatas.append({
-                    'community': community,
-                    'section': 'description',
-                    'source': json_file.name
-                })
+            elif data_file.suffix == '.txt':
+                # Handle txt files
+                with open(data_file, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                
+                if content.strip():
+                    # Split into chunks of roughly 500 chars for better retrieval
+                    lines = content.split('\n\n')
+                    for i, chunk in enumerate(lines):
+                        if chunk.strip():
+                            documents.append(chunk.strip())
+                            metadatas.append({
+                                'community': community,
+                                'section': f'section_{i}',
+                                'source': data_file.name
+                            })
         
         # Add documents to vector store
         if documents:
             vector_store.add_texts(documents, metadatas=metadatas)
-            vector_store.persist()
             
             self.stdout.write(self.style.SUCCESS(
-                f'Successfully indexed {len(documents)} chunks for {len(json_files)} communities'
+                f'Successfully indexed {len(documents)} chunks for communities'
             ))
         else:
             self.stdout.write(self.style.WARNING('No documents to index'))

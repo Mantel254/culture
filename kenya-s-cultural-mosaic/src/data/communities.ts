@@ -15,6 +15,7 @@ import mugithiImg from '@/assets/images/Meru/meru-mugithi-dance.jpeg';
 import brewImg from '@/assets/images/Meru/meru-brew.jpeg';
 import marriageImg from '@/assets/images/Meru/meru-marriage-ceremony.jpeg';
 import agriculturalImg from '@/assets/images/Meru/meru-agricultural.jpeg';
+import meruGeneral from '@/assets/images/Meru/meru-general.jpg';
 
 import bullfightluyha from '@/assets/images/luyha/luyha-bullfight.jpeg';
 import circumcisionluya from '@/assets/images/luyha/luyha-circumcition.jpeg';
@@ -209,7 +210,7 @@ export const communities: Community[] = [
       "imageUrl": weddingagikuyu
     }
   ],
-  "imageUrl": "/culture-images/Kikuyu/kikuyu-community.jpg"
+  "imageUrl": ngomaagikuyu
 },
  {
   "id": "luhya",
@@ -320,7 +321,7 @@ export const communities: Community[] = [
       "imageUrl": weddingluyha
     }
   ],
-  "imageUrl": "/culture-images/Luhya/luhya-community.jpg"
+  "imageUrl": farmingluyha
 },
 {
   "id": "kalenjin",
@@ -416,7 +417,7 @@ export const communities: Community[] = [
       "imageUrl": cattlekalenjin
     }
   ],
-  "imageUrl": "/culture-images/Kalenjin/kalenjin-community.jpg"
+  "imageUrl": cattlekalenjin
 },
 {
   "id": "luo",
@@ -513,7 +514,7 @@ export const communities: Community[] = [
       "imageUrl": weddingluo
     }
   ],
-  "imageUrl": "/culture-images/Luo/luo-community.jpg"
+  "imageUrl": fishingluo
 },
  {
   "id": "kamba",
@@ -605,7 +606,7 @@ export const communities: Community[] = [
       "imageUrl": medicinekamba
     }
   ],
-  "imageUrl": "/culture-images/Kamba/kamba-community.jpg"
+  "imageUrl": woodcarvingkamba
 },
  {
   "id": "kisii",
@@ -700,7 +701,7 @@ export const communities: Community[] = [
       "imageUrl": "/culture-images/Kisii/kisii-age-set.jpg"
     }
   ],
-  "imageUrl": "/culture-images/Kisii/kisii-community.jpg"
+  "imageUrl": soapkisii
 },
  {
   "id": "mijikenda",
@@ -802,7 +803,7 @@ export const communities: Community[] = [
       "imageUrl": funeralmijikenda
     }
   ],
-  "imageUrl": "/culture-images/Mijikenda/mijikenda-community.jpg"
+  "imageUrl": kayamijikenda
 },
   {
     id: "meru",
@@ -904,7 +905,7 @@ export const communities: Community[] = [
         "imageUrl": agriculturalImg
       }
     ],
-    imageUrl: "/placeholder.svg"
+    imageUrl: meruGeneral
   },
 {
   "id": "somali",
@@ -1018,7 +1019,7 @@ export const communities: Community[] = [
       "imageUrl": attiresomali
     }
   ],
-  "imageUrl": "/culture-images/Somali/somali-community-main.jpg"
+  "imageUrl": somalipastrolism
 },
 {
   "id": "embu",
@@ -1114,6 +1115,6 @@ export const communities: Community[] = [
       "imageUrl": oralstorytellingembu 
     }
   ],
-  "imageUrl": "/culture-images/Embu/embu-community-main.jpg"
+  "imageUrl": kiamaembu
 }
 ];

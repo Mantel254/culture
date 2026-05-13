@@ -11,6 +11,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.http import HttpResponse
 from pathlib import Path
+from AI.views import health_check
 
 def test_page(request):
     """Serve test HTML page"""
@@ -23,6 +24,7 @@ def test_page(request):
 urlpatterns = [
     path('', test_page, name='test'),
     path('admin/', admin.site.urls),
+    path('api/health/', health_check, name='health_check'),
     path('AI/', include('AI.urls')),
     path('ai/', include('AI.urls')),  # Lowercase alias
 ]

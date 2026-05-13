@@ -544,26 +544,15 @@ def ask_ai(request):
         )
 
         # -------- Response --------
-        if retrieval.get("source") == "vector_db":
-            logger.info("[RESPONSE] Using VECTOR DB")
-
-            final_response = {
-                "type": "message",
-                "content": ResponseFormatter.format_vector_db_response(
-                    retrieval["context_blocks"]
-                ),
-                "source": "vector_db",
-                "confidence": retrieval.get("confidence", 0)
-            }
-
-        else:
-            logger.info("[RESPONSE] Using LLM fallback")
-
-            final_response = call_llm_safe(user_message, system_prompt)
-
-            # ensure consistency
-            final_response["strategy"] = "llm_fallback"
-            final_response["vector_confidence"] = retrieval.get("confidence", 0)
+        # Always use LLM for consistent natural language responses
+        logger.info(f"[RESPONSE] Using LLM (source={retrieval.get('source')})")
+        
+        final_response = call_llm_safe(user_message, system_prompt)
+        
+        # Track source and confidence
+        final_response["retrieval_source"] = retrieval.get("source")
+        final_response["retrieval_confidence"] = retrieval.get("confidence", 0)
+        final_response["vector_context_available"] = bool(retrieval.get("context_blocks"))
 
         # -------- Save Memory --------
         try:
