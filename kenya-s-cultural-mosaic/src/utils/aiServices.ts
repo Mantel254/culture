@@ -12,7 +12,18 @@ type AIRequest = {
   conversation_id?: string;
 };
 
-export async function askAI(payload: AIRequest) {
+type AIResponse = {
+  type: string;
+  content: string;
+  source?: string;
+  action?: string;
+  url?: string;
+  selector?: string;
+  conversation_id?: string;
+  [key: string]: unknown;
+};
+
+export async function askAI(payload: AIRequest): Promise<AIResponse> {
   console.log("AI Request Payload:", payload);
   const res = await fetch("http://127.0.0.1:8000/ai/api/ask/", {
     method: "POST",
@@ -24,6 +35,9 @@ export async function askAI(payload: AIRequest) {
     throw new Error(`AI API error: ${res.status}`);
   }
 
-  return res.json();
+  const data = await res.json();
+  console.log("AI Response Data:", data);
+  
+  return data;
 }
 

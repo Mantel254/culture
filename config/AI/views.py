@@ -360,77 +360,50 @@ def detect_community(message: str) -> str:
 # PROMPT BUILDER
 # =========================
 def build_system_prompt(page="", selected_text="", community="", history="", context="", page_title="") -> str:
-    prompt = f"""
-You are a knowledgeable cultural assistant for Kenyan communities.
+    prompt = f"""You are a knowledgeable cultural assistant for Kenyan communities. 
+Answer questions in plain English with accurate, detailed information.
+Use clear formatting with headings, bullet points, and paragraphs as appropriate.
 
-## RESPONSE FORMAT (REQUIRED)
-You MUST respond ONLY with valid JSON in ONE of these formats:
+IMPORTANT: For normal questions, respond ONLY with plain text. Do NOT wrap in JSON.
+HOWEVER: If the user mentions a specific page element or asks you to highlight something, you MAY respond with a JSON action.
 
-### Option 1: Text Message
-{{
-  "type": "message",
-  "content": "Your detailed response here",
-  "source": "llm"
-}}
+Plain text response example:
+The Maasai are a Bantu ethnic group...
 
-### Option 2: Navigation Action
-{{
-  "type": "action",
-  "action": "navigate",
-  "url": "/target-page",
-  "reason": "Why you're navigating",
-  "content": "What you want to mention"
-}}
-
-### Option 3: Text Highlighting
-{{
-  "type": "action",
-  "action": "highlight",
-  "selector": "CSS selector or element ID",
-  "reason": "Why highlighting this text",
-  "content": "Explanation of the highlighted element"
-}}
-
-## CONTEXT
+Highlight action example (only when user wants to highlight page content):
+{{"type": "action", "action": "highlight", "selector": "heading", "content": "Here's the section about Maasai culture"}}
 """
 
     if page_title:
-        prompt += f"\nCurrent Page Title: {page_title}"
+        prompt += f"\nCurrent Page: {page_title}"
     if page:
-        prompt += f"\nCurrent Page Path: {page}"
+        prompt += f"({page})"
     if selected_text:
-        prompt += f"\nUser Selected Text: \"{selected_text}\"\n(Use this context to provide targeted information about what they highlighted)"
+        prompt += f"\n\nUser highlighted this text, so provide targeted info: \"{selected_text}\"\nConsider responding with a highlight action to draw attention to related content on the page."
     if community:
-        prompt += f"\nActive Community: {community}"
+        prompt += f"\n\nFocusing on the {community} community"
     if history:
-        prompt += f"\nConversation History:\n{history}"
+        prompt += f"\n\nConversation context:\n{history}"
     if context:
-        prompt += f"\nKnowledge Base:\n{context}"
+        prompt += f"\n\nRelevant information:\n{context}"
 
     prompt += """
 
-## NAVIGATION ROUTES AVAILABLE
-- "/" (Home page)
-- "/communities" (Communities list - use this to show all communities)
-- "/community/kikuyu" (Specific community pages - use for individual communities)
-- "/community/maasai"
-- "/community/luo"
-- "/community/kalenjin"
-- "/community/luhya"
-- "/community/kamba"
-- "/community/kisii"
-- "/community/meru"
-- "/community/embu"
-- "/community/mijikenda"
-- "/community/somali"
+## Available communities to reference:
+Kikuyu, Maasai, Luo, Kalenjin, Luhya, Kamba, Kisii, Meru, Embu, Mijikenda, Somali
 
-## INSTRUCTIONS
-1. When user asks to go to a community page, use action type "navigate" with the community ID
-2. When user asks you to highlight or show something specific on page, use action type "highlight"
-3. If user has highlighted text, acknowledge it in your response and provide relevant information
-4. Always provide friendly, accurate cultural information about Kenyan communities
-5. Response must be valid JSON - no extra text before or after
-"""
+## When to use highlight actions:
+- User selected text on the page and wants it highlighted
+- User asks to "highlight" or "show me" something specific
+- User asks to "find" a section or heading
+- Current page has relevant content that should be brought to attention
+
+## When to use plain text:
+- General knowledge questions (default)
+- Questions about culture, traditions, practices
+- Most conversational queries
+
+Be accurate, respectful, and helpful in all responses."""
 
     logger.debug(f"[PROMPT BUILT] length={len(prompt)}")
     return prompt
@@ -446,31 +419,35 @@ def call_llm_safe(user_message: str, system_prompt: str) -> dict:
 
         logger.debug(f"[LLM RAW RESPONSE] {str(raw)[:500]}")
 
-        # Case 1: Already dict
-        if isinstance(raw, dict):
-            return raw
-
-        # Case 2: String JSON
+        response_text = raw.strip() if isinstance(raw, str) else str(raw)
+        
+        # Try to parse as JSON (for action responses)
         try:
-            parsed = json.loads(raw)
-            logger.debug("[LLM PARSE] Successfully parsed JSON")
-            return parsed
+            parsed = json.loads(response_text)
+            logger.debug("[LLM] Parsed as JSON action response")
+            # Ensure it has required fields
+            if "type" in parsed and "action" in parsed:
+                return parsed
+            elif "type" in parsed and "content" in parsed:
+                return parsed
         except json.JSONDecodeError:
-            logger.warning("[LLM PARSE] Not valid JSON, wrapping response")
-
-            return {
-                "type": "message",
-                "content": str(raw),
-                "source": "llm",
-                "fallback": True
-            }
+            # Not JSON, treat as plain text
+            pass
+        
+        # Default: wrap as plain text message
+        return {
+            "type": "message",
+            "content": response_text,
+            "source": "llm",
+        }
 
     except Exception as e:
         logger.error(f"[LLM ERROR] {e}", exc_info=True)
         return {
             "type": "error",
             "content": "LLM failed",
-            "error": str(e)
+            "error": str(e),
+            "source": "llm"
         }
 
 

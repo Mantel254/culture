@@ -331,9 +331,8 @@ const AiAssistant = () => {
           addMessage(content, "ai");
           await speakResponse(content);
         }
-
         // Handle navigation action
-        if (response.type === "action" && response.action === "navigate") {
+        else if (response.type === "action" && response.action === "navigate") {
           const url = response.url || "/communities";
           const reason = response.reason || "";
           const content = response.content || "";
@@ -350,9 +349,8 @@ const AiAssistant = () => {
             actions.navigate(url);
           }, 1000);
         }
-
         // Handle highlight action
-        if (response.type === "action" && response.action === "highlight") {
+        else if (response.type === "action" && response.action === "highlight") {
           const selector = response.selector || "";
           const reason = response.reason || "";
           const content = response.content || "";
@@ -368,6 +366,17 @@ const AiAssistant = () => {
           setTimeout(() => {
             actions.highlight(selector);
           }, 500);
+        }
+        // Fallback: if response has content but no recognized type, display content
+        else if (response.content) {
+          const content = response.content;
+          addMessage(content, "ai");
+          await speakResponse(content);
+        }
+        // Last resort fallback
+        else {
+          console.warn("Unexpected response format:", response);
+          addMessage("I received a response but couldn't process it.", "ai");
         }
 
         setConversationStatus("listening");
@@ -569,6 +578,12 @@ const AiAssistant = () => {
         setTimeout(() => {
           actions.highlight(response.selector || "");
         }, 500);
+      } else if (response.content) {
+        // Fallback: if response has content but no recognized type
+        addMessage(response.content, "ai");
+      } else {
+        console.warn("Unexpected response format:", response);
+        addMessage("I received a response but couldn't process it.", "ai");
       }
       
       setConversationStatus('idle');
@@ -660,40 +675,8 @@ const AiAssistant = () => {
       {/* Status Indicator - Always visible when assistant is available */}
       {showStatusIndicator ? (
         <div className="fixed bottom-6 right-6 z-50">
-          <div className="flex flex-col gap-3">
-            {/* Mode Toggle */}
-            <div className="flex gap-2 bg-white rounded-full shadow-lg p-1">
-              <button
-                onClick={() => {
-                  setChatMode('voice');
-                  setShowTextChat(false);
-                }}
-                className={`p-2 rounded-full transition-all ${
-                  chatMode === 'voice'
-                    ? 'bg-blue-600 text-white shadow-lg'
-                    : 'text-gray-600 hover:bg-gray-100'
-                }`}
-                title="Voice Mode"
-              >
-                <Mic className="w-5 h-5" />
-              </button>
-              <button
-                onClick={() => {
-                  setChatMode('text');
-                  setShowTextChat(true);
-                }}
-                className={`p-2 rounded-full transition-all ${
-                  chatMode === 'text'
-                    ? 'bg-blue-600 text-white shadow-lg'
-                    : 'text-gray-600 hover:bg-gray-100'
-                }`}
-                title="Text Mode"
-              >
-                <MessageCircle className="w-5 h-5" />
-              </button>
-            </div>
-
-            {/* Control Button */}
+          <div className="flex flex-col items-end gap-2">
+            {/* Control Button with integrated mode icon */}
             <div className="relative">
               {/* Status Indicator */}
               <div className="absolute -top-1 -right-1 z-10">
@@ -708,11 +691,14 @@ const AiAssistant = () => {
               <button
                 onClick={stopConversation}
                 className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-3 rounded-full shadow-2xl cursor-pointer hover:scale-110 transition-all hover:shadow-2xl hover:shadow-blue-500/30"
-                title={conversationStatus === 'speaking' ? 'AI Speaking' : 
+                title={chatMode === 'text' ? 'Text Chat Active' :
+                       conversationStatus === 'speaking' ? 'AI Speaking' : 
                        conversationStatus === 'listening' ? 'Listening...' : 
                        conversationStatus === 'processing' ? 'Processing...' : 'AI Assistant Active'}
               >
-                {conversationStatus === 'processing' ? (
+                {chatMode === 'text' ? (
+                  <MessageCircle className="w-5 h-5" />
+                ) : conversationStatus === 'processing' ? (
                   <Loader2 className="w-5 h-5 animate-spin" />
                 ) : conversationStatus === 'speaking' ? (
                   <Volume2 className="w-5 h-5" />
@@ -721,6 +707,38 @@ const AiAssistant = () => {
                 ) : (
                   <Bot className="w-5 h-5" />
                 )}
+              </button>
+            </div>
+
+            {/* Compact Mode Toggle */}
+            <div className="flex gap-1 bg-white rounded-full shadow-lg p-1">
+              <button
+                onClick={() => {
+                  setChatMode('voice');
+                  setShowTextChat(false);
+                }}
+                className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${
+                  chatMode === 'voice'
+                    ? 'bg-blue-600 text-white shadow-md'
+                    : 'text-gray-600 hover:bg-gray-100'
+                }`}
+                title="Switch to Voice Mode"
+              >
+                Voice
+              </button>
+              <button
+                onClick={() => {
+                  setChatMode('text');
+                  setShowTextChat(true);
+                }}
+                className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${
+                  chatMode === 'text'
+                    ? 'bg-blue-600 text-white shadow-md'
+                    : 'text-gray-600 hover:bg-gray-100'
+                }`}
+                title="Switch to Text Mode"
+              >
+                Text
               </button>
             </div>
           </div>
