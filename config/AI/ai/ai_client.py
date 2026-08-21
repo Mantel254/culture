@@ -13,7 +13,7 @@ logger.addHandler(logging.NullHandler())
 # Initialize Groq LLM
 llm = ChatGroq(
     api_key=settings.GROQ_API_KEY,
-    model="llama-3.1-8b-instant",
+    model="openai/gpt-oss-20b",
     temperature=0,
     max_retries=2,
 )
