@@ -471,6 +471,7 @@ def ask_ai(request):
         url = body.get("url", "")
         selected_text = body.get("selectedText") or ""
         conversation_id = body.get("conversation_id", "")
+        frontend_community = body.get("community")  # Community from frontend URL context
 
         if not user_message:
             return JsonResponse({"error": "Message is required"}, status=400)
@@ -489,8 +490,9 @@ def ask_ai(request):
         detected = detect_community(user_message)
         stored = CommunityContextManager.get_active_community(conversation_id)
 
-        active = detected or stored or ""
-        logger.debug(f"[COMMUNITY] detected={detected} stored={stored} active={active}")
+        # Priority: frontend context > detected > stored > empty
+        active = frontend_community or detected or stored or ""
+        logger.debug(f"[COMMUNITY] frontend={frontend_community} detected={detected} stored={stored} active={active}")
 
         if detected:
             CommunityContextManager.set_active_community(conversation_id, detected)

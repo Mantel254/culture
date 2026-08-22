@@ -42,6 +42,44 @@ function getPersistentConversationId(): string {
   return id;
 }
 
+const getEnhancedAudioConstraints = () => ({
+  audio: {
+    echoCancellation: true,
+    noiseSuppression: true,
+    autoGainControl: true,
+  },
+});
+
+const extractCommunityFromPath = (pathname: string): string | null => {
+  // Match /community/:id pattern and extract the community name
+  const communityMatch = pathname.match(/\/community\/([^/]+)/);
+  if (communityMatch && communityMatch[1]) {
+    // Capitalize first letter, handle URL encoding
+    const decoded = decodeURIComponent(communityMatch[1]);
+    return decoded.charAt(0).toUpperCase() + decoded.slice(1).toLowerCase();
+  }
+  return null;
+};
+
+const getCurrentPageContext = (): { path: string; fullUrl: string; title: string; community: string | null } => {
+  const pathname = window.location.pathname;
+  const community = extractCommunityFromPath(pathname);
+  
+  let title = 'Home';
+  if (pathname === '/communities') {
+    title = 'Communities';
+  } else if (community) {
+    title = community;
+  }
+  
+  return {
+    path: pathname,
+    fullUrl: window.location.href,
+    title,
+    community,
+  };
+};
+
 // Global voice activation class
 class VoiceActivation {
   private recognition: any;
@@ -50,20 +88,25 @@ class VoiceActivation {
   private onActivation: () => void;
   private onTranscript: (text: string) => void;
   private onListeningStart: () => void;
+  private onSpeechStart: () => void;
   private timeoutId: NodeJS.Timeout | null = null;
   private deactivationTimeout = 60000;
   private isRecognizing = false;
   private shouldBeListening = true;
   private restartLock = false;
+  private isPaused = false;
+  private mediaStream: MediaStream | null = null;
 
   constructor(
     onActivation: () => void,
     onTranscript: (text: string) => void,
-    onListeningStart: () => void
+    onListeningStart: () => void,
+    onSpeechStart: () => void = () => {}
   ) {
     this.onActivation = onActivation;
     this.onTranscript = onTranscript;
     this.onListeningStart = onListeningStart;
+    this.onSpeechStart = onSpeechStart;
     this.initRecognition();
   }
 
@@ -87,7 +130,18 @@ class VoiceActivation {
       console.log("Recognition started");
     };
 
+    this.recognition.onspeechstart = () => {
+      console.log("[VoiceActivation] User started speaking, interrupting TTS");
+      this.onSpeechStart();
+    };
+
     this.recognition.onresult = (event: any) => {
+      // Ignore audio buffers while paused (bot is speaking)
+      if (this.isPaused) {
+        console.log("[VoiceActivation] Ignoring transcript while bot is speaking");
+        return;
+      }
+
       let transcript = "";
 
       for (let i = event.resultIndex; i < event.results.length; i++) {
@@ -118,7 +172,7 @@ class VoiceActivation {
       console.warn("Speech recognition error:", event.error);
       this.isRecognizing = false;
 
-      if (this.shouldBeListening) {
+      if (this.shouldBeListening && !this.isPaused) {
         this.safeRestart();
       }
     };
@@ -127,7 +181,7 @@ class VoiceActivation {
       console.log("Recognition ended");
       this.isRecognizing = false;
 
-      if (this.shouldBeListening) {
+      if (this.shouldBeListening && !this.isPaused) {
         this.safeRestart();
       }
     };
@@ -154,6 +208,35 @@ class VoiceActivation {
       }, 1000);
 
     }, 1200);
+  }
+
+  pause() {
+    this.isPaused = true;
+    console.log("[VoiceActivation] Paused (bot is speaking)");
+    if (this.recognition && this.isRecognizing) {
+      try {
+        this.recognition.stop();
+      } catch (error) {
+        console.warn("Failed to stop recognition while bot is speaking:", error);
+      }
+    }
+  }
+
+  resume() {
+    this.isPaused = false;
+    console.log("[VoiceActivation] Resumed (bot finished speaking)");
+    if (this.shouldBeListening && !this.isRecognizing) {
+      try {
+        this.recognition.start();
+        this.onListeningStart();
+      } catch (err) {
+        console.warn("Resume skipped (still active)", err);
+      }
+    }
+  }
+
+  isPausedState() {
+    return this.isPaused;
   }
 
   private resetDeactivationTimer() {
@@ -211,6 +294,7 @@ const AiAssistant = () => {
   const [conversationStatus, setConversationStatus] = useState<ConversationStatus>('idle');
   const [messages, setMessages] = useState<Message[]>([]);
   const [isSpeaking, setIsSpeaking] = useState(false);
+  const [isBotSpeaking, setIsBotSpeaking] = useState(false);
   const [showStatusIndicator, setShowStatusIndicator] = useState(true);
   const [isAssistantActive, setIsAssistantActive] = useState(true);
   const [selectedText, setSelectedText] = useState<string | null>(null);
@@ -226,12 +310,60 @@ const AiAssistant = () => {
   const preferredVoiceRef = useRef<SpeechSynthesisVoice | null>(null);
   const isMountedRef = useRef(true);
   const conversationIdRef = useRef<string>('');
+  const stopSpeechTokenRef = useRef(0);
 
   const navigate = useNavigate();
   const location = useLocation();
   const pageContextRef = usePageContext();
   const selectedTextRef = useTextSelection();
   const actions = createAiActions(navigate);
+
+  const ensureMicrophoneConstraints = async () => {
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) return;
+
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({
+        audio: {
+          echoCancellation: true,
+          noiseSuppression: true,
+          autoGainControl: true,
+        },
+      });
+      stream.getTracks().forEach((track) => track.stop());
+    } catch (error) {
+      console.warn("Microphone constraints could not be enforced:", error);
+    }
+  };
+
+  const stopSpeech = () => {
+    stopSpeechTokenRef.current += 1;
+    const currentToken = stopSpeechTokenRef.current;
+
+    if (speechSynthesisRef.current) {
+      window.speechSynthesis.cancel();
+      speechSynthesisRef.current = null;
+    }
+
+    document.querySelectorAll('audio').forEach((audio) => {
+      try {
+        audio.pause();
+      } catch (error) {
+        console.warn("Could not pause audio tag:", error);
+      }
+    });
+
+    if (voiceActivationRef.current) {
+      voiceActivationRef.current.resume();
+    }
+
+    setIsBotSpeaking(false);
+    setIsSpeaking(false);
+    if (conversationStatus === 'speaking') {
+      setConversationStatus('listening');
+    }
+
+    return currentToken;
+  };
 
   // Initialize conversation ID
   useEffect(() => {
@@ -306,20 +438,17 @@ const AiAssistant = () => {
 
     const processAIResponseWithContext = async (
       userQuestion: string,
-      pageContext: {
-        path: string;
-        fullUrl: string;
-        title: string;
-      },
       selectedTextValue: string | null
     ) => {
       try {
+        const currentContext = getCurrentPageContext();
         const response = await askAI({
           message: userQuestion,
-          page: pageContext.path,
-          pageTitle: pageContext.title,
-          url: pageContext.fullUrl,
+          page: currentContext.path,
+          pageTitle: currentContext.title,
+          url: currentContext.fullUrl,
           selectedText: selectedTextValue,
+          community: currentContext.community,
           conversation_id: conversationIdRef.current
         });
 
@@ -391,7 +520,6 @@ const AiAssistant = () => {
     const handleTranscript = async (transcript: string) => {
       if (!isMountedRef.current) return;
 
-      const lockedPageContext = pageContextRef.current;
       const lockedSelection = selectedText;
 
       currentQuestionRef.current = transcript;
@@ -400,7 +528,6 @@ const AiAssistant = () => {
 
       await processAIResponseWithContext(
         transcript,
-        lockedPageContext,
         lockedSelection
       );
 
@@ -417,10 +544,14 @@ const AiAssistant = () => {
     voiceActivationRef.current = new VoiceActivation(
       handleActivation,
       handleTranscript,
-      handleListeningStart
+      handleListeningStart,
+      () => {
+        stopSpeech();
+      }
     );
 
     setTimeout(() => {
+      void ensureMicrophoneConstraints();
       voiceActivationRef.current?.start();
     }, 1000);
 
@@ -454,6 +585,7 @@ const AiAssistant = () => {
     }
     
     setIsSpeaking(false);
+    setIsBotSpeaking(false);
     setConversationStatus('idle');
   };
 
@@ -477,6 +609,9 @@ const AiAssistant = () => {
         return;
       }
 
+      const token = stopSpeechTokenRef.current + 1;
+      stopSpeechTokenRef.current = token;
+
       if (isSpeaking) {
         window.speechSynthesis.cancel();
       }
@@ -486,8 +621,19 @@ const AiAssistant = () => {
 
       const speakNextSentence = () => {
         if (!isMountedRef.current || currentSentenceIndex >= sentences.length) {
+          if (stopSpeechTokenRef.current !== token) {
+            resolve();
+            return;
+          }
           setIsSpeaking(false);
+          setIsBotSpeaking(false);
           setConversationStatus('listening');
+          voiceActivationRef.current?.resume();
+          resolve();
+          return;
+        }
+
+        if (stopSpeechTokenRef.current !== token) {
           resolve();
           return;
         }
@@ -504,19 +650,65 @@ const AiAssistant = () => {
         utter.volume = 1;
         utter.lang = "en-US";
 
+        utter.onstart = () => {
+          if (stopSpeechTokenRef.current !== token) {
+            return;
+          }
+          setIsBotSpeaking(true);
+          setIsSpeaking(true);
+          setConversationStatus('speaking');
+          voiceActivationRef.current?.pause();
+        };
+
         utter.onend = () => {
+          if (stopSpeechTokenRef.current !== token) {
+            resolve();
+            return;
+          }
+
           currentSentenceIndex++;
-          setTimeout(speakNextSentence, 300);
+          if (currentSentenceIndex >= sentences.length) {
+            setIsBotSpeaking(false);
+            setIsSpeaking(false);
+            setConversationStatus('listening');
+            voiceActivationRef.current?.resume();
+            resolve();
+            return;
+          }
+          setTimeout(() => {
+            if (stopSpeechTokenRef.current !== token) {
+              resolve();
+              return;
+            }
+            speakNextSentence();
+          }, 300);
         };
         
         utter.onerror = () => {
+          if (stopSpeechTokenRef.current !== token) {
+            resolve();
+            return;
+          }
+
           currentSentenceIndex++;
-          setTimeout(speakNextSentence, 300);
+          if (currentSentenceIndex >= sentences.length) {
+            setIsBotSpeaking(false);
+            setIsSpeaking(false);
+            setConversationStatus('listening');
+            voiceActivationRef.current?.resume();
+            resolve();
+            return;
+          }
+          setTimeout(() => {
+            if (stopSpeechTokenRef.current !== token) {
+              resolve();
+              return;
+            }
+            speakNextSentence();
+          }, 300);
         };
         
         speechSynthesisRef.current = utter;
-        setIsSpeaking(true);
-        setConversationStatus('speaking');
         window.speechSynthesis.speak(utter);
       };
 
@@ -525,7 +717,7 @@ const AiAssistant = () => {
   };
 
   const stopConversation = () => {
-    cleanupSpeech();
+    stopSpeech();
     setIsAssistantActive(false);
     setShowStatusIndicator(false);
   };
@@ -544,19 +736,21 @@ const AiAssistant = () => {
     setTextInput('');
     setIsTextSending(true);
     setConversationStatus('processing');
+    stopSpeech();
     
     try {
       addMessage(userMessage, 'user');
       
-      const lockedPageContext = pageContextRef.current;
+      const currentContext = getCurrentPageContext();
       const lockedSelection = selectedText;
       
       const response = await askAI({
         message: userMessage,
-        page: lockedPageContext.path,
-        pageTitle: lockedPageContext.title,
-        url: lockedPageContext.fullUrl,
+        page: currentContext.path,
+        pageTitle: currentContext.title,
+        url: currentContext.fullUrl,
         selectedText: lockedSelection,
+        community: currentContext.community,
         conversation_id: conversationIdRef.current
       });
       
@@ -676,9 +870,7 @@ const AiAssistant = () => {
       {showStatusIndicator ? (
         <div className="fixed bottom-6 right-6 z-50">
           <div className="flex flex-col items-end gap-2">
-            {/* Control Button with integrated mode icon */}
             <div className="relative">
-              {/* Status Indicator */}
               <div className="absolute -top-1 -right-1 z-10">
                 <div className={`w-4 h-4 rounded-full animate-pulse ${
                   conversationStatus === 'listening' ? 'bg-green-500' :
@@ -710,7 +902,16 @@ const AiAssistant = () => {
               </button>
             </div>
 
-            {/* Compact Mode Toggle */}
+            {isBotSpeaking && (
+              <button
+                onClick={stopSpeech}
+                className="bg-red-600 text-white text-xs font-medium px-3 py-1.5 rounded-full shadow-lg hover:bg-red-500 transition"
+                title="Stop speaking"
+              >
+                Stop Speaking
+              </button>
+            )}
+
             <div className="flex gap-1 bg-white rounded-full shadow-lg p-1">
               <button
                 onClick={() => {
@@ -744,7 +945,6 @@ const AiAssistant = () => {
           </div>
         </div>
       ) : (
-        // Show restart button when inactive
         <div className="fixed bottom-6 right-6 z-50">
           <button
             onClick={restartConversation}

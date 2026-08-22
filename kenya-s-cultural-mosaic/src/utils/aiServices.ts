@@ -10,6 +10,7 @@ type AIRequest = {
   pageTitle?: string;
   selectedText?: string | null;
   conversation_id?: string;
+  community?: string | null;
 };
 
 type AIResponse = {
